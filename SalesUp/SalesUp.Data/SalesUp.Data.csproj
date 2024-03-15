@@ -19,4 +19,10 @@
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.17" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Abstract\" />
+      <Folder Include="Concrete\" />
+      <Folder Include="Config\" />
+    </ItemGroup>
+
 </Project>

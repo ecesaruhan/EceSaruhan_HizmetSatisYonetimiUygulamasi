@@ -11,4 +11,9 @@
       <ProjectReference Include="..\SalesUp.Shared\SalesUp.Shared.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Abstract\" />
+      <Folder Include="Concrete\" />
+    </ItemGroup>
+
 </Project>
