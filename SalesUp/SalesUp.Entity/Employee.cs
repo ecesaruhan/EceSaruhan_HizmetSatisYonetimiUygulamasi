@@ -1,3 +1,5 @@
+using SalesUp.Entity.Identity;
+
 namespace SalesUp.Entity;
 
 public class Employee
@@ -19,6 +21,10 @@ public class Employee
     public Manager Manager { get; set; }
     
     public int UserId { get; set; }
+    public User User { get; set; }
+    
+    public int RoleId { get; set; }
+    public Role Role { get; set; }
 
     public List<EmployeeCustomer> EmployeeCustomers { get; set; }
 }
