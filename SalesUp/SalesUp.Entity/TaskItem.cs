@@ -1,4 +1,5 @@
 using SalesUp.Entity.Identity;
+using SalesUp.Shared.ComplexTypes;
 
 namespace SalesUp.Entity;
 
@@ -16,6 +17,7 @@ public class TaskItem
     public string Email { get; set; }
     public Customer Customer { get; set; }
     public Product Product { get; set; }
+    public TaskState TaskState { get; set; }
     public Role Role { get; set; }
     public int Quantity { get; set; }
     public string Note { get; set; }
