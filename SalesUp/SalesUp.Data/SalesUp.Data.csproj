@@ -21,8 +21,8 @@
 
     <ItemGroup>
       <Folder Include="Abstract\" />
-      <Folder Include="Concrete\" />
-      <Folder Include="Config\" />
+      <Folder Include="Concrete\Configs\" />
+      <Folder Include="Concrete\Repositories\" />
     </ItemGroup>
 
 </Project>
