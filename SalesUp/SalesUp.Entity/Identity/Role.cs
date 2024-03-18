@@ -4,5 +4,5 @@ namespace SalesUp.Entity.Identity;
 
 public class Role:IdentityRole
 {
-    public Employee Employee { get; set; }
+    public string Description { get; set; }
 }
