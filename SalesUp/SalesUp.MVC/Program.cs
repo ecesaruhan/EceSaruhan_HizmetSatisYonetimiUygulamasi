@@ -19,6 +19,40 @@ builder.Services.AddIdentity<User, Role>()
     .AddEntityFrameworkStores<SalesUpDbContext>()
     .AddDefaultTokenProviders();
 
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    #region Parola Ayarları
+    options.Password.RequiredLength = 6;
+    options.Password.RequireDigit = true;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireLowercase = true;
+    #endregion
+
+    #region Hesap Kilitleme Ayarları
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(50);
+    options.Lockout.MaxFailedAccessAttempts = 3;
+    #endregion
+
+    options.User.RequireUniqueEmail = true;
+    options.SignIn.RequireConfirmedEmail = false;
+});
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account/Login";
+    options.LogoutPath = "/";
+    options.AccessDeniedPath = "/Account/AccessDenied";
+    options.ExpireTimeSpan = TimeSpan.FromDays(10);
+    options.SlidingExpiration = true;
+    options.Cookie = new CookieBuilder
+    {
+        Name = "SalesUp.Security.Cookie",
+        HttpOnly = true,
+        SameSite = SameSiteMode.Strict
+    };
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -35,6 +69,12 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.MapAreaControllerRoute(
+    name:"Admin",
+    areaName:"Admin",
+    pattern:"Admin/{controller=Home}/{action=Index}/{id?}"
+);
 
 app.MapControllerRoute(
     name: "default",
