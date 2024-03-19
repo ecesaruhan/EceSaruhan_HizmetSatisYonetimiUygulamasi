@@ -11,5 +11,5 @@ public class Product
     public string Url { get; set; }
     public string UserId { get; set; }
     public User User { get; set; }
-    public List<CustomerProduct> CustomerProducts { get; set; }
+   
 }
