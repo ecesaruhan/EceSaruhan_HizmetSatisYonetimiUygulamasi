@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SalesUp.Entity.Identity;
+using SalesUp.Entity;
+using Task = SalesUp.Entity.Task;
 
 namespace SalesUp.Data.Extensions;
 
@@ -131,7 +133,7 @@ public static class ModelBuilderExtension
 
         #region Rol Atama İşlemleri
 
-        List<IdentityUserRole<string>> userRoles = new List<IdentityUserRole<string>>
+        var userRoles = new List<IdentityUserRole<string>>
         {
             new IdentityUserRole<string>
             {
@@ -165,15 +167,15 @@ public static class ModelBuilderExtension
 
         #region Görev İşlemleri
 
-        List<Entity.Task> tasks = new List<Entity.Task>
+        var tasks = new List<Task>
         {
-            new Entity.Task { Id = 1, UserId = users[0].Id },
-            new Entity.Task { Id = 2, UserId = users[1].Id },
-            new Entity.Task { Id = 3, UserId = users[2].Id },
-            new Entity.Task { Id = 4, UserId = users[3].Id },
-            new Entity.Task { Id = 5, UserId = users[4].Id },
+            new Task { Id = 1, UserId = users[0].Id },
+            new Task { Id = 2, UserId = users[1].Id },
+            new Task { Id = 3, UserId = users[2].Id },
+            new Task { Id = 4, UserId = users[3].Id },
+            new Task { Id = 5, UserId = users[4].Id },
         };
-        modelBuilder.Entity<Entity.Task>().HasData(tasks);
+        modelBuilder.Entity<Task>().HasData(tasks);
 
         #endregion
     }
