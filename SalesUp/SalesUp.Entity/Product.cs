@@ -1,3 +1,5 @@
+using SalesUp.Entity.Identity;
+
 namespace SalesUp.Entity;
 
 public class Product
@@ -6,4 +8,8 @@ public class Product
     public string Name { get; set; }
     public int Quantity { get; set; }
     public decimal Price { get; set; }
+    public string Url { get; set; }
+    public string UserId { get; set; }
+    public User User { get; set; }
+    public List<CustomerProduct> CustomerProducts { get; set; }
 }

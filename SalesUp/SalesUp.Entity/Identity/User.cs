@@ -14,5 +14,4 @@ public class User:IdentityUser
     public Product Product { get; set; }
     public Role Role { get; set; }
     public Customer Customer { get; set; }
-    
 }
