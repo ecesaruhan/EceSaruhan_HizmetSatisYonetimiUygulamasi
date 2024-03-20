@@ -3,7 +3,7 @@ using SalesUp.Shared.ComplexTypes;
 
 namespace SalesUp.Entity;
 
-public class TaskItem
+public class STaskItem
 {
     public int Id { get; set; }
     public string Title { get; set; }
@@ -21,5 +21,5 @@ public class TaskItem
     public Role Role { get; set; }
     public int Quantity { get; set; }
     public string Note { get; set; }
-    public Task Task { get; set; }
+    public STask STask { get; set; }
 }

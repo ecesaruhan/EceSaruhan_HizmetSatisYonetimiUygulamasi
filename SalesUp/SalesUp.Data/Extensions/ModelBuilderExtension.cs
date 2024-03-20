@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SalesUp.Entity.Identity;
 using SalesUp.Entity;
-using Task = SalesUp.Entity.Task;
 
 namespace SalesUp.Data.Extensions;
 
@@ -167,15 +166,15 @@ public static class ModelBuilderExtension
 
         #region Görev İşlemleri
 
-        var tasks = new List<Task>
+        var tasks = new List<STask>
         {
-            new Task { Id = 1, UserId = users[0].Id },
-            new Task { Id = 2, UserId = users[1].Id },
-            new Task { Id = 3, UserId = users[2].Id },
-            new Task { Id = 4, UserId = users[3].Id },
-            new Task { Id = 5, UserId = users[4].Id },
+            new STask { Id = 1, UserId = users[0].Id },
+            new STask { Id = 2, UserId = users[1].Id },
+            new STask { Id = 3, UserId = users[2].Id },
+            new STask { Id = 4, UserId = users[3].Id },
+            new STask { Id = 5, UserId = users[4].Id },
         };
-        modelBuilder.Entity<Task>().HasData(tasks);
+        modelBuilder.Entity<STask>().HasData(tasks);
 
         #endregion
     }

@@ -632,7 +632,7 @@ namespace SalesUp.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("SalesUp.Entity.Task", b =>
+            modelBuilder.Entity("SalesUp.Entity.STask", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -684,7 +684,7 @@ namespace SalesUp.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("SalesUp.Entity.TaskItem", b =>
+            modelBuilder.Entity("SalesUp.Entity.STaskItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -808,7 +808,7 @@ namespace SalesUp.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SalesUp.Entity.Task", b =>
+            modelBuilder.Entity("SalesUp.Entity.STask", b =>
                 {
                     b.HasOne("SalesUp.Entity.Identity.User", "User")
                         .WithMany()
@@ -819,7 +819,7 @@ namespace SalesUp.Data.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("SalesUp.Entity.TaskItem", b =>
+            modelBuilder.Entity("SalesUp.Entity.STaskItem", b =>
                 {
                     b.HasOne("SalesUp.Entity.Customer", "Customer")
                         .WithMany()
@@ -839,7 +839,7 @@ namespace SalesUp.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SalesUp.Entity.Task", "Task")
+                    b.HasOne("SalesUp.Entity.STask", "STask")
                         .WithMany("TaskItems")
                         .HasForeignKey("TaskId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -857,12 +857,12 @@ namespace SalesUp.Data.Migrations
 
                     b.Navigation("Role");
 
-                    b.Navigation("Task");
+                    b.Navigation("STask");
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("SalesUp.Entity.Task", b =>
+            modelBuilder.Entity("SalesUp.Entity.STask", b =>
                 {
                     b.Navigation("TaskItems");
                 });
