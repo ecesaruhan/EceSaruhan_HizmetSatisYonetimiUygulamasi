@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SalesUp.Business.Abstract;
+using SalesUp.Business.Concrete;
 using SalesUp.Data.Abstract;
 using SalesUp.Data.Concrete.Contexts;
 using SalesUp.Data.Concrete.Repositories;
@@ -62,7 +64,11 @@ builder.Services.AddScoped<IMessageRepository, MessageRepository>();
 builder.Services.AddScoped<ISTaskRepository, STaskRepository>();
 builder.Services.AddScoped<ISTaskItemRepository, STaskItemRepository>();
 
-
+builder.Services.AddScoped<IProductService, ProductManager>();
+builder.Services.AddScoped<ICustomerService, CustomerManager>();
+builder.Services.AddScoped<IMessageService, MessageManager>();
+builder.Services.AddScoped<ISTaskService, STaskManager>();
+builder.Services.AddScoped<ISTaskItemService, STaskItemManager>();
 
 var app = builder.Build();
 
