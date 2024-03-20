@@ -13,35 +13,76 @@ public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEnt
     {
         _dbContext = dbContext;
     }
-
-
-    public Task<TEntity> GetByIdAsync(Expression<Func<TEntity, bool>> options = null, Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null)
+    
+    public async Task<TEntity> GetByIdAsync(Expression<Func<TEntity, bool>> options = null, Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null)
     {
-        throw new NotImplementedException();
+        IQueryable<TEntity> query = _dbContext.Set<TEntity>();
+        {
+            if (include != null)
+            {
+                query = include(query);
+            }
+            if (options != null)
+            {
+                query = query.Where(options);
+            }
+            return await query.SingleOrDefaultAsync();
+        }
     }
 
-    public Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> options = null, Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null)
+    public async Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> options = null, Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null)
     {
-        throw new NotImplementedException();
+        IQueryable<TEntity> query = _dbContext.Set<TEntity>();
+        {
+            if (include != null)
+            {
+                query = include(query);
+            }
+            if (options != null)
+            {
+                query = query.Where(options);
+            }
+            return await query.ToListAsync();
+        }
     }
 
-    public Task<TEntity> CreateAsync(TEntity entity)
+    public async Task<TEntity> CreateAsync(TEntity entity)
     {
-        throw new NotImplementedException();
+        await _dbContext
+            .Set<TEntity>()
+            .AddAsync(entity);
+        await _dbContext
+            .SaveChangesAsync();
+        return entity;
     }
 
-    public Task UpdateAsync(TEntity entity)
+    public async Task UpdateAsync(TEntity entity)
     {
-        throw new NotImplementedException();
+        _dbContext
+            .Set<TEntity>()
+            .Update(entity);
+        await _dbContext.SaveChangesAsync();
     }
 
-    public Task HardDeleteAsync(TEntity entity)
+    public async Task HardDeleteAsync(TEntity entity)
     {
-        throw new NotImplementedException();
+        _dbContext
+            .Set<TEntity>()
+            .Remove(entity);
+        await _dbContext.SaveChangesAsync();
     }
 
-    public Task<int> GetCount(Expression<Func<TEntity, bool>> options = null, Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null)
+    public async Task<int> GetCount(Expression<Func<TEntity, bool>> options = null, Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null)
     {
-        throw new NotImplementedException();
+        IQueryable<TEntity> query = _dbContext.Set<TEntity>();
+        if (include != null)
+        {
+            query = include(query);
+        }
+        if (options != null)
+        {
+            query = query.Where(options);
+        }
+        return await query.CountAsync();
     }
 }
