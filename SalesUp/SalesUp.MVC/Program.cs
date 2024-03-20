@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SalesUp.Data.Abstract;
 using SalesUp.Data.Concrete.Contexts;
+using SalesUp.Data.Concrete.Repositories;
 using SalesUp.Entity.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -52,6 +54,15 @@ builder.Services.ConfigureApplicationCookie(options =>
         SameSite = SameSiteMode.Strict
     };
 });
+
+
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<IMessageRepository, MessageRepository>();
+builder.Services.AddScoped<ISTaskRepository, STaskRepository>();
+builder.Services.AddScoped<ISTaskItemRepository, STaskItemRepository>();
+
+
 
 var app = builder.Build();
 
