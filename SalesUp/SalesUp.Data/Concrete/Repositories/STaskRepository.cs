@@ -16,12 +16,33 @@ public class STaskRepository : GenericRepository<STask>, ISTaskRepository
         get{return _dbContext as SalesUpDbContext;}
     }
 
-    public async Task<List<STask>> GetTasksByUserId(string userId)
+    public async Task<STask> GetTaskByUserId(string userId)
     {
-        List<STask> tasks = await SalesUpDbContext
+        var task = await SalesUpDbContext
             .Tasks
             .Where(t => t.UserId == userId)
+            .FirstOrDefaultAsync();
+        return task;
+    }
+
+    public async Task DeleteFromTaskAsync(int taskId, int taskItemId)
+    {
+        var deletedTaskItem = await SalesUpDbContext
+            .TaskItems
+            .Where(ti => ti.STask.Id == taskId && ti.Id == taskItemId)
+            .FirstOrDefaultAsync();
+
+        SalesUpDbContext.TaskItems.Remove(deletedTaskItem);
+        await SalesUpDbContext.SaveChangesAsync();
+    }
+
+    public async Task ClearTaskAsync(int taskId)
+    {
+        var deletedTaskItems = await SalesUpDbContext
+            .TaskItems
+            .Where(ti => ti.STask.Id == taskId)
             .ToListAsync();
-        return tasks;
+        SalesUpDbContext.TaskItems.RemoveRange(deletedTaskItems);
+        await SalesUpDbContext.SaveChangesAsync();
     }
 }
