@@ -11,4 +11,7 @@ public class User:IdentityUser
     public string Gender { get; set; }
     public DateTime? DateofBirth { get; set; }
 
+    public string ProductId { get; set; }
+    public List<Product> ProductList { get; set; }
+
 }
