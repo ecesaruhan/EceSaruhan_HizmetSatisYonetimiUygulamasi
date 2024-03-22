@@ -12,13 +12,10 @@
 </head>
 <body>
 @await Component.InvokeAsync("Header")
-@await Component.InvokeAsync("SideBar")
-<div class="container">
-    <main role="main" class="pb-3">
-        @RenderBody()
-    </main>
+<div class="row ms-0 me-0">
+    @await Component.InvokeAsync("SideBar")
+    @RenderBody()
 </div>
-
 @await Component.InvokeAsync("Footer")
 
 @await Html.PartialAsync("_Scripts")
