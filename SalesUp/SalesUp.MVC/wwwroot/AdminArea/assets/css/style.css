@@ -1647,7 +1647,6 @@ header .form-inline {
   vertical-align: middle;
   -webkit-transition: all .15s ease-in-out;
   transition: all .15s ease-in-out;
-  border-radius: 3;
   cursor: pointer; }
 
 /* Icons */
@@ -1698,7 +1697,6 @@ header .form-inline {
   font-size: 20px;
   font-weight: 300; }
 .fontawesome-icon-list i {
-  font-style: 16px;
   padding-right: 10px; }
 
 .social-box i {
