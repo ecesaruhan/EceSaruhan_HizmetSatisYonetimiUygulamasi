@@ -8,18 +8,19 @@
                                             asp-area="Admin"
                                             asp-controller="Home"
                                             asp-action="Index"
-                                        ><i class="menu-icon fa fa-laptop"></i>Dashboard </a></li>
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Görevler</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-plus"></i><a href="ui-badges.html">Görev Ekle</a></li>
-                        <li><i class="fa fa-bars"></i><a
-                                                          asp-area="Admin"
-                                                          asp-controller="STask"
-                                                          asp-action="Index"
-                                                      >Görev Listesi</a></li>
-                    </ul>
+                                        ><i class="menu-icon fa fa-laptop"></i>Ana Sayfa </a></li>
+            
+                <li class="my-1">
+                    <a
+                        asp-area="Admin"
+                        asp-controller="STask"
+                        asp-action="Index"
+                        > <i class="menu-icon fa fa-bars"></i>Görev Listesi</a>
                 </li>
+                <li class="my-1">
+                    <a href="widgets.html"> <i class="menu-icon fa fa-plus"></i>Yeni Görev</a>
+                </li>
+                
                 <li class="my-1"><a href="widgets.html"> <i class="menu-icon ti-email"></i>Mesajlar</a></li>    
             
                 <li class="my-1">
@@ -29,8 +30,20 @@
                         asp-action="Index"
                     > <i class="menu-icon fa fa-id-badge"></i>Müşteri Listesi</a>
                 </li>    
-                <li class="my-1"><a href="widgets.html"> <i class="menu-icon fa fa-table"></i>Ürün Listesi</a></li>    
-                <li class="my-1"><a href="widgets.html"> <i class="menu-icon ti-user"></i>Satış Ekibi</a></li>    
+                <li class="my-1">
+                    <a
+                        asp-area="Admin"
+                        asp-controller="Product"
+                        asp-action="Index"
+                        > <i class="menu-icon fa fa-table"></i>Ürün Listesi</a>
+                </li>    
+                <li class="my-1">
+                    <a
+                        asp-area="Admin"
+                        asp-controller="User"
+                        asp-action="Index"
+                        > <i class="menu-icon ti-user"></i>Satış Ekibi</a>
+                </li>    
                 <li class="my-1"><a href="page-login.html"><i class="menu-icon fa fa-sign-in"></i>Giriş Yap</a></li>
                 <li class="my-1"><a href="page-register.html"><i class="menu-icon fa fa-sign-in"></i>Çıkış Yap</a></li>
             </ul>
