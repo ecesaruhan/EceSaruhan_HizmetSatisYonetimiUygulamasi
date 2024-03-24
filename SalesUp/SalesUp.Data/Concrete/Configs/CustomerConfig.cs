@@ -11,8 +11,10 @@ public class CustomerConfig : IEntityTypeConfiguration<Customer>
         builder.HasKey(c => c.Id);
         builder.Property(c => c.Id).ValueGeneratedOnAdd();
         builder.Property(c => c.Name).IsRequired().HasMaxLength(20);
-        builder.Property(c => c.Url).IsRequired().HasMaxLength(20);
-        builder.HasData(
+        builder.Property(c => c.PhoneNumber).IsRequired().HasMaxLength(20);
+        builder.Property(c => c.Address).IsRequired().HasMaxLength(20);
+
+        /*builder.HasData(
             new Customer
             {
                 Id = 1,
@@ -73,6 +75,6 @@ public class CustomerConfig : IEntityTypeConfiguration<Customer>
                 Name = "Macrocenter",
                 Url = "macrocenter"
             }
-        );
+        );*/
     }
 }

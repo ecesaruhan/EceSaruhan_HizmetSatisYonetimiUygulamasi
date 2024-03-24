@@ -16,7 +16,7 @@ public class ProductConfig : IEntityTypeConfiguration<Product>
         builder.Property(p => p.Quantity).IsRequired();
         builder.Property(p => p.UnitPrice).IsRequired().HasColumnType("real");
         builder.Property(p => p.Url).IsRequired().HasMaxLength(50);
-        builder.HasData(
+        /*builder.HasData(
             new Product
             {
                 Id = 1,
@@ -97,6 +97,6 @@ public class ProductConfig : IEntityTypeConfiguration<Product>
                 Price = 90.90,
                 Url="dove-sıvı-sabun"
             }
-        );
+        );*/
     }
 }
