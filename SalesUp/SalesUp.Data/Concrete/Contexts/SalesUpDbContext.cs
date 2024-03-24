@@ -19,6 +19,8 @@ public class SalesUpDbContext:IdentityDbContext<User, Role, string>
     public DbSet<Message> Messages { get; set; }
     public DbSet<STask> Tasks { get; set; }
     public DbSet<STaskItem> TaskItems { get; set; }
+    public DbSet<Order> Orders { get; set; }
+    public DbSet<OrderDetail> OrderDetails { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
