@@ -7,7 +7,7 @@ public enum TaskState
     [Display(Name = "Planlandı")]
     Todo=0,
     
-    [Display(Name = "Devam Ediyor")]
+    [Display(Name = "Görüşme Aşamasında")]
     Processing=0,
     
     [Display(Name = "Tamamlandı")]

@@ -4,5 +4,5 @@ namespace SalesUp.Data.Abstract;
 
 public interface IOrderRepository : IGenericRepository<Order>
 {
-    Task<List<Order>> GetAllOrdersByProductIdAsync(int productId);
+    Task<List<Order>> GetAllOrdersBySubscriptionIdAsync(int subscriptionId);
 }

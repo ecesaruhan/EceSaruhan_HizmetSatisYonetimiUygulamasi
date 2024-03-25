@@ -15,13 +15,13 @@ public class OrderRepository : GenericRepository<Order>, IOrderRepository
         get{return _dbContext as SalesUpDbContext;}
     }
 
-    public async Task<List<Order>> GetAllOrdersByProductIdAsync(int productId)
+    public async Task<List<Order>> GetAllOrdersBySubscriptionIdAsync(int subscriptionId)
     {
         var result = await SalesUpDbContext
             .Orders
             .Include(o => o.OrderDetails)
-            .ThenInclude(od => od.Product)
-            .Where(o => o.OrderDetails.Any(x => x.ProductId == productId))
+            .ThenInclude(od => od.Subscription)
+            .Where(o => o.OrderDetails.Any(x => x.SubscriptionId == subscriptionId))
             .OrderByDescending(x => x.Id)
             .ToListAsync();
         return result;

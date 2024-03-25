@@ -15,21 +15,21 @@ public static class ModelBuilderExtension
         {
             new Role
             {
-                Name = "Admin",
-                Description = "Satış Uzmanı haklarını taşıyan rol.",
+                Name = "Super Admin",
+                Description = "Yönetici haklarını taşıyan rol.",
                 NormalizedName = "ADMIN"
             },
             new Role
             {
-                Name = "Employee",
+                Name = "Admin",
                 Description = "Satış Temsilcisi haklarını taşıyan rol.",
                 NormalizedName = "EMPLOYEE"
             },
             new Role
             {
-                Name = "Assistant",
-                Description = "Satış Temsilcisi Yardımcısı haklarını taşıyan rol.",
-                NormalizedName = "ASSISTANT"
+                Name = "Customer",
+                Description = "Müşteri haklarını taşıyan rol.",
+                NormalizedName = "CUSTOMER"
             }
         };
         modelBuilder.Entity<Role>().HasData(roles);
@@ -152,7 +152,7 @@ public static class ModelBuilderExtension
             new IdentityUserRole<string>
             {
                 UserId = users[3].Id,
-                RoleId = roles[0].Id
+                RoleId = roles[1].Id
             },
             new IdentityUserRole<string>
             {
