@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace SalesUp.MVC.Areas.Admin.Controllers;
+namespace SalesUp.MVC.Areas.User.Controllers;
 
-[Authorize(Roles = "SuperAdmin, Admin")]
-[Area("Admin")]
-public class UserController : Controller
+[Authorize(Roles = "User")]
+[Area("User")]
+public class STaskController : Controller
 {
     // GET
     public async Task<IActionResult> Index()

@@ -15,21 +15,21 @@ public static class ModelBuilderExtension
         {
             new Role
             {
-                Name = "Super Admin",
+                Name = "SuperAdmin",
                 Description = "Yönetici haklarını taşıyan rol.",
-                NormalizedName = "ADMIN"
+                NormalizedName = "SUPERADMIN"
             },
             new Role
             {
                 Name = "Admin",
                 Description = "Satış Temsilcisi haklarını taşıyan rol.",
-                NormalizedName = "EMPLOYEE"
+                NormalizedName = "ADMIN"
             },
             new Role
             {
-                Name = "Customer",
+                Name = "User",
                 Description = "Müşteri haklarını taşıyan rol.",
-                NormalizedName = "CUSTOMER"
+                NormalizedName = "USER"
             }
         };
         modelBuilder.Entity<Role>().HasData(roles);

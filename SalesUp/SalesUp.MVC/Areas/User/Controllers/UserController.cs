@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace SalesUp.MVC.Areas.Admin.Controllers;
+namespace SalesUp.MVC.Areas.User.Controllers;
 
-[Authorize(Roles = "SuperAdmin, Admin")]
+[Authorize(Roles = "User")]
 [Area("Admin")]
 public class UserController : Controller
 {
