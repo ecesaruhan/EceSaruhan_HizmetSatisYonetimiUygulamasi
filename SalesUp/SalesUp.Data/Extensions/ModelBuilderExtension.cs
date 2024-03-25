@@ -53,7 +53,8 @@ public static class ModelBuilderExtension
                 Address = "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy",
                 City = "İstanbul",
                 PhoneNumber = "5547659843",
-                EmailConfirmed = true
+                EmailConfirmed = true,
+                SubscriptionId = 2
             },
             new User
             {
@@ -68,7 +69,8 @@ public static class ModelBuilderExtension
                 Address = "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy",
                 City = "İstanbul",
                 PhoneNumber = "5341459340",
-                EmailConfirmed = true
+                EmailConfirmed = true,
+                SubscriptionId = 2
             },
             new User
             {
@@ -83,7 +85,9 @@ public static class ModelBuilderExtension
                 Address = "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy",
                 City = "İstanbul",
                 PhoneNumber = "5053211815",
-                EmailConfirmed = true
+                EmailConfirmed = true,
+                SubscriptionId = 3
+                
             },
             new User
             {
@@ -98,7 +102,9 @@ public static class ModelBuilderExtension
                 Address = "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy",
                 City = "İstanbul",
                 PhoneNumber = "5383458090",
-                EmailConfirmed = true
+                EmailConfirmed = true,
+                SubscriptionId = 2
+                
             },
             new User
             {
@@ -113,7 +119,8 @@ public static class ModelBuilderExtension
                 Address = "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy",
                 City = "İstanbul",
                 PhoneNumber = "5350931264",
-                EmailConfirmed = true
+                EmailConfirmed = true,
+                SubscriptionId = 3
             }
         };
         modelBuilder.Entity<User>().HasData(users);
@@ -177,5 +184,6 @@ public static class ModelBuilderExtension
         modelBuilder.Entity<STask>().HasData(tasks);
 
         #endregion
+        
     }
 }

@@ -8,14 +8,14 @@ public class ProductConfig : IEntityTypeConfiguration<Product>
 {
     public void Configure(EntityTypeBuilder<Product> builder)
     {
-        builder.HasKey(p => p.Id);
-        builder.Property(p => p.Id).ValueGeneratedOnAdd();
-        builder.Property(p => p.Name).IsRequired().HasMaxLength(50);
-        builder.Property(p => p.Properties).IsRequired().HasMaxLength(100);
+        builder.HasKey(x => x.Id);
+        builder.Property(x => x.Id).ValueGeneratedOnAdd();
+        builder.Property(x => x.Name).IsRequired().HasMaxLength(50);
+        builder.Property(x => x.Properties).IsRequired().HasMaxLength(100);
 
-        builder.Property(p => p.Quantity).IsRequired();
-        builder.Property(p => p.UnitPrice).IsRequired().HasColumnType("real");
-        builder.Property(p => p.Url).IsRequired().HasMaxLength(50);
+        builder.Property(x => x.Quantity).IsRequired();
+        builder.Property(x => x.UnitPrice).IsRequired().HasColumnType("real");
+        builder.Property(x => x.Url).IsRequired().HasMaxLength(50);
         /*builder.HasData(
             new Product
             {

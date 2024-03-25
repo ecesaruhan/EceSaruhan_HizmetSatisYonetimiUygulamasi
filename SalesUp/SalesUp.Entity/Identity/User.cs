@@ -11,11 +11,8 @@ public class User:IdentityUser
     public string Gender { get; set; }
     public DateTime? DateofBirth { get; set; }
     
-    public Subscription Subscription { get; set; }
-    
     public int SubscriptionId { get; set; }
+    public Subscription Subscription { get; set; }
 
-    public string ProductId { get; set; }
-    public List<Product> ProductList { get; set; }
 
 }

@@ -11,7 +11,7 @@ using SalesUp.Data.Concrete.Contexts;
 namespace SalesUp.Data.Migrations
 {
     [DbContext(typeof(SalesUpDbContext))]
-    [Migration("20240319174500_InitialDb")]
+    [Migration("20240325091656_InitialDb")]
     partial class InitialDb
     {
         /// <inheritdoc />
@@ -105,28 +105,28 @@ namespace SalesUp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "1a4f5bd5-b4d6-4486-8c4a-0fe3907fb232",
-                            RoleId = "9cd5dfce-a16f-408b-a43e-98dd08855faa"
+                            UserId = "294813b1-f834-4e58-a7d3-8d5d836584b7",
+                            RoleId = "e8f0db49-7270-4cca-bfba-945562f75d0c"
                         },
                         new
                         {
-                            UserId = "caa2dc9b-fd25-4757-994e-24de838a8245",
-                            RoleId = "2cb1ddfe-1995-4f78-8d2f-3b988a3d80c6"
+                            UserId = "5a352939-1577-41c3-842f-4791ce5bb16d",
+                            RoleId = "40a52e03-4a6b-48dc-826a-a396e43792c3"
                         },
                         new
                         {
-                            UserId = "6a17ce68-c89f-41a7-89c1-d01d0e7bb564",
-                            RoleId = "6420d13b-1c53-478d-a390-c5edb740f274"
+                            UserId = "b7b89812-6421-4251-8f98-bef3715e66c1",
+                            RoleId = "78d1af46-9f66-4620-b3be-d3b96e0ae61b"
                         },
                         new
                         {
-                            UserId = "662171e3-f356-47e3-a15a-90b7da55399e",
-                            RoleId = "6420d13b-1c53-478d-a390-c5edb740f274"
+                            UserId = "d5727b1f-7620-4bf9-9120-0ae094c6664e",
+                            RoleId = "40a52e03-4a6b-48dc-826a-a396e43792c3"
                         },
                         new
                         {
-                            UserId = "dd052b7c-1aa9-43fd-9e2e-468abe335b47",
-                            RoleId = "2cb1ddfe-1995-4f78-8d2f-3b988a3d80c6"
+                            UserId = "2efa214a-2e24-4d49-a4cf-942e622b4167",
+                            RoleId = "40a52e03-4a6b-48dc-826a-a396e43792c3"
                         });
                 });
 
@@ -155,12 +155,17 @@ namespace SalesUp.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Url")
+                    b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("TEXT");
@@ -168,68 +173,6 @@ namespace SalesUp.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Customers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Gratis",
-                            Url = "gratis"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Watsons",
-                            Url = "watsons"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Rossmann",
-                            Url = "rossmann"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "BeBeauty",
-                            Url = "bebeauty"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "DM",
-                            Url = "dm"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Müller",
-                            Url = "muller"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "Penny",
-                            Url = "penny"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "Carrefour",
-                            Url = "carrefour"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Name = "Migros",
-                            Url = "migros"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Name = "Macrocenter",
-                            Url = "macrocenter"
-                        });
                 });
 
             modelBuilder.Entity("SalesUp.Entity.Identity.Role", b =>
@@ -264,24 +207,24 @@ namespace SalesUp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6420d13b-1c53-478d-a390-c5edb740f274",
-                            Description = "Satış Uzmanı haklarını taşıyan rol.",
-                            Name = "Admin",
+                            Id = "78d1af46-9f66-4620-b3be-d3b96e0ae61b",
+                            Description = "Yönetici haklarını taşıyan rol.",
+                            Name = "Super Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "2cb1ddfe-1995-4f78-8d2f-3b988a3d80c6",
+                            Id = "40a52e03-4a6b-48dc-826a-a396e43792c3",
                             Description = "Satış Temsilcisi haklarını taşıyan rol.",
-                            Name = "Employee",
+                            Name = "Admin",
                             NormalizedName = "EMPLOYEE"
                         },
                         new
                         {
-                            Id = "9cd5dfce-a16f-408b-a43e-98dd08855faa",
-                            Description = "Satış Temsilcisi Yardımcısı haklarını taşıyan rol.",
-                            Name = "Assistant",
-                            NormalizedName = "ASSISTANT"
+                            Id = "e8f0db49-7270-4cca-bfba-945562f75d0c",
+                            Description = "Müşteri haklarını taşıyan rol.",
+                            Name = "Customer",
+                            NormalizedName = "CUSTOMER"
                         });
                 });
 
@@ -353,6 +296,9 @@ namespace SalesUp.Data.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("SubscriptionId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("INTEGER");
 
@@ -369,16 +315,18 @@ namespace SalesUp.Data.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex");
 
+                    b.HasIndex("SubscriptionId");
+
                     b.ToTable("AspNetUsers", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = "1a4f5bd5-b4d6-4486-8c4a-0fe3907fb232",
+                            Id = "294813b1-f834-4e58-a7d3-8d5d836584b7",
                             AccessFailedCount = 0,
                             Address = "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy",
                             City = "İstanbul",
-                            ConcurrencyStamp = "55a469c5-ba7a-4b49-a96b-f40ca17f0c41",
+                            ConcurrencyStamp = "8b9b8267-a640-4333-b965-6f7c7989a14f",
                             DateofBirth = new DateTime(1992, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "deryademir@gmail.com",
                             EmailConfirmed = true,
@@ -388,20 +336,21 @@ namespace SalesUp.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DERYADEMIR@GMAIL.COM",
                             NormalizedUserName = "DERYADEMIR",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMb6pG98KbjJZfRXebApKzYPgS+EqKym5OKoPUgcwPRwvT1oFGQb6XTqBODj9kcvbA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDHOT0M4AvOhxcuhG8J9sXAJG4OFNUxq3y6fq7OYtWhinKXexSXcW76+j2FBlktuww==",
                             PhoneNumber = "5547659843",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2487a2af-3d40-4b3a-9dfb-e688575d7a0c",
+                            SecurityStamp = "6f85abaf-61fc-44a1-aa55-7e40db36f069",
+                            SubscriptionId = 2,
                             TwoFactorEnabled = false,
                             UserName = "deryademir"
                         },
                         new
                         {
-                            Id = "caa2dc9b-fd25-4757-994e-24de838a8245",
+                            Id = "5a352939-1577-41c3-842f-4791ce5bb16d",
                             AccessFailedCount = 0,
                             Address = "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy",
                             City = "İstanbul",
-                            ConcurrencyStamp = "d9c9a2a1-b9bc-49e2-bd5d-e06789c709dd",
+                            ConcurrencyStamp = "74393775-8ff9-4950-b5b6-65eaf5d0f2a6",
                             DateofBirth = new DateTime(1990, 3, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "kadirdevran@gmail.com",
                             EmailConfirmed = true,
@@ -411,20 +360,21 @@ namespace SalesUp.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KADIRDEVRAN@GMAIL.COM",
                             NormalizedUserName = "KADIRDEVRAN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKp+WJdYmvo0xO0Ia7oKR5vSFqOjrO7kZu6VJaNR3K3zTjlW2TUM+zR6J3E0MLjzow==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDdSQRIE9lRHOo1q95KZ1xxKEIFFPUMuffiKfsNK0MCI23bqE/Z9yNo2RCjr/iS0fw==",
                             PhoneNumber = "5341459340",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "672e114d-f97c-49e0-a761-40a7e774f43e",
+                            SecurityStamp = "1f4cfbac-b298-4730-a9d1-28769ae5ec0b",
+                            SubscriptionId = 2,
                             TwoFactorEnabled = false,
                             UserName = "kadirdevran"
                         },
                         new
                         {
-                            Id = "6a17ce68-c89f-41a7-89c1-d01d0e7bb564",
+                            Id = "b7b89812-6421-4251-8f98-bef3715e66c1",
                             AccessFailedCount = 0,
                             Address = "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy",
                             City = "İstanbul",
-                            ConcurrencyStamp = "e182486f-5fe3-4a06-ba9e-f0f989a73cf6",
+                            ConcurrencyStamp = "6625bcff-deab-49d3-aca1-39883d9d609d",
                             DateofBirth = new DateTime(1983, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ferdabayar@gmail.com",
                             EmailConfirmed = true,
@@ -434,20 +384,21 @@ namespace SalesUp.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "FERDABAYAR@GMAIL.COM",
                             NormalizedUserName = "FERDABAYAR",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPwX632AExuPHiPmEfWpJKLpFp7XQv/lvSea3oVgP52cycVxQuvEU+yG3A5d8i8/Pw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIfVwdBmReKHjYi0RH/RHCIKb1z1QeD+dHSOaB6A0LheeIFtcs+4g86f5Oq3YT5xqg==",
                             PhoneNumber = "5053211815",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5833740a-5b64-427d-98fb-ac48ea3379e6",
+                            SecurityStamp = "8d4e179c-54f7-4298-bd03-45a1b7ca6075",
+                            SubscriptionId = 3,
                             TwoFactorEnabled = false,
                             UserName = "ferdabayar"
                         },
                         new
                         {
-                            Id = "662171e3-f356-47e3-a15a-90b7da55399e",
+                            Id = "d5727b1f-7620-4bf9-9120-0ae094c6664e",
                             AccessFailedCount = 0,
                             Address = "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy",
                             City = "İstanbul",
-                            ConcurrencyStamp = "34bd0bb6-3b44-41a2-8c0a-7edc392697eb",
+                            ConcurrencyStamp = "266e1fc7-32d7-419a-90df-af7255a25270",
                             DateofBirth = new DateTime(1970, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "niluferozdemir@gmail.com",
                             EmailConfirmed = true,
@@ -457,20 +408,21 @@ namespace SalesUp.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "NILUFEROZDEMIR@GMAIL.COM",
                             NormalizedUserName = "NILUFEROZDEMIR",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMCgfH0pZhsygp85ZRo8K15NP8EtGaIvGfCTRJ5SO9XBIq2D4S9gIcMla3F3xePOSw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEO2qIOS0+XbCxiT40hb6Hj+wRR609s08fsWNvHZX9gS0h5JSp0o1Awxvt1Ph2cf+lg==",
                             PhoneNumber = "5383458090",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "643f75dc-43f5-4b06-9d1b-24634176bf20",
+                            SecurityStamp = "dac690ac-fbfc-4262-80e3-000aa3c5789c",
+                            SubscriptionId = 2,
                             TwoFactorEnabled = false,
                             UserName = "niluferozdemir"
                         },
                         new
                         {
-                            Id = "dd052b7c-1aa9-43fd-9e2e-468abe335b47",
+                            Id = "2efa214a-2e24-4d49-a4cf-942e622b4167",
                             AccessFailedCount = 0,
                             Address = "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy",
                             City = "İstanbul",
-                            ConcurrencyStamp = "b04bfbd1-6fbb-4c38-8018-f7c999b5c7b8",
+                            ConcurrencyStamp = "d940dee9-4858-4ef4-8633-38eb7b3b724a",
                             DateofBirth = new DateTime(1989, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "canyener@gmail.com",
                             EmailConfirmed = true,
@@ -480,10 +432,11 @@ namespace SalesUp.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CANYENER@GMAIL.COM",
                             NormalizedUserName = "CANYENER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEoMEpNBgdJb9SIn7MSM45d2Bz+hdPufHMIDdWU89d99vouRioRO3IEyNjwd7lWo5A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEN9UF5i8m7JZ7+/jcJRvmzzibj/hZgljNaUvCk5YOqQ3lB1r/OerTL105KwAyV8EPQ==",
                             PhoneNumber = "5350931264",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e47f8a05-a523-4d42-88de-e1d8af98453c",
+                            SecurityStamp = "de8f6900-4ec6-4fc2-b28b-38c4d1a785c7",
+                            SubscriptionId = 3,
                             TwoFactorEnabled = false,
                             UserName = "canyener"
                         });
@@ -526,6 +479,111 @@ namespace SalesUp.Data.Migrations
                     b.ToTable("Messages");
                 });
 
+            modelBuilder.Entity("SalesUp.Entity.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ConversationId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CustomerId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("CustomerId1")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Note")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OrderNumber")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PaymentId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("PaymentType")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CustomerId1");
+
+                    b.HasIndex("RoleId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("SalesUp.Entity.OrderDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Duration")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("SubscriptionId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("SubscriptionId");
+
+                    b.ToTable("OrderDetails");
+                });
+
             modelBuilder.Entity("SalesUp.Entity.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -537,105 +595,36 @@ namespace SalesUp.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("real");
+                    b.Property<string>("Properties")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("UnitPrice")
+                        .HasColumnType("real");
 
                     b.Property<string>("Url")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("UserId1")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Products");
+                    b.HasIndex("UserId1");
 
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Dove Şampuan",
-                            Price = 105.90000000000001,
-                            Quantity = 100,
-                            Url = "dove-sampuan"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Dove Saç Kremi",
-                            Price = 70.900000000000006,
-                            Quantity = 120,
-                            Url = "dove-sac-kremi"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Dove Saç Maskesi",
-                            Price = 80.900000000000006,
-                            Quantity = 80,
-                            Url = "dove-sac-maskesi"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Dove Saç Bakım Spreyi",
-                            Price = 40.899999999999999,
-                            Quantity = 150,
-                            Url = "dove-sac-bakim-spreyi"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Dove Serum",
-                            Price = 55.899999999999999,
-                            Quantity = 150,
-                            Url = "dove-serum"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Dove Saç Köpüğü",
-                            Price = 90.900000000000006,
-                            Quantity = 150,
-                            Url = "dove-sac-kopugu"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "Dove Sprey Deodorant",
-                            Price = 110.90000000000001,
-                            Quantity = 150,
-                            Url = "dove-sprey-deodorant"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "Dove Roll-On Deodorant",
-                            Price = 100.90000000000001,
-                            Quantity = 150,
-                            Url = "dove-rollon-deodorant"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Name = "Dove Bar Sabun",
-                            Price = 30.899999999999999,
-                            Quantity = 150,
-                            Url = "dove-bar-sabun"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Name = "Dove Sıvı Sabun",
-                            Price = 90.900000000000006,
-                            Quantity = 100,
-                            Url = "dove-sıvı-sabun"
-                        });
+                    b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("SalesUp.Entity.Task", b =>
+            modelBuilder.Entity("SalesUp.Entity.STask", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -658,36 +647,36 @@ namespace SalesUp.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 3, 19, 20, 45, 0, 40, DateTimeKind.Local).AddTicks(4260),
-                            UserId = "1a4f5bd5-b4d6-4486-8c4a-0fe3907fb232"
+                            CreatedDate = new DateTime(2024, 3, 25, 12, 16, 56, 37, DateTimeKind.Local).AddTicks(1070),
+                            UserId = "294813b1-f834-4e58-a7d3-8d5d836584b7"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 3, 19, 20, 45, 0, 40, DateTimeKind.Local).AddTicks(4350),
-                            UserId = "caa2dc9b-fd25-4757-994e-24de838a8245"
+                            CreatedDate = new DateTime(2024, 3, 25, 12, 16, 56, 37, DateTimeKind.Local).AddTicks(1160),
+                            UserId = "5a352939-1577-41c3-842f-4791ce5bb16d"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 3, 19, 20, 45, 0, 40, DateTimeKind.Local).AddTicks(4360),
-                            UserId = "6a17ce68-c89f-41a7-89c1-d01d0e7bb564"
+                            CreatedDate = new DateTime(2024, 3, 25, 12, 16, 56, 37, DateTimeKind.Local).AddTicks(1170),
+                            UserId = "b7b89812-6421-4251-8f98-bef3715e66c1"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2024, 3, 19, 20, 45, 0, 40, DateTimeKind.Local).AddTicks(4360),
-                            UserId = "662171e3-f356-47e3-a15a-90b7da55399e"
+                            CreatedDate = new DateTime(2024, 3, 25, 12, 16, 56, 37, DateTimeKind.Local).AddTicks(1170),
+                            UserId = "d5727b1f-7620-4bf9-9120-0ae094c6664e"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2024, 3, 19, 20, 45, 0, 40, DateTimeKind.Local).AddTicks(4370),
-                            UserId = "dd052b7c-1aa9-43fd-9e2e-468abe335b47"
+                            CreatedDate = new DateTime(2024, 3, 25, 12, 16, 56, 37, DateTimeKind.Local).AddTicks(1180),
+                            UserId = "2efa214a-2e24-4d49-a4cf-942e622b4167"
                         });
                 });
 
-            modelBuilder.Entity("SalesUp.Entity.TaskItem", b =>
+            modelBuilder.Entity("SalesUp.Entity.STaskItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -731,7 +720,7 @@ namespace SalesUp.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("TaskId")
+                    b.Property<int>("STaskId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("TaskState")
@@ -753,11 +742,144 @@ namespace SalesUp.Data.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.HasIndex("TaskId");
+                    b.HasIndex("STaskId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("TaskItems");
+                });
+
+            modelBuilder.Entity("SalesUp.Entity.Sale", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("SaleDate")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
+
+                    b.ToTable("Sales");
+                });
+
+            modelBuilder.Entity("SalesUp.Entity.SaleDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("SaleId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("UnitPrice")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("SaleId");
+
+                    b.ToTable("SaleDetails");
+                });
+
+            modelBuilder.Entity("SalesUp.Entity.Subscription", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Duration")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("DurationUnit")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("real");
+
+                    b.Property<int>("SubscriptionType")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("UpdateDate")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Subscriptions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedDate = new DateTime(2024, 3, 25, 12, 16, 56, 37, DateTimeKind.Local).AddTicks(6200),
+                            Description = "Her hafta düzenli olarak ödenecek olan abonelik sistemidir.",
+                            Duration = 1,
+                            DurationUnit = "Hafta",
+                            IsActive = true,
+                            Name = "Haftalık Abonelik",
+                            Price = 500m,
+                            SubscriptionType = 0,
+                            UpdateDate = new DateTime(2024, 3, 25, 12, 16, 56, 37, DateTimeKind.Local).AddTicks(6210)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedDate = new DateTime(2024, 3, 25, 12, 16, 56, 37, DateTimeKind.Local).AddTicks(6220),
+                            Description = "Her ay düzenli olarak ödenecek olan abonelik sistemidir.",
+                            Duration = 1,
+                            DurationUnit = "Ay",
+                            IsActive = true,
+                            Name = "Aylık Abonelik",
+                            Price = 1500m,
+                            SubscriptionType = 1,
+                            UpdateDate = new DateTime(2024, 3, 25, 12, 16, 56, 37, DateTimeKind.Local).AddTicks(6220)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedDate = new DateTime(2024, 3, 25, 12, 16, 56, 37, DateTimeKind.Local).AddTicks(6220),
+                            Description = "Her yıl düzenli olarak ödenecek olan abonelik sistemidir.",
+                            Duration = 1,
+                            DurationUnit = "Yıl",
+                            IsActive = true,
+                            Name = "Yıllık Abonelik",
+                            Price = 5000m,
+                            SubscriptionType = 2,
+                            UpdateDate = new DateTime(2024, 3, 25, 12, 16, 56, 37, DateTimeKind.Local).AddTicks(6220)
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -811,7 +933,71 @@ namespace SalesUp.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SalesUp.Entity.Task", b =>
+            modelBuilder.Entity("SalesUp.Entity.Identity.User", b =>
+                {
+                    b.HasOne("SalesUp.Entity.Subscription", null)
+                        .WithMany("Users")
+                        .HasForeignKey("SubscriptionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SalesUp.Entity.Order", b =>
+                {
+                    b.HasOne("SalesUp.Entity.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SalesUp.Entity.Identity.Role", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SalesUp.Entity.Identity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("Role");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("SalesUp.Entity.OrderDetail", b =>
+                {
+                    b.HasOne("SalesUp.Entity.Order", "Order")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SalesUp.Entity.Subscription", "Subscription")
+                        .WithMany()
+                        .HasForeignKey("SubscriptionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Subscription");
+                });
+
+            modelBuilder.Entity("SalesUp.Entity.Product", b =>
+                {
+                    b.HasOne("SalesUp.Entity.Identity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId1");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("SalesUp.Entity.STask", b =>
                 {
                     b.HasOne("SalesUp.Entity.Identity.User", "User")
                         .WithMany()
@@ -822,7 +1008,7 @@ namespace SalesUp.Data.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("SalesUp.Entity.TaskItem", b =>
+            modelBuilder.Entity("SalesUp.Entity.STaskItem", b =>
                 {
                     b.HasOne("SalesUp.Entity.Customer", "Customer")
                         .WithMany()
@@ -842,9 +1028,9 @@ namespace SalesUp.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SalesUp.Entity.Task", "Task")
+                    b.HasOne("SalesUp.Entity.STask", "STask")
                         .WithMany("TaskItems")
-                        .HasForeignKey("TaskId")
+                        .HasForeignKey("STaskId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -860,14 +1046,59 @@ namespace SalesUp.Data.Migrations
 
                     b.Navigation("Role");
 
-                    b.Navigation("Task");
+                    b.Navigation("STask");
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("SalesUp.Entity.Task", b =>
+            modelBuilder.Entity("SalesUp.Entity.Sale", b =>
+                {
+                    b.HasOne("SalesUp.Entity.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("SalesUp.Entity.SaleDetail", b =>
+                {
+                    b.HasOne("SalesUp.Entity.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SalesUp.Entity.Sale", "Sale")
+                        .WithMany("SaleDetails")
+                        .HasForeignKey("SaleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Sale");
+                });
+
+            modelBuilder.Entity("SalesUp.Entity.Order", b =>
+                {
+                    b.Navigation("OrderDetails");
+                });
+
+            modelBuilder.Entity("SalesUp.Entity.STask", b =>
                 {
                     b.Navigation("TaskItems");
+                });
+
+            modelBuilder.Entity("SalesUp.Entity.Sale", b =>
+                {
+                    b.Navigation("SaleDetails");
+                });
+
+            modelBuilder.Entity("SalesUp.Entity.Subscription", b =>
+                {
+                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }
