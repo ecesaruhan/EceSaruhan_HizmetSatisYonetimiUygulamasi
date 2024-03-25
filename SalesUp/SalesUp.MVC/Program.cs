@@ -63,12 +63,18 @@ builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<IMessageRepository, MessageRepository>();
 builder.Services.AddScoped<ISTaskRepository, STaskRepository>();
 builder.Services.AddScoped<ISTaskItemRepository, STaskItemRepository>();
+builder.Services.AddScoped<ISaleRepository, SaleRepository>();
+builder.Services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
 builder.Services.AddScoped<IProductService, ProductManager>();
 builder.Services.AddScoped<ICustomerService, CustomerManager>();
 builder.Services.AddScoped<IMessageService, MessageManager>();
 builder.Services.AddScoped<ISTaskService, STaskManager>();
 builder.Services.AddScoped<ISTaskItemService, STaskItemManager>();
+builder.Services.AddScoped<ISaleService, SaleManager>();
+builder.Services.AddScoped<ISubscriptionService, SubscriptionManager>();
+builder.Services.AddScoped<IOrderService, OrderManager>();
 
 var app = builder.Build();
 
