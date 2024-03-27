@@ -45,8 +45,44 @@
                         class="nav-item nav-link">Uygulamaya Git</a>
                     <!--Burası Role'lere göre ayarlanacak-->
                     
-                                        <a href="service.html" class="nav-item nav-link">Giriş Yap</a>
-                                        <a href="service.html" class="nav-item nav-link">Kayıt Ol</a>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <a
+                            asp-area=""
+                            asp-controller="Account"
+                            asp-action="Login"
+                            class="nav-item nav-link">Giriş Yap</a>
+                        <a 
+                            asp-area=""
+                            asp-controller="Account"
+                            asp-action="Register"
+                            class="nav-item nav-link">Kayıt Ol</a>
+                    }
+                    else
+                    {
+                        if (User.IsInRole("SuperAdmin") || User.IsInRole("Admin"))
+                        {
+                            <a
+                                asp-area="Admin"
+                                asp-controller="Home"
+                                asp-action="Index"
+                                >Admin Panel</a>
+                        }
+                        else
+                        {
+                            <a
+                                asp-area="User"
+                                asp-controller="Home"
+                                asp-action="Index"
+                            >Uygulamaya Git</a>
+                        }
+                        <a asp-area=""
+                           asp-controller="Account"
+                           asp-action="Profile">@User.Identity.Name</a>
+                        <a asp-area=""
+                           asp-controller="Account"
+                           asp-action="Logout">Çıkış</a>
+                    }
                 </div>
             </div>
         </nav>

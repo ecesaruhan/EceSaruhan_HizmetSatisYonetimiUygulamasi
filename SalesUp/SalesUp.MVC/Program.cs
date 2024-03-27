@@ -1,3 +1,4 @@
+using AspNetCoreHero.ToastNotification;
 using Microsoft.AspNetCore.Authentication.Negotiate;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
@@ -10,6 +11,8 @@ using SalesUp.Data.Abstract;
 using SalesUp.Data.Concrete.Contexts;
 using SalesUp.Data.Concrete.Repositories;
 using SalesUp.Entity.Identity;
+using SalesUp.MVC.EmailServices.Abstract;
+using SalesUp.MVC.EmailServices.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +21,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<SalesUpDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("SqliteConnections")));
+
 
 builder.Services.AddIdentity<User, Role>()
     .AddEntityFrameworkStores<SalesUpDbContext>()
@@ -75,6 +79,20 @@ builder.Services.AddScoped<ISTaskItemService, STaskItemManager>();
 builder.Services.AddScoped<ISaleService, SaleManager>();
 builder.Services.AddScoped<ISubscriptionService, SubscriptionManager>();
 builder.Services.AddScoped<IOrderService, OrderManager>();
+
+builder.Services.AddScoped<IEmailSender, EmailSender>(options=>new EmailSender(
+    builder.Configuration["EmailSender:Host"],
+    builder.Configuration.GetValue<int>("EmailSender:Port"),
+    builder.Configuration.GetValue<bool>("EmailSender:EnableSSL"),
+    builder.Configuration["EmailSender:UserName"],
+    builder.Configuration["EmailSender:Passwor"]
+    ));
+builder.Services.AddNotyf(options =>
+{
+    options.DurationInSeconds = 3;
+    options.IsDismissable = true;
+    options.Position = NotyfPosition.TopRight;
+});
 
 var app = builder.Build();
 
