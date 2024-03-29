@@ -1,5 +1,4 @@
 using AspNetCoreHero.ToastNotification.Abstractions;
-using Mapster;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SalesUp.Business.Abstract;

@@ -126,10 +126,7 @@
                                         @foreach (var orderDetail in order.OrderDetails)
                                         {
                                             <tr>
-                                                <td>
-                                                    <img src="/images/products/@orderDetail.Product.ImageUrl" width="30" />
-                                                    <span>@orderDetail.Product.Name</span>
-                                                </td>
+                                                <td>@orderDetail.Subscription.GetType()</td>
                                                 <td>@($"{orderDetail.Price:C0}")</td>
                                                 <td>@orderDetail.Quantity</td>
                                                 <td>

@@ -4,8 +4,6 @@ namespace SalesUp.Shared.ViewModels;
 
 public class AdminOrderViewModel
 {
-    public class AdminOrderViewModel
-    {
         public int Id { get; set; }
         public DateTime OrderDate { get; set; }
         public string UserId { get; set; }
@@ -16,7 +14,6 @@ public class AdminOrderViewModel
 
         public decimal TotalPrice {
             get{ return OrderDetails.Sum(x => x.Quantity * x.Price); }
-        }
     }
 
     public class AdminOrderDetailViewModel

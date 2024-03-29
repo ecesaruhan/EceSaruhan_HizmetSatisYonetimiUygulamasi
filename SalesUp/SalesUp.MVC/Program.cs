@@ -1,12 +1,9 @@
 using AspNetCoreHero.ToastNotification;
-using Microsoft.AspNetCore.Authentication.Negotiate;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using SalesUp.Business.Abstract;
 using SalesUp.Business.Concrete;
+using SalesUp.Business.Mappings;
 using SalesUp.Data.Abstract;
 using SalesUp.Data.Concrete.Contexts;
 using SalesUp.Data.Concrete.Repositories;
@@ -18,6 +15,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddDbContext<SalesUpDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("SqliteConnections")));
@@ -61,6 +60,7 @@ builder.Services.ConfigureApplicationCookie(options =>
     };
 });
 
+builder.Services.AddScoped<MapperlyConfig>();
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();

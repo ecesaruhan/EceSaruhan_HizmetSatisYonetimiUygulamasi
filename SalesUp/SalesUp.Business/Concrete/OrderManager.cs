@@ -1,4 +1,6 @@
+using AutoMapper;
 using SalesUp.Business.Abstract;
+using SalesUp.Business.Mappings;
 using SalesUp.Data.Abstract;
 using SalesUp.Entity;
 using SalesUp.Shared.ViewModels;
@@ -7,15 +9,19 @@ namespace SalesUp.Business.Concrete;
 
 public class OrderManager : IOrderService
 {
-    private readonly IOrderRepository _orderRepository;
+    private readonly MapperlyConfig _mapperly;
+    private readonly IOrderRepository _repository;
 
-    public OrderManager(IOrderRepository orderRepository)
+
+    public OrderManager(MapperlyConfig mapperly, IOrderRepository repository)
     {
-        _orderRepository = orderRepository;
+        _mapperly = mapperly;
+        _repository = repository;
     }
+
     public async Task CreateAsync(Order order)
     {
-        await _orderRepository.CreateAsync(order);
+        await _repository.CreateAsync(order);
     }
 
     public Task<List<AdminOrderViewModel>> GetOrdersAsync()
