@@ -10,6 +10,7 @@ using SalesUp.Data.Concrete.Repositories;
 using SalesUp.Entity.Identity;
 using SalesUp.MVC.EmailServices.Abstract;
 using SalesUp.MVC.EmailServices.Concrete;
+using SalesUp.MVC.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -121,4 +122,4 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.Run();
+app.UpdateDatabase().Run();
