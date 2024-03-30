@@ -78,5 +78,5 @@ public partial class MapperlyConfig
 
     public partial SubscriptionViewModel SubscriptionToSubscriptionViewModel(Subscription subscription);
     public partial Subscription SubscriptionViewModelToSubscription(SubscriptionViewModel subscriptionViewModel);
-
+    
 }
