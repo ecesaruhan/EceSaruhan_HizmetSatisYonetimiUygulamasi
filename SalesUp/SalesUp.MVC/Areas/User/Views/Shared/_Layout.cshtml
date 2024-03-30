@@ -17,6 +17,7 @@
 @await Component.InvokeAsync("Footer")
 
 @await Html.PartialAsync("_Scripts")
+@await Component.InvokeAsync("Notyf")
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
