@@ -25,13 +25,13 @@ public class GeneralMappingProfiles : Profile
         CreateMap<Product, DeleteProductViewModel>().ReverseMap();
 
         CreateMap<Sale, SaleViewModel>().ReverseMap();
-        CreateMap<Sale, AddSaleDetailViewModel>().ReverseMap();
+        CreateMap<Sale, AddSaleViewModel>().ReverseMap();
         CreateMap<Sale, DeleteSaleViewModel>().ReverseMap();
-        CreateMap<Sale, EditSaleDetailViewModel>().ReverseMap();
-        CreateMap<Sale, SaleDetailViewModel>().ReverseMap();
+        CreateMap<Sale, EditSaleViewModel>().ReverseMap();
+        CreateMap<SaleDetail, SaleDetailViewModel>().ReverseMap();
 
         CreateMap<STask, STaskViewModel>().ReverseMap();
-        CreateMap<STask, STaskItemViewModel>().ReverseMap();
+        CreateMap<STaskItem, STaskItemViewModel>().ReverseMap();
         CreateMap<STask, DeleteSTaskViewModel>().ReverseMap();
         CreateMap<STask, AddSTaskViewModel>().ReverseMap();
         CreateMap<STask, EditSTaskViewModel>().ReverseMap();

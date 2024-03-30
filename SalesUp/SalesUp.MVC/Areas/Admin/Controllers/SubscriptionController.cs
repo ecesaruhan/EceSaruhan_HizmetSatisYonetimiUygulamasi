@@ -7,15 +7,15 @@ namespace SalesUp.MVC.Areas.Admin.Controllers;
 
 [Authorize(Roles = "SuperAdmin, Admin")]
 [Area("Admin")]
-public class STaskController : Controller
+public class SubscriptionController : Controller
 {
-    private readonly ISTaskService _taskManager;
+    private readonly ISubscriptionService _subscriptionManager;
 
     private readonly INotyfService _notyfService;
     // GET
-    public STaskController(ISTaskService taskManager, INotyfService notyfService)
+    public SubscriptionController(ISubscriptionService subscriptionManager, INotyfService notyfService)
     {
-        _taskManager = taskManager;
+        _subscriptionManager = subscriptionManager;
         _notyfService = notyfService;
     }
 
@@ -23,4 +23,7 @@ public class STaskController : Controller
     {
         return View();
     }
+    
 }
+
+// CRUD işlemleri eklenecek.

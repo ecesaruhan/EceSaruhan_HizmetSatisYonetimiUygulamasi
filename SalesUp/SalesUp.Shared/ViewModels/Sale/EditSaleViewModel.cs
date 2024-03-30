@@ -1,6 +1,6 @@
 namespace SalesUp.Shared.ViewModels.Sale;
 
-public class AddSaleDetailViewModel
+public class EditSaleViewModel
 {
     
 }

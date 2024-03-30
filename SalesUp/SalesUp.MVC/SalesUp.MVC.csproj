@@ -41,7 +41,6 @@
       <AdditionalFiles Include="Areas\User\Views\Shared\_Styles.cshtml" />
       <AdditionalFiles Include="Areas\User\Views\Shared\_ValidationScriptsPartial.cshtml" />
       <AdditionalFiles Include="Areas\User\Views\STask\Index.cshtml" />
-      <AdditionalFiles Include="Areas\User\Views\User\Index.cshtml" />
       <AdditionalFiles Include="Areas\User\Views\_ViewImports.cshtml" />
       <AdditionalFiles Include="Areas\User\Views\_ViewStart.cshtml" />
     </ItemGroup>
