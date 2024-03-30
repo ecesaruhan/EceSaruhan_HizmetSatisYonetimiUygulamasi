@@ -1,8 +1,8 @@
 @model LoginViewModel
 
 <div class="container w-25 mt-5">
-    <h6 class="display-4">Giriş Yap</h6>
-    <hr />
+    <h1 class="text-primary">Giriş Yap</h1>
+    <hr class="text-primary"/>
     <form asp-area=""
           asp-controller="Account"
           asp-action="Login"
@@ -12,14 +12,14 @@
             <div class="col-md-12">
                 <div class="form-group mb-2">
                     <label asp-for="UserName"></label>
-                    <input class="form-control" asp-for="UserName" />
+                    <input class="form-control mt-2" asp-for="UserName" />
                     <span asp-validation-for="UserName" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-12">
-                <div class="form-group mb-2">
+                <div class="form-group my-2">
                     <label asp-for="Password"></label>
-                    <input class="form-control" asp-for="Password" />
+                    <input class="form-control mt-2" asp-for="Password" />
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
             </div>
@@ -32,11 +32,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-5 mt-4">
+            <div class="col-md-5 mt-4 mb-5">
                 <button type="submit" class="btn btn-primary w-100">Giriş Yap</button>
             </div>
-            <div class="col-md-7 mt-4 text-right">
-                <a asp-area="" asp-controller="Account" asp-action="ForgotPassword" class="btn btn-link">Şifremi Unuttum</a>
+            <div class="col-md-7 mt-4 text-end">
+                <a asp-area="" asp-controller="Account" asp-action="ForgotPassword" class="btn btn-link text-primary fs-6 p-1">Şifremi Unuttum</a>
             </div>
 
         </div>

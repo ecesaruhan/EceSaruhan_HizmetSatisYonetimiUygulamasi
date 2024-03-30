@@ -54,7 +54,7 @@ public class AccountController : Controller
             var result = await _userManager.CreateAsync(user, registerViewModel.Password);
             if (result.Succeeded)
             {
-                var tokenCode = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                /*var tokenCode = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                 var backUrl = Url.Action("ConfirmEmail", "Account", new
                 {
                     userId = user.Id,
@@ -64,8 +64,11 @@ public class AccountController : Controller
                 await _emailSender.SendEmailAsync(
                     user.Email,
                     "SalesUp Üyelik Onayı",
-                    $"<p>MiniShopApp uygulamasına üyeliğinizi onaylamak için aşağıdaki linke tıklayınız.</p><a href='https://localhost:7138{backUrl}'>ONAY LİNKİ</a>"
-                );
+                    $"<p>SalesUpApp uygulamasına üyeliğinizi onaylamak için aşağıdaki linke tıklayınız.</p><a href='https://localhost:5032{backUrl}'>ONAY LİNKİ</a>"
+                );*/
+                await _staskManager.InitializeSTaskAsync(user.Id);
+
+                _notyfService.Success("Üyeliğiniz başarıyla oluşturulmuştur. Mailinizi kontrol ederek üyeliğinizi onaylayabilirsiniz.", 10);
                 return Redirect("~/");
             }
         }
@@ -148,7 +151,6 @@ public class AccountController : Controller
                 }
             }
         }
-
         return View(loginViewModel);
     }
     
@@ -156,7 +158,7 @@ public class AccountController : Controller
     {
         await _signInManager.SignOutAsync();
         TempData["ReturnUrl"] = null;
-        _notyfService.Success("Çıkış başarılı, güle güle");
+        _notyfService.Success("Başarılı bir şekilde çıkış yaptınız.");
         return Redirect("~/");
     }
     
@@ -311,12 +313,12 @@ public class AccountController : Controller
             userId = user.Id,
             tokenCode = tokenCode
         });
-        var subject = "MiniShopApp Şifre Sıfırlama";
-        var htmlMessage = $"<h1>MiniShopApp Şifre Sıfırlama İşlemi</h1>" +
+        var subject = "SalesUpApp Şifre Sıfırlama";
+        var htmlMessage = $"<h1>SalesUpApp Şifre Sıfırlama İşlemi</h1>" +
                           $"<p>" +
                           $"Lütfen şifrenizi sıfırlamak için aşağıdaki linke tıklayınız." +
                           $"</p>" +
-                          $"<a href='https://localhost:59079{backUrl}'>Şifre Sıfırla</a>";
+                          $"<a href='https://localhost:5032{backUrl}'>Şifre Sıfırla</a>";
         await _emailSender.SendEmailAsync(email,subject,htmlMessage);
         return RedirectToAction("Login");
     }
