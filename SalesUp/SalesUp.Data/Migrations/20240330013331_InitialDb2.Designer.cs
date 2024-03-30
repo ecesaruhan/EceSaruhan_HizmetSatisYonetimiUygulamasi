@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SalesUp.Data.Concrete.Contexts;
 
@@ -10,9 +11,11 @@ using SalesUp.Data.Concrete.Contexts;
 namespace SalesUp.Data.Migrations
 {
     [DbContext(typeof(SalesUpDbContext))]
-    partial class SalesUpDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240330013331_InitialDb2")]
+    partial class InitialDb2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.17");
