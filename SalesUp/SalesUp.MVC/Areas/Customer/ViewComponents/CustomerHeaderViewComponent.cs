@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace SalesUp.MVC.Areas.User.ViewComponents;
+namespace SalesUp.MVC.Areas.Customer.ViewComponents;
 
 public class CustomerHeaderViewComponent : ViewComponent
 {

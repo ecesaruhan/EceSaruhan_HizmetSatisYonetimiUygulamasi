@@ -35,11 +35,8 @@
       <AdditionalFiles Include="Areas\Customer\Views\Shared\Components\CustomerFooter\Default.cshtml" />
       <AdditionalFiles Include="Areas\Customer\Views\Shared\Components\CustomerHeader\Default.cshtml" />
       <AdditionalFiles Include="Areas\Customer\Views\Shared\Components\CustomerSideBar\Default.cshtml" />
-      <AdditionalFiles Include="Areas\Customer\Views\Shared\_DataTablesScriptsPartial.cshtml" />
-      <AdditionalFiles Include="Areas\Customer\Views\Shared\_DataTablesStylePartial.cshtml" />
       <AdditionalFiles Include="Areas\Customer\Views\Shared\_Layout.cshtml" />
-      <AdditionalFiles Include="Areas\Customer\Views\Shared\_Scripts.cshtml" />
-      <AdditionalFiles Include="Areas\Customer\Views\Shared\_Styles.cshtml" />
+      <AdditionalFiles Include="Areas\Customer\Views\Shared\_CustomerScripts.cshtml" />
       <AdditionalFiles Include="Areas\Customer\Views\Shared\_ValidationScriptsPartial.cshtml" />
       <AdditionalFiles Include="Areas\Customer\Views\STask\Index.cshtml" />
       <AdditionalFiles Include="Areas\Customer\Views\_ViewImports.cshtml" />
