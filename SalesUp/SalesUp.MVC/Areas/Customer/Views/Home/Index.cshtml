@@ -1,320 +1,264 @@
-<div class="w-75 float-right container">                
-<div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-1">
-                                        <i class="pe-7s-cash"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text">$<span class="count">23569</span></div>
-                                            <div class="stat-heading">Revenue</div>
-                                        </div>
-                                    </div>
-                                </div>
+            <!-- Sale & Revenue Start -->
+            <div class="container pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-line fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Today Sale</p>
+                                <h6 class="mb-0">$1234</h6>
                             </div>
                         </div>
                     </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Total Sale</p>
+                                <h6 class="mb-0">$1234</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Today Revenue</p>
+                                <h6 class="mb-0">$1234</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Total Revenue</p>
+                                <h6 class="mb-0">$1234</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sale & Revenue End -->
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-2">
-                                        <i class="pe-7s-cart"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">3435</span></div>
-                                            <div class="stat-heading">Sales</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-3">
-                                        <i class="pe-7s-browser"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">349</span></div>
-                                            <div class="stat-heading">Templates</div>
-                                        </div>
-                                    </div>
-                                </div>
+            <!-- Sales Chart Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light text-center rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0">Worldwide Sales</h6>
+                                <a href="">Show All</a>
                             </div>
+                            <canvas id="worldwide-sales"></canvas>
                         </div>
                     </div>
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light text-center rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0">Salse & Revenue</h6>
+                                <a href="">Show All</a>
+                            </div>
+                            <canvas id="salse-revenue"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sales Chart End -->
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-4">
-                                        <i class="pe-7s-users"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">2986</span></div>
-                                            <div class="stat-heading">Clients</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /Widgets -->
-                <!--  Traffic  -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="box-title">Traffic </h4>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-8">
-                                    <div class="card-body">
-                                        <!-- <canvas id="TrafficChart"></canvas>   -->
-                                        <div id="traffic-chart" class="traffic-chart"></div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="card-body">
-                                        <div class="progress-box progress-1">
-                                            <h4 class="por-title">Visits</h4>
-                                            <div class="por-txt">96,930 Customers (40%)</div>
-                                            <div class="progress mb-2" style="height: 5px;">
-                                                <div class="progress-bar bg-flat-color-1" role="progressbar" style="width: 40%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                        <div class="progress-box progress-2">
-                                            <h4 class="por-title">Bounce Rate</h4>
-                                            <div class="por-txt">3,220 Customers (24%)</div>
-                                            <div class="progress mb-2" style="height: 5px;">
-                                                <div class="progress-bar bg-flat-color-2" role="progressbar" style="width: 24%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                        <div class="progress-box progress-2">
-                                            <h4 class="por-title">Unique Visitors</h4>
-                                            <div class="por-txt">29,658 Customers (60%)</div>
-                                            <div class="progress mb-2" style="height: 5px;">
-                                                <div class="progress-bar bg-flat-color-3" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                        <div class="progress-box progress-2">
-                                            <h4 class="por-title">Targeted  Visitors</h4>
-                                            <div class="por-txt">99,658 Customers (90%)</div>
-                                            <div class="progress mb-2" style="height: 5px;">
-                                                <div class="progress-bar bg-flat-color-4" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div> <!-- /.card-body -->
-                                </div>
-                            </div> <!-- /.row -->
-                            <div class="card-body"></div>
-                        </div>
-                    </div><!-- /# column -->
-                </div>
-                <!--  /Traffic -->
-                <div class="clearfix"></div>
-                <!-- Orders -->
-                <div class="orders">
-                    <div class="row">
-                        <div class="col-xl-8">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="box-title">Orders </h4>
-                                </div>
-                                <div class="card-body--">
-                                    <div class="table-stats order-table ov-h">
-                                        <table class="table ">
-                                            <thead>
-                                                <tr>
-                                                    <th class="serial">#</th>
-                                                    <th class="avatar">Avatar</th>
-                                                    <th>ID</th>
-                                                    <th>Name</th>
-                                                    <th>Product</th>
-                                                    <th>Quantity</th>
-                                                    <th>Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="serial">1.</td>
-                                                    <td class="avatar">
-                                                        <div class="round-img">
-                                                            <a href="#"><img class="rounded-circle" src="~/AdminArea/images/avatar/1.jpg" alt=""></a>
-                                                        </div>
-                                                    </td>
-                                                    <td> #5469 </td>
-                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                    <td> <span class="product">iMax</span> </td>
-                                                    <td><span class="count">231</span></td>
-                                                    <td>
-                                                        <span class="badge badge-complete">Complete</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="serial">2.</td>
-                                                    <td class="avatar">
-                                                        <div class="round-img">
-                                                            <a href="#"><img class="rounded-circle" src="~/AdminArea/images/avatar/2.jpg" alt=""></a>
-                                                        </div>
-                                                    </td>
-                                                    <td> #5468 </td>
-                                                    <td>  <span class="name">Gregory Dixon</span> </td>
-                                                    <td> <span class="product">iPad</span> </td>
-                                                    <td><span class="count">250</span></td>
-                                                    <td>
-                                                        <span class="badge badge-complete">Complete</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="serial">3.</td>
-                                                    <td class="avatar">
-                                                        <div class="round-img">
-                                                            <a href="#"><img class="rounded-circle" src="~/AdminArea/images/avatar/3.jpg" alt=""></a>
-                                                        </div>
-                                                    </td>
-                                                    <td> #5467 </td>
-                                                    <td>  <span class="name">Catherine Dixon</span> </td>
-                                                    <td> <span class="product">SSD</span> </td>
-                                                    <td><span class="count">250</span></td>
-                                                    <td>
-                                                        <span class="badge badge-complete">Complete</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="serial">4.</td>
-                                                    <td class="avatar">
-                                                        <div class="round-img">
-                                                            <a href="#"><img class="rounded-circle" src="~/AdminArea/images/avatar/4.jpg" alt=""></a>
-                                                        </div>
-                                                    </td>
-                                                    <td> #5466 </td>
-                                                    <td>  <span class="name">Mary Silva</span> </td>
-                                                    <td> <span class="product">Magic Mouse</span> </td>
-                                                    <td><span class="count">250</span></td>
-                                                    <td>
-                                                        <span class="badge badge-pending">Pending</span>
-                                                    </td>
-                                                </tr>
-                                                <tr class=" pb-0">
-                                                    <td class="serial">5.</td>
-                                                    <td class="avatar pb-0">
-                                                        <div class="round-img">
-                                                            <a href="#"><img class="rounded-circle" src="~/AdminArea/images/avatar/6.jpg" alt=""></a>
-                                                        </div>
-                                                    </td>
-                                                    <td> #5465 </td>
-                                                    <td>  <span class="name">Johnny Stephens</span> </td>
-                                                    <td> <span class="product">Monitor</span> </td>
-                                                    <td><span class="count">250</span></td>
-                                                    <td>
-                                                        <span class="badge badge-complete">Complete</span>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div> <!-- /.table-stats -->
-                                </div>
-                            </div> <!-- /.card -->
-                        </div>  <!-- /.col-lg-8 -->
 
-                        <div class="col-xl-4">
-                            <div class="row">
-                                <div class="col-lg-6 col-xl-12">
-                                    <div class="card br-0">
-                                        <div class="card-body">
-                                            <div class="chart-container ov-h">
-                                                <div id="flotPie1" class="float-chart"></div>
-                                            </div>
-                                        </div>
-                                    </div><!-- /.card -->
-                                </div>
+            <!-- Recent Sales Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">Recent Salse</h6>
+                        <a href="">Show All</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-dark">
+                                    <th scope="col"><input class="form-check-input" type="checkbox"></th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Invoice</th>
+                                    <th scope="col">Customer</th>
+                                    <th scope="col">Amount</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox"></td>
+                                    <td>01 Jan 2045</td>
+                                    <td>INV-0123</td>
+                                    <td>Jhon Doe</td>
+                                    <td>$123</td>
+                                    <td>Paid</td>
+                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox"></td>
+                                    <td>01 Jan 2045</td>
+                                    <td>INV-0123</td>
+                                    <td>Jhon Doe</td>
+                                    <td>$123</td>
+                                    <td>Paid</td>
+                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox"></td>
+                                    <td>01 Jan 2045</td>
+                                    <td>INV-0123</td>
+                                    <td>Jhon Doe</td>
+                                    <td>$123</td>
+                                    <td>Paid</td>
+                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox"></td>
+                                    <td>01 Jan 2045</td>
+                                    <td>INV-0123</td>
+                                    <td>Jhon Doe</td>
+                                    <td>$123</td>
+                                    <td>Paid</td>
+                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox"></td>
+                                    <td>01 Jan 2045</td>
+                                    <td>INV-0123</td>
+                                    <td>Jhon Doe</td>
+                                    <td>$123</td>
+                                    <td>Paid</td>
+                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Recent Sales End -->
 
-                                <div class="col-lg-6 col-xl-12">
-                                    <div class="card bg-flat-color-3  ">
-                                        <div class="card-body">
-                                            <h4 class="card-title m-0  white-color ">August 2018</h4>
-                                        </div>
-                                         <div class="card-body">
-                                             <div id="flotLine5" class="flot-line"></div>
-                                         </div>
+
+            <!-- Widgets Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-md-6 col-xl-4">
+                        <div class="h-100 bg-light rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <h6 class="mb-0">Messages</h6>
+                                <a href="">Show All</a>
+                            </div>
+                            <div class="d-flex align-items-center border-bottom py-3">
+                                <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                <div class="w-100 ms-3">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-0">Jhon Doe</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                    <span>Short message goes here...</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center border-bottom py-3">
+                                <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                <div class="w-100 ms-3">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-0">Jhon Doe</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                    <span>Short message goes here...</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center border-bottom py-3">
+                                <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                <div class="w-100 ms-3">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-0">Jhon Doe</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                    <span>Short message goes here...</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center pt-3">
+                                <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                <div class="w-100 ms-3">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-0">Jhon Doe</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                    <span>Short message goes here...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-xl-4">
+                        <div class="h-100 bg-light rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0">Calender</h6>
+                                <a href="">Show All</a>
+                            </div>
+                            <div id="calender"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-xl-4">
+                        <div class="h-100 bg-light rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0">To Do List</h6>
+                                <a href="">Show All</a>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <input class="form-control bg-transparent" type="text" placeholder="Enter task">
+                                <button type="button" class="btn btn-primary ms-2">Add</button>
+                            </div>
+                            <div class="d-flex align-items-center border-bottom py-2">
+                                <input class="form-check-input m-0" type="checkbox">
+                                <div class="w-100 ms-3">
+                                    <div class="d-flex w-100 align-items-center justify-content-between">
+                                        <span>Short task goes here...</span>
+                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
                                     </div>
                                 </div>
                             </div>
-                        </div> <!-- /.col-md-4 -->
-                    </div>
-                </div>
-                <!-- /.orders -->
-  
-      
-                <!-- Modal - Calendar - Add New Event -->
-                <div class="modal fade none-border" id="event-modal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title"><strong>Add New Event</strong></h4>
-                            </div>
-                            <div class="modal-body"></div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-success save-event waves-effect waves-light">Create event</button>
-                                <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Delete</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /#event-modal -->
-                <!-- Modal - Calendar - Add Category -->
-                <div class="modal fade none-border" id="add-category">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title"><strong>Add a category </strong></h4>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label class="control-label">Category Name</label>
-                                            <input class="form-control form-white" placeholder="Enter name" type="text" name="category-name"/>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="control-label">Choose Category Color</label>
-                                            <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
-                                                <option value="success">Success</option>
-                                                <option value="danger">Danger</option>
-                                                <option value="info">Info</option>
-                                                <option value="pink">Pink</option>
-                                                <option value="primary">Primary</option>
-                                                <option value="warning">Warning</option>
-                                            </select>
-                                        </div>
+                            <div class="d-flex align-items-center border-bottom py-2">
+                                <input class="form-check-input m-0" type="checkbox">
+                                <div class="w-100 ms-3">
+                                    <div class="d-flex w-100 align-items-center justify-content-between">
+                                        <span>Short task goes here...</span>
+                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
                                     </div>
-                                </form>
+                                </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Save</button>
+                            <div class="d-flex align-items-center border-bottom py-2">
+                                <input class="form-check-input m-0" type="checkbox" checked>
+                                <div class="w-100 ms-3">
+                                    <div class="d-flex w-100 align-items-center justify-content-between">
+                                        <span><del>Short task goes here...</del></span>
+                                        <button class="btn btn-sm text-primary"><i class="fa fa-times"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center border-bottom py-2">
+                                <input class="form-check-input m-0" type="checkbox">
+                                <div class="w-100 ms-3">
+                                    <div class="d-flex w-100 align-items-center justify-content-between">
+                                        <span>Short task goes here...</span>
+                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center pt-2">
+                                <input class="form-check-input m-0" type="checkbox">
+                                <div class="w-100 ms-3">
+                                    <div class="d-flex w-100 align-items-center justify-content-between">
+                                        <span>Short task goes here...</span>
+                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                </div>
-                
-            <!-- /#add-category -->
- 
+            </div>
+            <!-- Widgets End -->

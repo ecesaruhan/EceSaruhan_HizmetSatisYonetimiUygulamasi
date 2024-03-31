@@ -25,15 +25,16 @@
 
     <ItemGroup>
       <Folder Include="Areas\Admin\Models\" />
+      <Folder Include="wwwroot\CustomerArea\" />
     </ItemGroup>
 
     <ItemGroup>
       <AdditionalFiles Include="Areas\Customer\Views\Customer\Index.cshtml" />
       <AdditionalFiles Include="Areas\Customer\Views\Home\Index.cshtml" />
       <AdditionalFiles Include="Areas\Customer\Views\Product\Index.cshtml" />
-      <AdditionalFiles Include="Areas\Customer\Views\Shared\Components\Footer\Default.cshtml" />
-      <AdditionalFiles Include="Areas\Customer\Views\Shared\Components\Header\Default.cshtml" />
-      <AdditionalFiles Include="Areas\Customer\Views\Shared\Components\SideBar\Default.cshtml" />
+      <AdditionalFiles Include="Areas\Customer\Views\Shared\Components\CustomerFooter\Default.cshtml" />
+      <AdditionalFiles Include="Areas\Customer\Views\Shared\Components\CustomerHeader\Default.cshtml" />
+      <AdditionalFiles Include="Areas\Customer\Views\Shared\Components\CustomerSideBar\Default.cshtml" />
       <AdditionalFiles Include="Areas\Customer\Views\Shared\_DataTablesScriptsPartial.cshtml" />
       <AdditionalFiles Include="Areas\Customer\Views\Shared\_DataTablesStylePartial.cshtml" />
       <AdditionalFiles Include="Areas\Customer\Views\Shared\_Layout.cshtml" />
