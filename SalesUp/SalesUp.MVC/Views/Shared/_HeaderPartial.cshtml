@@ -37,14 +37,6 @@
                     
                     <a href="contact.html" class="nav-item nav-link">İletişim</a>
                     
-                    <!--Burası Role'lere göre ayarlanacak-->
-                    <a 
-                        asp-area="Admin"
-                        asp-controller="Home"
-                        asp-action="Index"
-                        class="nav-item nav-link">Uygulamaya Git</a>
-                    <!--Burası Role'lere göre ayarlanacak-->
-                    
                     @if (!User.Identity.IsAuthenticated)
                     {
                         <a
@@ -66,22 +58,22 @@
                                 asp-area="Admin"
                                 asp-controller="Home"
                                 asp-action="Index"
-                                >Admin Panel</a>
+                                class="nav-item nav-link">Admin Panel</a>
                         }
                         else
                         {
                             <a
-                                asp-area="User"
+                                asp-area="Customer"
                                 asp-controller="Home"
                                 asp-action="Index"
-                            >Uygulamaya Git</a>
+                            class="nav-item nav-link">Uygulamaya Git</a>
                         }
                         <a asp-area=""
                            asp-controller="Account"
-                           asp-action="Profile">@User.Identity.Name</a>
+                           asp-action="Profile" class="nav-item nav-link">@User.Identity.Name</a>
                         <a asp-area=""
                            asp-controller="Account"
-                           asp-action="Logout">Çıkış</a>
+                           asp-action="Logout" class="nav-item nav-link">Çıkış</a>
                     }
                 </div>
             </div>

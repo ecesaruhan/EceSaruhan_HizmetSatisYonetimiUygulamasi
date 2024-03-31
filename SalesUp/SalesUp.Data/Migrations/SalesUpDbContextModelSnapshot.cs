@@ -220,12 +220,12 @@ namespace SalesUp.Data.Migrations
                         {
                             Id = "00ddf9bb-a429-4634-93e5-600463c67d36",
                             Description = "Müşteri haklarını taşıyan rol.",
-                            Name = "User",
+                            Name = "Customer",
                             NormalizedName = "USER"
                         });
                 });
 
-            modelBuilder.Entity("SalesUp.Entity.Identity.User", b =>
+            modelBuilder.Entity("SalesUp.Entity.Identity.Customer", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -890,7 +890,7 @@ namespace SalesUp.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("SalesUp.Entity.Identity.User", null)
+                    b.HasOne("SalesUp.Entity.Identity.Customer", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -899,7 +899,7 @@ namespace SalesUp.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("SalesUp.Entity.Identity.User", null)
+                    b.HasOne("SalesUp.Entity.Identity.Customer", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -914,7 +914,7 @@ namespace SalesUp.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SalesUp.Entity.Identity.User", null)
+                    b.HasOne("SalesUp.Entity.Identity.Customer", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -923,14 +923,14 @@ namespace SalesUp.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("SalesUp.Entity.Identity.User", null)
+                    b.HasOne("SalesUp.Entity.Identity.Customer", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SalesUp.Entity.Identity.User", b =>
+            modelBuilder.Entity("SalesUp.Entity.Identity.Customer", b =>
                 {
                     b.HasOne("SalesUp.Entity.Subscription", "Subscription")
                         .WithMany("Users")
@@ -955,7 +955,7 @@ namespace SalesUp.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SalesUp.Entity.Identity.User", "User")
+                    b.HasOne("SalesUp.Entity.Identity.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -965,7 +965,7 @@ namespace SalesUp.Data.Migrations
 
                     b.Navigation("Role");
 
-                    b.Navigation("User");
+                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("SalesUp.Entity.OrderDetail", b =>
@@ -989,22 +989,22 @@ namespace SalesUp.Data.Migrations
 
             modelBuilder.Entity("SalesUp.Entity.Product", b =>
                 {
-                    b.HasOne("SalesUp.Entity.Identity.User", "User")
+                    b.HasOne("SalesUp.Entity.Identity.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("UserId1");
 
-                    b.Navigation("User");
+                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("SalesUp.Entity.STask", b =>
                 {
-                    b.HasOne("SalesUp.Entity.Identity.User", "User")
+                    b.HasOne("SalesUp.Entity.Identity.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("User");
+                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("SalesUp.Entity.STaskItem", b =>
@@ -1033,7 +1033,7 @@ namespace SalesUp.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SalesUp.Entity.Identity.User", "User")
+                    b.HasOne("SalesUp.Entity.Identity.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1047,7 +1047,7 @@ namespace SalesUp.Data.Migrations
 
                     b.Navigation("STask");
 
-                    b.Navigation("User");
+                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("SalesUp.Entity.Sale", b =>

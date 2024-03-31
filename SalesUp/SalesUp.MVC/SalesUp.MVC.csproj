@@ -28,21 +28,21 @@
     </ItemGroup>
 
     <ItemGroup>
-      <AdditionalFiles Include="Areas\User\Views\Customer\Index.cshtml" />
-      <AdditionalFiles Include="Areas\User\Views\Home\Index.cshtml" />
-      <AdditionalFiles Include="Areas\User\Views\Product\Index.cshtml" />
-      <AdditionalFiles Include="Areas\User\Views\Shared\Components\Footer\Default.cshtml" />
-      <AdditionalFiles Include="Areas\User\Views\Shared\Components\Header\Default.cshtml" />
-      <AdditionalFiles Include="Areas\User\Views\Shared\Components\SideBar\Default.cshtml" />
-      <AdditionalFiles Include="Areas\User\Views\Shared\_DataTablesScriptsPartial.cshtml" />
-      <AdditionalFiles Include="Areas\User\Views\Shared\_DataTablesStylePartial.cshtml" />
-      <AdditionalFiles Include="Areas\User\Views\Shared\_Layout.cshtml" />
-      <AdditionalFiles Include="Areas\User\Views\Shared\_Scripts.cshtml" />
-      <AdditionalFiles Include="Areas\User\Views\Shared\_Styles.cshtml" />
-      <AdditionalFiles Include="Areas\User\Views\Shared\_ValidationScriptsPartial.cshtml" />
-      <AdditionalFiles Include="Areas\User\Views\STask\Index.cshtml" />
-      <AdditionalFiles Include="Areas\User\Views\_ViewImports.cshtml" />
-      <AdditionalFiles Include="Areas\User\Views\_ViewStart.cshtml" />
+      <AdditionalFiles Include="Areas\Customer\Views\Customer\Index.cshtml" />
+      <AdditionalFiles Include="Areas\Customer\Views\Home\Index.cshtml" />
+      <AdditionalFiles Include="Areas\Customer\Views\Product\Index.cshtml" />
+      <AdditionalFiles Include="Areas\Customer\Views\Shared\Components\Footer\Default.cshtml" />
+      <AdditionalFiles Include="Areas\Customer\Views\Shared\Components\Header\Default.cshtml" />
+      <AdditionalFiles Include="Areas\Customer\Views\Shared\Components\SideBar\Default.cshtml" />
+      <AdditionalFiles Include="Areas\Customer\Views\Shared\_DataTablesScriptsPartial.cshtml" />
+      <AdditionalFiles Include="Areas\Customer\Views\Shared\_DataTablesStylePartial.cshtml" />
+      <AdditionalFiles Include="Areas\Customer\Views\Shared\_Layout.cshtml" />
+      <AdditionalFiles Include="Areas\Customer\Views\Shared\_Scripts.cshtml" />
+      <AdditionalFiles Include="Areas\Customer\Views\Shared\_Styles.cshtml" />
+      <AdditionalFiles Include="Areas\Customer\Views\Shared\_ValidationScriptsPartial.cshtml" />
+      <AdditionalFiles Include="Areas\Customer\Views\STask\Index.cshtml" />
+      <AdditionalFiles Include="Areas\Customer\Views\_ViewImports.cshtml" />
+      <AdditionalFiles Include="Areas\Customer\Views\_ViewStart.cshtml" />
     </ItemGroup>
 
 </Project>

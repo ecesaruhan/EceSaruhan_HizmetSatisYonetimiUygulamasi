@@ -45,9 +45,9 @@ app.UseAuthorization();
 #region RouteRegions
 
 app.MapAreaControllerRoute(
-    name:"User",
-    areaName:"User",
-    pattern:"User/{controller=Home}/{action=Index}/{id?}"
+    name:"Customer",
+    areaName:"Customer",
+    pattern:"Customer/{controller=Home}/{action=Index}/{id?}"
 );
 
 app.MapAreaControllerRoute(

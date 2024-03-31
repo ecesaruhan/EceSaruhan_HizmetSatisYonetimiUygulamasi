@@ -83,7 +83,7 @@ namespace SalesUp.Data.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Description", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "00ddf9bb-a429-4634-93e5-600463c67d36", null, "Müşteri haklarını taşıyan rol.", "User", "USER" },
+                    { "00ddf9bb-a429-4634-93e5-600463c67d36", null, "Müşteri haklarını taşıyan rol.", "Customer", "USER" },
                     { "7dfd24d1-0253-4dda-b92d-f0015fae68d7", null, "Satış Temsilcisi haklarını taşıyan rol.", "Admin", "ADMIN" },
                     { "ac5bd86f-551a-44bd-8aef-81279308fae2", null, "Yönetici haklarını taşıyan rol.", "SuperAdmin", "SUPERADMIN" }
                 });

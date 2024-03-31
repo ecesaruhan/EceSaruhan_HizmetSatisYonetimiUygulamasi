@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SalesUp.MVC.Areas.User.Controllers;
 
-[Authorize(Roles = "User")]
-[Area("User")]
+[Authorize(Roles = "Customer")]
+[Area("Customer")]
 public class HomeController:Controller
 {
     

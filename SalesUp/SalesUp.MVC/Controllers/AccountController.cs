@@ -49,6 +49,8 @@ public class AccountController : Controller
                 Email = registerViewModel.Email,
                 FirstName = registerViewModel.FirstName,
                 LastName = registerViewModel.LastName,
+                Address = registerViewModel.Address,
+                Gender = registerViewModel.Gender,
                 EmailConfirmed = true
             };
             var result = await _userManager.CreateAsync(user, registerViewModel.Password);
@@ -92,7 +94,7 @@ public class AccountController : Controller
     {
         if (ModelState.IsValid)
         {
-            User user = await _userManager.FindByEmailAsync(loginViewModel.UserName);
+            User user = await _userManager.FindByNameAsync(loginViewModel.UserName);
             if (user != null)
             {
                 await _signInManager.SignOutAsync();
@@ -171,62 +173,73 @@ public class AccountController : Controller
     public async Task<IActionResult> Profile()
     {
         var userId = _userManager.GetUserId(User);
-        var orders = await _orderManager.GetOrdersAsync(userId);
-        var user = await _userManager.FindByIdAsync(userId);
-                
-        UserProfileViewModel userProfileViewModel = new UserProfileViewModel
+        if (userId != null)
         {
-            User = new UserViewModel
+            var orders = await _orderManager.GetOrdersAsync(userId);
+            var user = await _userManager.FindByIdAsync(userId);
+                
+            UserProfileViewModel userProfileViewModel = new UserProfileViewModel
             {
-                Id= userId,
-                FirstName = user.FirstName,
-                LastName= user.LastName,
-                UserName = user.UserName,
-                Email = user.Email,
-                PhoneNumber = user.PhoneNumber,
-                Address = user.Address,
-                City = user.City,
-                Gender = user.Gender,
-                DateOfBirth = user.DateofBirth
-            },
-            Orders = orders
-        };
-        return View(userProfileViewModel);
+                User = new UserViewModel
+                {
+                    Id= userId,
+                    FirstName = user.FirstName,
+                    LastName= user.LastName,
+                    UserName = user.UserName,
+                    Email = user.Email,
+                    PhoneNumber = user.PhoneNumber,
+                    Address = user.Address,
+                    City = user.City,
+                    Gender = user.Gender,
+                    DateOfBirth = user.DateofBirth
+                },
+                Orders = orders
+            };
+            return View(userProfileViewModel);
+        }
+
+        return View();
     }
     
     [HttpPost]
     public async Task<IActionResult> Profile(UserProfileViewModel userProfileViewModel)
     {
         var userId = _userManager.GetUserId(User);
-        var user = await _userManager.FindByIdAsync(userId);
-        if (ModelState.IsValid)
+        if (userId != null)
         {
-            user.FirstName = userProfileViewModel.User.FirstName;
-            user.LastName= userProfileViewModel.User.LastName;
-            user.Email=userProfileViewModel.User.Email;
-            user.City = userProfileViewModel.User.City;
-            user.Address = userProfileViewModel.User.Address;
-            user.PhoneNumber = userProfileViewModel.User.PhoneNumber;
-            user.DateofBirth=userProfileViewModel.User.DateOfBirth;
-            user.Gender=userProfileViewModel.User.Gender;
-            user.UserName=userProfileViewModel.User.UserName;
+            var user = await _userManager.FindByIdAsync(userId);
+            if (ModelState.IsValid)
+            {
+                user.FirstName = userProfileViewModel.User.FirstName;
+                user.LastName= userProfileViewModel.User.LastName;
+                user.Email=userProfileViewModel.User.Email;
+                user.City = userProfileViewModel.User.City;
+                user.Address = userProfileViewModel.User.Address;
+                user.PhoneNumber = userProfileViewModel.User.PhoneNumber;
+                user.DateofBirth=userProfileViewModel.User.DateOfBirth;
+                user.Gender=userProfileViewModel.User.Gender;
+                user.UserName=userProfileViewModel.User.UserName;
                 
-            var result = await _userManager.UpdateAsync(user);
-            if(result.Succeeded)
-            {
-                await _userManager.UpdateSecurityStampAsync(user);
-                await _signInManager.SignOutAsync();
-                await _signInManager.SignInAsync(user, false);
-                _notyfService.Success("Profiliniz başarıyla güncellenmiştir");
-                return Redirect("~/");
+                var result = await _userManager.UpdateAsync(user);
+                if(result.Succeeded)
+                {
+                    await _userManager.UpdateSecurityStampAsync(user);
+                    await _signInManager.SignOutAsync();
+                    await _signInManager.SignInAsync(user, false);
+                    _notyfService.Success("Profiliniz başarıyla güncellenmiştir");
+                    return Redirect("~/");
+                }
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
             }
-            foreach (var error in result.Errors)
-            {
-                ModelState.AddModelError("", error.Description);
-            }
+            userProfileViewModel.Orders = await _orderManager.GetOrdersAsync(userId);
+            return View(userProfileViewModel);
         }
-        userProfileViewModel.Orders = await _orderManager.GetOrdersAsync(userId);
-        return View(userProfileViewModel);
+
+        return View();
+
     }
     
     public async Task<IActionResult> ChangePassword()

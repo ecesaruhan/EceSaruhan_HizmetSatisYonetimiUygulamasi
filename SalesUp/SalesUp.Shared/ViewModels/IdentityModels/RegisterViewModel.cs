@@ -21,6 +21,14 @@ public class RegisterViewModel
     [Required(ErrorMessage = "Lütfen email alanını boş bırakmayınız.")]
     [DataType(DataType.EmailAddress,ErrorMessage ="Lütfen geçerli bir email adresi giriniz.")]
     public string Email { get; set; }
+        
+    [DisplayName("Adres")]
+    [Required(ErrorMessage = "{0} alanı boş bırakılamaz!")]
+    public string Address { get; set; }
+    
+    [DisplayName("Cinsiyet")]
+    [Required(ErrorMessage = "{0} alanı boş bırakılamaz!")]
+    public string Gender { get; set; }
 
     [DisplayName("Parola")]
     [Required(ErrorMessage = "Lütfen parola alanını boş bırakmayınız.")]

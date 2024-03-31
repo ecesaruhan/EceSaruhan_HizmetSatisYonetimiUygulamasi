@@ -27,9 +27,9 @@ public static class ModelBuilderExtension
             },
             new Role
             {
-                Name = "User",
+                Name = "Customer",
                 Description = "Müşteri haklarını taşıyan rol.",
-                NormalizedName = "USER"
+                NormalizedName = "CUSTOMER"
             }
         };
         modelBuilder.Entity<Role>().HasData(roles);
