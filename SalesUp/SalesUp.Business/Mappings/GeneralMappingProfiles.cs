@@ -32,9 +32,9 @@ public class GeneralMappingProfiles : Profile
 
         CreateMap<STask, STaskViewModel>().ReverseMap();
         CreateMap<STaskItem, STaskItemViewModel>().ReverseMap();
-        CreateMap<STask, DeleteSTaskViewModel>().ReverseMap();
-        CreateMap<STask, AddSTaskViewModel>().ReverseMap();
-        CreateMap<STask, EditSTaskViewModel>().ReverseMap();
+        CreateMap<STask, DeleteSTaskItemViewModel>().ReverseMap();
+        CreateMap<STask, AddSTaskItemViewModel>().ReverseMap();
+        CreateMap<STask, EditSTaskItemViewModel>().ReverseMap();
 
         CreateMap<Order, OrderViewModel>().ReverseMap();
         CreateMap<Order, AdminOrderViewModel>().ReverseMap();

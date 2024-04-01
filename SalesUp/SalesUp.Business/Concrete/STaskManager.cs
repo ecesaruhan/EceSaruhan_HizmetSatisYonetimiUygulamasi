@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using SalesUp.Business.Abstract;
 using SalesUp.Business.Mappings;
 using SalesUp.Data.Abstract;
@@ -23,13 +24,20 @@ public class STaskManager : ISTaskService
         await _repository.CreateAsync(new STask { UserId = userId }); 
     }
 
-    public Task<STaskViewModel> GetSTaskByUserIdAsync(string userId)
+    public async Task<STaskViewModel> GetSTaskByUserIdAsync(string userId)
     {
-        throw new NotImplementedException();
+        var tasks = await _repository.GetTaskByUserId(userId);
+        var tasksViewModel = _mapperly.STaskToSTaskViewModel(tasks);
+        return tasksViewModel;
     }
 
-    public Task AddToTaskAsync(string userId, int productId, int quantity)
+    public async Task AddToTaskAsync(string userId)
     {
-        throw new NotImplementedException();
+        var task = await _repository.GetTaskByUserId(userId);
+        task.TaskItems.Add(new STaskItem
+        {
+            STaskId = task.Id
+        });
+        await _repository.UpdateAsync(task);
     }
 }

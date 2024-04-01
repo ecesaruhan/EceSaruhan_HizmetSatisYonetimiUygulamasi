@@ -1,6 +1,6 @@
 namespace SalesUp.Shared.ViewModels.STask;
 
-public class DeleteSTaskViewModel
+public class AddSTaskItemViewModel
 {
     
 }

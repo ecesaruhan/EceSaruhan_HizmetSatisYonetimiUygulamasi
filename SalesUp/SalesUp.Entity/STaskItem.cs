@@ -22,4 +22,5 @@ public class STaskItem
     public int Quantity { get; set; }
     public string Note { get; set; }
     public STask STask { get; set; }
+    public int STaskId { get; set; }
 }
