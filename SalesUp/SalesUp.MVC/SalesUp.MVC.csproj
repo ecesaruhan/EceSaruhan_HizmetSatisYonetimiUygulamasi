@@ -43,4 +43,8 @@
       <AdditionalFiles Include="Areas\Customer\Views\_ViewStart.cshtml" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Shared\Components\AdminFooter\Default.cshtml" />
+    </ItemGroup>
+
 </Project>

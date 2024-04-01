@@ -12,8 +12,8 @@
 </head>
 <body>
 @await Component.InvokeAsync("CustomerHeader")
-    @await Component.InvokeAsync("CustomerSideBar")
-    @RenderBody()
+@await Component.InvokeAsync("CustomerSideBar")
+@RenderBody()
 @await Component.InvokeAsync("CustomerFooter")
 
 @await Html.PartialAsync("_CustomerScripts")

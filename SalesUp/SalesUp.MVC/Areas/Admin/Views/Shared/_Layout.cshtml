@@ -14,7 +14,6 @@
 @await Component.InvokeAsync("AdminHeader")
     @await Component.InvokeAsync("AdminSideBar")
     @RenderBody()
-@await Component.InvokeAsync("AdminFooter")
 
 @await Html.PartialAsync("_AdminScripts")
 @await Component.InvokeAsync("Notyf")

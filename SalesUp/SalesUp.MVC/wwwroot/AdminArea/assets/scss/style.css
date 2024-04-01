@@ -300,7 +300,6 @@ Googel Fonts  */
     .tdl-holder label:hover {
       background-color: rgba(153, 171, 180, 0.1); }
     .tdl-holder label a {
-      border-radius: 50%;
       color: rgba(153, 171, 180, 0.5);
       float: right;
       line-height: normal;
@@ -430,9 +429,6 @@ textarea {
 
 canvas {
   max-width: 100%; }
-
-.btn {
-  border-radius: 3px; }
 
 .text-muted {
   font-size: 14px; }
