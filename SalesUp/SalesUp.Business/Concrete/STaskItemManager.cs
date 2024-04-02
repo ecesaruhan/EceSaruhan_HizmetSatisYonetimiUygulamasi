@@ -1,7 +1,10 @@
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using SalesUp.Business.Abstract;
 using SalesUp.Business.Mappings;
 using SalesUp.Data.Abstract;
+using SalesUp.Entity;
 using SalesUp.Shared.ViewModels.STask;
 
 namespace SalesUp.Business.Concrete;
@@ -10,11 +13,14 @@ public class STaskItemManager : ISTaskItemService
 {
  private readonly MapperlyConfig _mapperly;
  private readonly ISTaskItemRepository _repository;
+ private readonly ISTaskRepository _taskRepository;
 
- public STaskItemManager(MapperlyConfig mapperly, ISTaskItemRepository repository)
+
+ public STaskItemManager(MapperlyConfig mapperly, ISTaskItemRepository repository, ISTaskRepository taskRepository)
  {
   _mapperly = mapperly;
   _repository = repository;
+  _taskRepository = taskRepository;
  }
 
  public async Task<STaskItemViewModel> CreateAsync(AddSTaskItemViewModel addSTaskItemViewModel)
@@ -49,5 +55,19 @@ public class STaskItemManager : ISTaskItemService
   var taskItem = await _repository.GetByIdAsync(t => t.Id == id);
   var taskItemViewModel = _mapperly.STaskItemToSTaskItemViewModel(taskItem);
   return taskItemViewModel;
+ }
+
+ public async Task<List<STaskItemViewModel>> GetTaskItemsByTaskIdAsync(int taskId)
+ {
+  var taskItems = await _repository.GetAllAsync(t => t.STaskId == taskId);
+  var taskItemsViewModel = _mapperly.STaskItemListToSTaskItemListViewModel(taskItems);
+  return taskItemsViewModel;
+ }
+
+ public async Task ClearTaskAsync(int taskId)
+ {
+  var task = await _taskRepository.GetByIdAsync(t=>t.Id == taskId, source=>source.Include(x=>x.TaskItems));
+   task.TaskItems = new List<STaskItem>();
+    await _taskRepository.UpdateAsync(task);
  }
 }

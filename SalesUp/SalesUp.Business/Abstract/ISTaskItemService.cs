@@ -8,4 +8,6 @@ public interface ISTaskItemService
     Task<STaskItemViewModel> UpdateAsync(EditSTaskItemViewModel editSTaskItemViewModel);
     Task HardDeleteAsync(int id);
     Task<STaskItemViewModel> GetByIdAsync(int taskItemId);
+    Task<List<STaskItemViewModel>> GetTaskItemsByTaskIdAsync(int taskId);
+    Task ClearTaskAsync(int taskId);
 }

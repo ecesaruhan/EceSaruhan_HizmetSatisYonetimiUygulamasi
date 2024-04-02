@@ -1,21 +1,40 @@
+@model STaskViewModel
 <div class="w-75 float-right container"> 
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body row justify-content-between align-items-center">
                         <div class="text-danger font-weight-bold display-4 mx-3 p-0">Görevlerim</div>
-                        <a class="fa fa-plus-square text-success mx-4" style="font-size: 30px"></a>
+                        <a
+                            asp-area="Admin"
+                            asp-controller="STask"
+                            asp-action="Create"
+                            class="fa fa-plus-square text-success mx-4" style="font-size: 30px"></a>
                         <div class="card-content col-md-12">
                             <div class="todo-list">
                                 <div class="tdl-holder">
                                     <div class="tdl-content">
                                         <ul>
-                                            <li>
-                                                <label class="form-check-label"></label>
-                                                <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                                <a href='#' class="fa fa-trash text-danger" style="font-size: 25px; margin-left: 20px"></a>
-                                                <a href='#' class="fa fa-edit text-warning" style="font-size: 25px"></a>
-                                            </li>
+                                            @foreach (var item in Model.TaskItems)
+                                            {
+                                                <li>
+                                                    <label class="form-check-label"></label>
+                                                    <input type="text" class="form-control" placeholder="@item.Title" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                                    <a
+                                                        asp-area="Admin"
+                                                        asp-controller="STask"
+                                                        asp-action="Edit"
+                                                        asp-route-id="@item.Id"
+                                                        class="fa fa-trash text-danger" style="font-size: 25px; margin-left: 20px"></a>
+                                                    <a
+                                                        asp-area="Admin"
+                                                        asp-controller="STask"
+                                                        asp-action="DeleteItem"
+                                                        asp-route-id="@item.Id"
+                                                        class="fa fa-edit text-warning" style="font-size: 25px"></a>
+                                                </li> 
+                                            }
+                                            
                                         </ul>
                                     </div>
                                 </div>

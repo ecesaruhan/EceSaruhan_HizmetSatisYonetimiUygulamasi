@@ -60,13 +60,15 @@ public partial class MapperlyConfig
     public partial EditSTaskItemViewModel STaskItemToEditSTaskItemViewModel(STaskItem sTaskItem);
     public partial DeleteSTaskItemViewModel STaskItemToDeleteSTaskItemViewModel(STaskItem sTaskItem);
     public partial STaskItemViewModel STaskItemToSTaskItemViewModel(STaskItem sTaskItem);
+    public partial List<STaskItemViewModel> STaskItemListToSTaskItemListViewModel(List<STaskItem> sTaskItems);
 
     public partial STask STaskViewModelToSTask(STaskViewModel sTaskViewModel);
+    
     public partial STaskItem AddSTaskItemViewModelToSTaskItem(AddSTaskItemViewModel addSTaskItemViewModel);
     public partial STaskItem EditSTaskItemViewModelToSTaskItem(EditSTaskItemViewModel editSTaskItemViewModel);
     public partial STaskItem DeleteSTaskItemViewModelToSTaskItem(DeleteSTaskItemViewModel deleteSTaskItemViewModel);
     public partial STaskItem STaskItemViewModelToSTaskItem(STaskItemViewModel sTaskItemViewModel);
-
+    public partial List<STaskItem> STaskItemListViewModelToSTaskItemList(List<STaskItemViewModel> sTaskItemsViewModel);
     #endregion
 
     public partial OrderViewModel OrderToOrderViewModel(Order order);

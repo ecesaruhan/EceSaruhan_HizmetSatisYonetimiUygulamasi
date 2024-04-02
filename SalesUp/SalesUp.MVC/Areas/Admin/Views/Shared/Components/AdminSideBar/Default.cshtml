@@ -17,7 +17,11 @@
                         asp-action="Index"> <i class="menu-icon fa fa-bars"></i>Görev Listesi</a>
                 </li>
                 <li class="my-1">
-                    <a href="widgets.html"> <i class="menu-icon fa fa-plus"></i>Yeni Görev</a>
+                    <a
+                        asp-area="Admin"
+                        asp-controller="STask"
+                        asp-action="Create"
+                        > <i class="menu-icon fa fa-plus"></i>Yeni Görev</a>
                 </li>
 
                 <li class="my-1"><a href="widgets.html"> <i class="menu-icon ti-email"></i>Mesajlar</a></li>

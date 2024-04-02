@@ -1,1 +1,61 @@
+@using SalesUp.Shared.ComplexTypes
 @model STaskItemViewModel
+
+<div class="row container">
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h3>Yeni Görev Ekle</h3>
+        </div>
+        <div class="card-body card-block">
+            <form
+                asp-area="Admin"
+                asp-controller="STask"
+                asp-action="Create"
+                method="post" 
+                enctype="multipart/form-data" class="form-horizontal">
+                <div class="row form-group">
+                    <div class="col col-md-3"><label asp-for="Title" class=" form-control-label">Başlık</label></div>
+                    <div class="col-12 col-md-9"><input asp-for="Title" type="text" placeholder="Görev Başlığı Giriniz.." class="form-control"></div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label asp-for="Customer" class=" form-control-label"></label></div>
+                    <div class="col-12 col-md-9"><input asp-for="Customer" type="text" placeholder="Müşteri Bilgisi Giriniz..." class="form-control"></div>
+                </div>
+            
+                <div class="row form-group">
+                    <div class="col col-md-3"><label asp-for="Product" class=" form-control-label"></label></div>
+                    <div class="col-12 col-md-9"><input asp-for="Product" type="text" placeholder="Ürün Bilgisi Giriniz..." class="form-control"></div>
+                </div>
+       
+                <div class="row form-group">
+                    <div class="col col-md-3"><label asp-for="Note" class=" form-control-label"></label></div>
+                    <div class="col-12 col-md-9"><textarea asp-for="Note" rows="9" placeholder="Görev Detayını Giriniz..." class="form-control"></textarea></div>
+                </div>
+            
+                <div class="row form-group">
+                    <div class="col col-md-3"><label asp-for="TaskState" class=" form-control-label"></label></div>
+                    <div class="col col-md-9">
+                        <div class="form-check">
+                            <input asp-for="TaskState == TaskState.Completed" class="form-check-input" type="checkbox" value="" checked>
+                            <label asp-for="TaskState == TaskState.Completed" class="form-check-label" for="@(Model.TaskState == TaskState.Completed)"></label>
+                        </div>
+                        <div class="form-check">
+                          <input asp-for="TaskState == TaskState.Processing" class="form-check-input" type="checkbox" value="">
+                          <label class="form-check-label" for="flexCheckChecked">
+                          </label>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-success" type="submit">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+@section Styles
+{
+        <link rel="stylesheet" href="~/AdminArea/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+}
+
