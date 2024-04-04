@@ -170,20 +170,6 @@ public static class ModelBuilderExtension
         modelBuilder.Entity<IdentityUserRole<string>>().HasData(userRoles);
 
         #endregion
-
-        #region Görev İşlemleri
-
-        var tasks = new List<STask>
-        {
-            new STask { Id = 1, UserId = users[0].Id },
-            new STask { Id = 2, UserId = users[1].Id },
-            new STask { Id = 3, UserId = users[2].Id },
-            new STask { Id = 4, UserId = users[3].Id },
-            new STask { Id = 5, UserId = users[4].Id },
-        };
-        modelBuilder.Entity<STask>().HasData(tasks);
-
-        #endregion
         
     }
 }

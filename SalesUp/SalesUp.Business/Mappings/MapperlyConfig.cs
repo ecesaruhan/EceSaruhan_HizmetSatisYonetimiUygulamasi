@@ -56,19 +56,16 @@ public partial class MapperlyConfig
     #region STask
 
     public partial STaskViewModel STaskToSTaskViewModel(STask sTask);
-    public partial AddSTaskItemViewModel STaskItemToAddSTaskItemViewModel(STaskItem sTaskItem);
-    public partial EditSTaskItemViewModel STaskItemToEditSTaskItemViewModel(STaskItem sTaskItem);
-    public partial DeleteSTaskItemViewModel STaskItemToDeleteSTaskItemViewModel(STaskItem sTaskItem);
-    public partial STaskItemViewModel STaskItemToSTaskItemViewModel(STaskItem sTaskItem);
-    public partial List<STaskItemViewModel> STaskItemListToSTaskItemListViewModel(List<STaskItem> sTaskItems);
-
+    public partial AddSTaskViewModel STaskToAddSTaskViewModel(STask sTask);
+    public partial EditSTaskViewModel STaskToEditSTaskViewModel(STask sTask);
+    public partial DeleteSTaskViewModel STaskToDeleteSTaskViewModel(STask sTask);
     public partial STask STaskViewModelToSTask(STaskViewModel sTaskViewModel);
+    public partial STask AddSTaskViewModelToSTask(AddSTaskViewModel addSTaskViewModel);
+    public partial STask EditSTaskViewModelToSTask(EditSTaskViewModel editSTaskViewModel);
+    public partial STask DeleteSTaskViewModelToSTask(DeleteSTaskViewModel deleteSTaskViewModel);
+    public partial List<STask> STaskListViewModelToSTaskList(List<STaskViewModel> sTaskListViewModel);
+    public partial List<STaskViewModel> STaskListToSTaskListViewModel(List<STask> sTaskList);
     
-    public partial STaskItem AddSTaskItemViewModelToSTaskItem(AddSTaskItemViewModel addSTaskItemViewModel);
-    public partial STaskItem EditSTaskItemViewModelToSTaskItem(EditSTaskItemViewModel editSTaskItemViewModel);
-    public partial STaskItem DeleteSTaskItemViewModelToSTaskItem(DeleteSTaskItemViewModel deleteSTaskItemViewModel);
-    public partial STaskItem STaskItemViewModelToSTaskItem(STaskItemViewModel sTaskItemViewModel);
-    public partial List<STaskItem> STaskItemListViewModelToSTaskItemList(List<STaskItemViewModel> sTaskItemsViewModel);
     #endregion
 
     public partial OrderViewModel OrderToOrderViewModel(Order order);

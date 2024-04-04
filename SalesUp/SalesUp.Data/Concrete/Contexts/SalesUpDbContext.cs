@@ -18,7 +18,6 @@ public class SalesUpDbContext:IdentityDbContext<User, Role, string>
     public DbSet<Customer> Customers { get; set; }
     public DbSet<Message> Messages { get; set; }
     public DbSet<STask> Tasks { get; set; }
-    public DbSet<STaskItem> TaskItems { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderDetail> OrderDetails { get; set; }
     public DbSet<Sale> Sales { get; set; }
@@ -28,7 +27,7 @@ public class SalesUpDbContext:IdentityDbContext<User, Role, string>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.SeedData();
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(CustomerConfig).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(SubscriptionConfig).Assembly);
         base.OnModelCreating(modelBuilder);
     }
 }

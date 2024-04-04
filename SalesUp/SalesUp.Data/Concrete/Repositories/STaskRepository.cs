@@ -16,33 +16,24 @@ public class STaskRepository : GenericRepository<STask>, ISTaskRepository
         get{return _dbContext as SalesUpDbContext;}
     }
 
-    public async Task<STask> GetTaskByUserId(string userId)
+
+    public async Task<List<STask>> GetTasksByUserIdAsync(string userId)
     {
-        var task = await SalesUpDbContext
+        List<STask> taskList = await SalesUpDbContext
             .Tasks
             .Where(t => t.UserId == userId)
-            .FirstOrDefaultAsync();
-        return task;
-    }
-
-    public async Task DeleteFromTaskAsync(int taskId, int taskItemId)
-    {
-        var deletedTaskItem = await SalesUpDbContext
-            .TaskItems
-            .Where(ti => ti.STask.Id == taskId && ti.Id == taskItemId)
-            .FirstOrDefaultAsync();
-
-        SalesUpDbContext.TaskItems.Remove(deletedTaskItem);
-        await SalesUpDbContext.SaveChangesAsync();
-    }
-
-    public async Task ClearTaskAsync(int taskId)
-    {
-        var deletedTaskItems = await SalesUpDbContext
-            .TaskItems
-            .Where(ti => ti.STask.Id == taskId)
             .ToListAsync();
-        SalesUpDbContext.TaskItems.RemoveRange(deletedTaskItems);
+        return taskList;
+    }
+
+    public async Task DeleteAllAsync(string userId)
+    {
+        var deletedTaskList = await SalesUpDbContext
+            .Tasks
+            .Where(x => x.UserId == userId)
+            .ToListAsync();
+
+        SalesUpDbContext.Tasks.RemoveRange(deletedTaskList);
         await SalesUpDbContext.SaveChangesAsync();
     }
 }

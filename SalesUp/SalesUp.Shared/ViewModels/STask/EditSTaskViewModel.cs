@@ -4,7 +4,7 @@ using SalesUp.Shared.ViewModels.Product;
 
 namespace SalesUp.Shared.ViewModels.STask;
 
-public class EditSTaskItemViewModel
+public class EditSTaskViewModel
 {
     public int Id { get; set; }
     public string Title { get; set; }
@@ -12,7 +12,6 @@ public class EditSTaskItemViewModel
     public DateTime ModifiedDate { get; set; }=DateTime.Now;
     public CustomerViewModel Customer { get; set; }
     public ProductViewModel Product { get; set; }
-    public TaskState TaskState { get; set; }
+    public bool IsCompleted { get; set; } = false;
     public string Note { get; set; }
-    public STaskViewModel STask { get; set; }
 }

@@ -68,7 +68,6 @@ public class AccountController : Controller
                     "SalesUp Üyelik Onayı",
                     $"<p>SalesUpApp uygulamasına üyeliğinizi onaylamak için aşağıdaki linke tıklayınız.</p><a href='https://localhost:5032{backUrl}'>ONAY LİNKİ</a>"
                 );*/
-                await _staskManager.InitializeSTaskAsync(user.Id);
 
                 _notyfService.Success("Üyeliğiniz başarıyla oluşturulmuştur. Mailinizi kontrol ederek üyeliğinizi onaylayabilirsiniz.", 10);
                 return Redirect("~/");
@@ -293,7 +292,6 @@ public class AccountController : Controller
         if(result.Succeeded)
         {
             //Bu kişi onaylı bir user olduğuna göre, bir shoppingcart oluşturuyoruz.
-            await _staskManager.InitializeSTaskAsync(userId);
             _notyfService.Information("Hesabınız başarıyla onaylanmıştır.");
             return RedirectToAction("Login");
         }

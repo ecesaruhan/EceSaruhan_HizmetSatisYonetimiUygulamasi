@@ -78,7 +78,6 @@ public static class ServiceCollectionExtension
         services.AddScoped<ICustomerRepository, CustomerRepository>();
         services.AddScoped<IMessageRepository, MessageRepository>();
         services.AddScoped<ISTaskRepository, STaskRepository>();
-        services.AddScoped<ISTaskItemRepository, STaskItemRepository>();
         services.AddScoped<ISaleRepository, SaleRepository>();
         services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
         services.AddScoped<IOrderRepository, OrderRepository>();
@@ -87,7 +86,6 @@ public static class ServiceCollectionExtension
         services.AddScoped<ICustomerService, CustomerManager>();
         services.AddScoped<IMessageService, MessageManager>();
         services.AddScoped<ISTaskService, STaskManager>();
-        services.AddScoped<ISTaskItemService, STaskItemManager>();
         services.AddScoped<ISaleService, SaleManager>();
         services.AddScoped<ISubscriptionService, SubscriptionManager>();
         services.AddScoped<IOrderService, OrderManager>();
