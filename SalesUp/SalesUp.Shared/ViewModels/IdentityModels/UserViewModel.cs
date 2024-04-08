@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using SalesUp.Shared.ViewModels.STask;
 
 namespace SalesUp.Shared.ViewModels.IdentityModels;
 
@@ -42,4 +43,6 @@ public class UserViewModel
     [DisplayName("Doğum Tarihi")]
     [Required(ErrorMessage = "{0} alanı boş bırakılamaz!")]
     public DateTime? DateOfBirth { get; set; }
+    
+    public List<STaskViewModel> TaskList { get; set; }
 }

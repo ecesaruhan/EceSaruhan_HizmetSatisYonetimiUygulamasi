@@ -7,12 +7,13 @@ namespace SalesUp.Business.Concrete;
 
 public class SubscriptionManager : ISubscriptionService
 {
-   private readonly MapperlyConfig _mapperly;
+   private readonly IMapper _mapper;
    private readonly ISubscriptionRepository _repository;
 
-   public SubscriptionManager(MapperlyConfig mapperly, ISubscriptionRepository repository)
+
+   public SubscriptionManager(IMapper mapper, ISubscriptionRepository repository)
    {
-      _mapperly = mapperly;
+      _mapper = mapper;
       _repository = repository;
    }
 }

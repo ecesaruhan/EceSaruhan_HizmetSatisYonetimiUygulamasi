@@ -15,21 +15,13 @@ public class STaskRepository : GenericRepository<STask>, ISTaskRepository
     {
         get{return _dbContext as SalesUpDbContext;}
     }
-
-
-    public async Task<List<STask>> GetTasksByUserIdAsync(string userId)
-    {
-        List<STask> taskList = await SalesUpDbContext
-            .Tasks
-            .Where(t => t.UserId == userId)
-            .ToListAsync();
-        return taskList;
-    }
+    
 
     public async Task DeleteAllAsync(string userId)
     {
         var deletedTaskList = await SalesUpDbContext
             .Tasks
+            .Include(x=>x.User)
             .Where(x => x.UserId == userId)
             .ToListAsync();
 

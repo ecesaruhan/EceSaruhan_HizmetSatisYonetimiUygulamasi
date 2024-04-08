@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using SalesUp.Shared.ComplexTypes;
 using SalesUp.Shared.ViewModels.Customer;
+using SalesUp.Shared.ViewModels.IdentityModels;
 using SalesUp.Shared.ViewModels.Product;
 
 namespace SalesUp.Shared.ViewModels.STask;
@@ -10,7 +11,7 @@ namespace SalesUp.Shared.ViewModels.STask;
 public class AddSTaskViewModel
 {
     [JsonPropertyName("Title")]
-    [DisplayName("�r�n")]
+    [DisplayName("Başlık")]
     [Required(ErrorMessage = "{0} alan� bo� b�rak�lamaz.")]
     [MinLength(5, ErrorMessage = "{0} alan�na uzunlu�u {1} karakterden k���k de�er girilemez.")]
     [MaxLength(100, ErrorMessage = "{0} alan�na uzunlu�u {1} karakterden b�y�k de�er girilemez.")]
@@ -25,13 +26,13 @@ public class AddSTaskViewModel
     [DisplayName("Düzenlenme Tarihi")]
     public DateTime ModifiedDate { get; set; }
     
-    [JsonPropertyName("Customer")]
+    [JsonPropertyName("CustomerName")]
     [DisplayName("Müşteri Bilgileri")]
-    public CustomerViewModel Customer { get; set; }
+    public string CustomerName { get; set; }
     
-    [JsonPropertyName("Product")]
+    [JsonPropertyName("ProductName")]
     [DisplayName("Ürün Bilgileri")]
-    public ProductViewModel Product { get; set; }
+    public string ProductName { get; set; }
     
     [JsonPropertyName("IsCompleted")]
     [DisplayName("Tamamlanmış Görev")]
@@ -40,4 +41,5 @@ public class AddSTaskViewModel
     [JsonPropertyName("Note")]
     [DisplayName("Görev Notları")]
     public string Note { get; set; }
+    public string UserId { get; set; }
 }

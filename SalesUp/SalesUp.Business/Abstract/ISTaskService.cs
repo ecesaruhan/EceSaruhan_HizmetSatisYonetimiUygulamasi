@@ -12,5 +12,5 @@ public interface ISTaskService
     Task<Response<List<STaskViewModel>>> GetTasksByUserIdAsync(string userId);
     Task<Response<NoContent>> DeleteAllAsync(string userId);
     Task<Response<NoContent>> UpdateIsCompletedAsync(int id);
-    Task<Response<List<STaskViewModel>>> GetAllNonCompletedAsync(bool isCompleted = false);
+    Task<Response<List<STaskViewModel>>> GetAllNonCompletedAsync(string userId, bool isCompleted = false);
 }

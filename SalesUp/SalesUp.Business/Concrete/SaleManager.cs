@@ -7,12 +7,13 @@ namespace SalesUp.Business.Concrete;
 
 public class SaleManager : ISaleService
 {
-   private readonly MapperlyConfig _mapperly;
+   private readonly IMapper _mapper;
    private readonly ISaleRepository _repository;
 
-   public SaleManager(MapperlyConfig mapperly, ISaleRepository repository)
+
+   public SaleManager(IMapper mapper, ISaleRepository repository)
    {
-      _mapperly = mapperly;
+      _mapper = mapper;
       _repository = repository;
    }
 }

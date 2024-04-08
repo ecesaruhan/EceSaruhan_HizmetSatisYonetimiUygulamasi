@@ -12,6 +12,6 @@ public class EditSTaskViewModel
     public DateTime ModifiedDate { get; set; }=DateTime.Now;
     public CustomerViewModel Customer { get; set; }
     public ProductViewModel Product { get; set; }
-    public bool IsCompleted { get; set; } = false;
+    public bool IsCompleted { get; set; }
     public string Note { get; set; }
 }

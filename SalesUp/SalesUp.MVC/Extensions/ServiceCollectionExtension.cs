@@ -94,11 +94,10 @@ public static class ServiceCollectionExtension
 
     public static IServiceCollection LoadMyOtherServices(this IServiceCollection services)
     {
-        services.AddScoped<MapperlyConfig>();
+        // services.AddScoped<MapperlyConfig>();
         
-        // services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        
         services.AddScoped<IEmailSender, EmailSender>(options=>new EmailSender(
             services.BuildServiceProvider().GetRequiredService<IConfiguration>()["EmailSender:Host"],
 

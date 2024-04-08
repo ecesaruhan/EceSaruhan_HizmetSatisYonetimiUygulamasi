@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using SalesUp.Business.Abstract;
 using SalesUp.Business.Mappings;
@@ -77,7 +78,10 @@ public class STaskManager : ISTaskService
 
     public async Task<Response<List<STaskViewModel>>> GetTasksByUserIdAsync(string userId)
     {
-        var taskList = await _repository.GetTasksByUserIdAsync(userId);
+        var taskList = await _repository.GetAllAsync(x=>x.UserId == userId,
+            source => source
+                .Include(x=>x.User)
+            );
         if (taskList == null)
         {
             return Response<List<STaskViewModel>>.Fail("Bu kullanıcıya ait görev bulunamadı.");
@@ -106,7 +110,7 @@ public class STaskManager : ISTaskService
         return Response<NoContent>.Success();
     }
 
-    public async Task<Response<List<STaskViewModel>>> GetAllNonCompletedAsync(bool isCompleted = false)
+    public async Task<Response<List<STaskViewModel>>> GetAllNonCompletedAsync(string userId,bool isCompleted = false)
     {
         var taskList = await _repository.GetAllAsync(t => t.IsCompleted == isCompleted);
         if (taskList == null)

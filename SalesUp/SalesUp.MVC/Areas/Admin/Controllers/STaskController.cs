@@ -1,11 +1,9 @@
-using System.Security.AccessControl;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SalesUp.Business.Abstract;
-using SalesUp.Business.Mappings;
 using SalesUp.Entity.Identity;
 using SalesUp.Shared.ResponseViewModels;
 using SalesUp.Shared.ViewModels.STask;
@@ -19,25 +17,23 @@ public class STaskController : Controller
     private readonly ISTaskService _taskManager;
     private readonly UserManager<User> _userManager;
     private readonly INotyfService _notyfService;
-    private readonly MapperlyConfig _mapperly;
+    private readonly IMapper _mapper;
     
     // GET
 
 
-    public STaskController(ISTaskService taskManager, UserManager<User> userManager, INotyfService notyfService, MapperlyConfig mapperly)
+    public STaskController(ISTaskService taskManager, UserManager<User> userManager, INotyfService notyfService, IMapper mapper)
     {
         _taskManager = taskManager;
         _userManager = userManager;
         _notyfService = notyfService;
-        _mapperly = mapperly;
+        _mapper = mapper;
     }
 
-    public async Task<IActionResult> Index(bool isCompleted = false)
+    public async Task<IActionResult> Index(string userId)
     {
-        Response<List<STaskViewModel>> result = await _taskManager.GetAllNonCompletedAsync(isCompleted);
-        ViewBag.ShowIsComplete = isCompleted;
-        return View(result.Data);
-
+        Response<List<STaskViewModel>> tasks = await _taskManager.GetTasksByUserIdAsync(userId);
+        return View(tasks.Data);
     }
 
     public async Task<IActionResult> UpdateIsCompleted(int id)
@@ -48,22 +44,26 @@ public class STaskController : Controller
     }
     public async Task<IActionResult> Create()
     {
-        AddSTaskViewModel model = new AddSTaskViewModel();
-        return View(model);
+        return View();
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(AddSTaskViewModel addTaskViewModel)
+    public async Task<IActionResult> Create(AddSTaskViewModel addSTaskViewModel)
     {
-        if (ModelState.IsValid)
-        {
-            var result = await _taskManager.CreateAsync(addTaskViewModel);
-            if(result.IsSucceeded) _notyfService.Success("Görev başarıyla kaydedildi.");
-            else _notyfService.Error(result.Error);
-            return RedirectToAction("Index");
+        var userId = _userManager.GetUserId(User);
+        addSTaskViewModel.UserId = userId;
+        
+            var result = await _taskManager.CreateAsync(addSTaskViewModel);
+            if (result.IsSucceeded)
+            {
+                _notyfService.Success("Görev başarıyla kaydedildi.");
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                _notyfService.Error(result.Error);
+                return View(addSTaskViewModel);
         }
-
-        return View(addTaskViewModel);
     }
     
 

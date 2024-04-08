@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SalesUp.Data.Concrete.Contexts;
 
@@ -10,9 +11,11 @@ using SalesUp.Data.Concrete.Contexts;
 namespace SalesUp.Data.Migrations
 {
     [DbContext(typeof(SalesUpDbContext))]
-    partial class SalesUpDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240404151139_InitialDb")]
+    partial class InitialDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.17");
@@ -102,28 +105,28 @@ namespace SalesUp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "a3b32648-8d9b-4b25-b56e-b0fedf403df7",
-                            RoleId = "f60ae262-7fad-4feb-a444-c0f4ba7a5970"
+                            UserId = "8bbbcd0a-9d46-4ca3-ab6d-19ffbd42cfe9",
+                            RoleId = "18643164-0a28-425b-a8fb-f716f3bfe28f"
                         },
                         new
                         {
-                            UserId = "39b0038d-6d80-4c97-92f7-e849f135b916",
-                            RoleId = "1e319729-8398-4c8a-840b-21dfde86b2fe"
+                            UserId = "cd358d60-d1ac-49a7-a278-f9f3d78f217e",
+                            RoleId = "fb6bca6d-2062-4d64-81b5-704c22bce215"
                         },
                         new
                         {
-                            UserId = "b7bc4a47-c784-4465-8dd6-247dc1f8ea76",
-                            RoleId = "e30502bd-2d08-46bd-a056-2c514bd77c8f"
+                            UserId = "14de594c-8182-4ed3-8377-f9a9e462798e",
+                            RoleId = "69666bc1-4018-4ee5-89ec-07d5db137c6b"
                         },
                         new
                         {
-                            UserId = "b7b3a155-6db0-420d-a63a-332b54f78e58",
-                            RoleId = "1e319729-8398-4c8a-840b-21dfde86b2fe"
+                            UserId = "f217abbc-8f4f-4d71-af00-89cd891f6b36",
+                            RoleId = "fb6bca6d-2062-4d64-81b5-704c22bce215"
                         },
                         new
                         {
-                            UserId = "cc679997-060c-4830-bcc2-ded96b0288bd",
-                            RoleId = "1e319729-8398-4c8a-840b-21dfde86b2fe"
+                            UserId = "6f2596c8-c0ea-4092-a8ee-cd416d94a452",
+                            RoleId = "fb6bca6d-2062-4d64-81b5-704c22bce215"
                         });
                 });
 
@@ -201,21 +204,21 @@ namespace SalesUp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e30502bd-2d08-46bd-a056-2c514bd77c8f",
+                            Id = "69666bc1-4018-4ee5-89ec-07d5db137c6b",
                             Description = "Yönetici haklarını taşıyan rol.",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         },
                         new
                         {
-                            Id = "1e319729-8398-4c8a-840b-21dfde86b2fe",
+                            Id = "fb6bca6d-2062-4d64-81b5-704c22bce215",
                             Description = "Satış Temsilcisi haklarını taşıyan rol.",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "f60ae262-7fad-4feb-a444-c0f4ba7a5970",
+                            Id = "18643164-0a28-425b-a8fb-f716f3bfe28f",
                             Description = "Müşteri haklarını taşıyan rol.",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
@@ -316,11 +319,11 @@ namespace SalesUp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a3b32648-8d9b-4b25-b56e-b0fedf403df7",
+                            Id = "8bbbcd0a-9d46-4ca3-ab6d-19ffbd42cfe9",
                             AccessFailedCount = 0,
                             Address = "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy",
                             City = "İstanbul",
-                            ConcurrencyStamp = "95f42eb3-11ff-4fed-a055-c948a35bdfe8",
+                            ConcurrencyStamp = "98a38b93-3db9-4a50-a9a1-f5422da1be6b",
                             DateofBirth = new DateTime(1992, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "deryademir@gmail.com",
                             EmailConfirmed = true,
@@ -330,21 +333,21 @@ namespace SalesUp.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DERYADEMIR@GMAIL.COM",
                             NormalizedUserName = "DERYADEMIR",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAU6xbSZPFgkqJC76x9XxDMkmA9d0Irq+pSjie1G6WVWRuxmn62mGr+Gs75gupN81A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEITzuZyy4HZU2Kx3NsevISp71SOapngokFXQ7w208o6wYbvgNVDfpInevkbc9Ga86A==",
                             PhoneNumber = "5547659843",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4593e52f-d8d1-4323-8b0c-e316dc4c4649",
+                            SecurityStamp = "63adaf42-fcbf-47c7-bf96-b4cb8d37172a",
                             SubscriptionId = 2,
                             TwoFactorEnabled = false,
                             UserName = "deryademir"
                         },
                         new
                         {
-                            Id = "39b0038d-6d80-4c97-92f7-e849f135b916",
+                            Id = "cd358d60-d1ac-49a7-a278-f9f3d78f217e",
                             AccessFailedCount = 0,
                             Address = "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy",
                             City = "İstanbul",
-                            ConcurrencyStamp = "12dd4bf7-2c16-4640-a2b5-e7e5da7e0604",
+                            ConcurrencyStamp = "171e5f73-7b0f-4452-87c5-f65919b5d4a2",
                             DateofBirth = new DateTime(1990, 3, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "kadirdevran@gmail.com",
                             EmailConfirmed = true,
@@ -354,21 +357,21 @@ namespace SalesUp.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KADIRDEVRAN@GMAIL.COM",
                             NormalizedUserName = "KADIRDEVRAN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJMGyqmypap8/4OAxT/+AZRL9Leo+tRO5HOaYPoNfucA3AveuZg6moNMbIco4Nl/7g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOZad04POBgvGxqVxVhRowZsDSaaqN9zQg3j5x7QPBn2ODUtP9MAmfXex+MfU634GQ==",
                             PhoneNumber = "5341459340",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3a5fa73d-0b6c-4fa5-84fe-44dc2e12339f",
+                            SecurityStamp = "d998c3b0-4686-4eae-bb52-bbb2823873b0",
                             SubscriptionId = 2,
                             TwoFactorEnabled = false,
                             UserName = "kadirdevran"
                         },
                         new
                         {
-                            Id = "b7bc4a47-c784-4465-8dd6-247dc1f8ea76",
+                            Id = "14de594c-8182-4ed3-8377-f9a9e462798e",
                             AccessFailedCount = 0,
                             Address = "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy",
                             City = "İstanbul",
-                            ConcurrencyStamp = "3706e387-5f80-478a-a705-cc04d5a7d1e0",
+                            ConcurrencyStamp = "86463942-5cea-455d-95e3-f2deeaa1a535",
                             DateofBirth = new DateTime(1983, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ferdabayar@gmail.com",
                             EmailConfirmed = true,
@@ -378,21 +381,21 @@ namespace SalesUp.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "FERDABAYAR@GMAIL.COM",
                             NormalizedUserName = "FERDABAYAR",
-                            PasswordHash = "AQAAAAIAAYagAAAAEL1gse73rvjV38CFOZkSKDyVaVyME4RDmVlTFyfmkTGGNXy22OEiazzSdpZufUgUkA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMo9X0jhzVdAyrBle1qHk6CpQQNJ/PcK0uK1AyhSVwSZJbtIfaoSf+u/e6gBJswl2Q==",
                             PhoneNumber = "5053211815",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2bdbfc10-71ed-4cf5-8953-d2be53341b54",
+                            SecurityStamp = "5d87695d-1dba-4070-9010-936cd8ab6e5a",
                             SubscriptionId = 3,
                             TwoFactorEnabled = false,
                             UserName = "ferdabayar"
                         },
                         new
                         {
-                            Id = "b7b3a155-6db0-420d-a63a-332b54f78e58",
+                            Id = "f217abbc-8f4f-4d71-af00-89cd891f6b36",
                             AccessFailedCount = 0,
                             Address = "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy",
                             City = "İstanbul",
-                            ConcurrencyStamp = "0f977640-b482-4cde-ae37-04cad72d4ff6",
+                            ConcurrencyStamp = "d760e07c-bcc2-4910-b739-b3487215b21a",
                             DateofBirth = new DateTime(1970, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "niluferozdemir@gmail.com",
                             EmailConfirmed = true,
@@ -402,21 +405,21 @@ namespace SalesUp.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "NILUFEROZDEMIR@GMAIL.COM",
                             NormalizedUserName = "NILUFEROZDEMIR",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEhWwl9FPtBr5KUo8cCpxG2FzHgb74zCrh1Pz5T1BRXTpe2vD3hh0cr98GdnhKK8Tw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEeYPOeaIsVgi1P+3KWaGcKc6Buhc2ZUbL8OSxohVgtMu2qaSbx6lRuN9+VI6H4g1g==",
                             PhoneNumber = "5383458090",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9753c45b-1b9b-40f1-bbc3-1fcdd43a680b",
+                            SecurityStamp = "5516fd64-4ca9-48e1-ac85-7b0b41b60be5",
                             SubscriptionId = 2,
                             TwoFactorEnabled = false,
                             UserName = "niluferozdemir"
                         },
                         new
                         {
-                            Id = "cc679997-060c-4830-bcc2-ded96b0288bd",
+                            Id = "6f2596c8-c0ea-4092-a8ee-cd416d94a452",
                             AccessFailedCount = 0,
                             Address = "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy",
                             City = "İstanbul",
-                            ConcurrencyStamp = "35ad5af6-1cbc-4ee6-a1bb-5e46b325a3cf",
+                            ConcurrencyStamp = "4c73c412-0eaf-4611-8c6e-d65a1e70ba61",
                             DateofBirth = new DateTime(1989, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "canyener@gmail.com",
                             EmailConfirmed = true,
@@ -426,10 +429,10 @@ namespace SalesUp.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CANYENER@GMAIL.COM",
                             NormalizedUserName = "CANYENER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKtqPpdb2ZHt6jyppVXs5Hw0bV7nkw2qS+rjcxigO3l8oA7Lh5V0bJZY8rXEMmx19g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEP4YcuE0wFMNNxs8oBD0uzA2KCOxY9i2lznwEEhbRSkUy15hsvfNQvdTsu5Bm8hBOg==",
                             PhoneNumber = "5350931264",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d3c06aff-ce7f-4392-b1af-abdb337c93f4",
+                            SecurityStamp = "eeaa4788-25b9-4739-b478-f1c8b48a65bb",
                             SubscriptionId = 3,
                             TwoFactorEnabled = false,
                             UserName = "canyener"
@@ -624,12 +627,23 @@ namespace SalesUp.Data.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("CustomerName")
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("IsCompleted")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("TEXT");
@@ -638,7 +652,13 @@ namespace SalesUp.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("ProductName")
+                    b.Property<int>("ProductId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("RoleId")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -651,6 +671,12 @@ namespace SalesUp.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("RoleId");
 
                     b.HasIndex("UserId");
 
@@ -752,7 +778,7 @@ namespace SalesUp.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 4, 4, 19, 43, 56, 256, DateTimeKind.Local).AddTicks(8840),
+                            CreatedDate = new DateTime(2024, 4, 4, 18, 11, 39, 742, DateTimeKind.Local).AddTicks(80),
                             Description = "Her hafta düzenli olarak ödenecek olan abonelik sistemidir.",
                             Duration = 1,
                             DurationUnit = "Hafta",
@@ -760,12 +786,12 @@ namespace SalesUp.Data.Migrations
                             Name = "Haftalık Abonelik",
                             Price = 500m,
                             SubscriptionType = 0,
-                            UpdateDate = new DateTime(2024, 4, 4, 19, 43, 56, 256, DateTimeKind.Local).AddTicks(8910)
+                            UpdateDate = new DateTime(2024, 4, 4, 18, 11, 39, 742, DateTimeKind.Local).AddTicks(120)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 4, 4, 19, 43, 56, 256, DateTimeKind.Local).AddTicks(8920),
+                            CreatedDate = new DateTime(2024, 4, 4, 18, 11, 39, 742, DateTimeKind.Local).AddTicks(130),
                             Description = "Her ay düzenli olarak ödenecek olan abonelik sistemidir.",
                             Duration = 1,
                             DurationUnit = "Ay",
@@ -773,12 +799,12 @@ namespace SalesUp.Data.Migrations
                             Name = "Aylık Abonelik",
                             Price = 1500m,
                             SubscriptionType = 1,
-                            UpdateDate = new DateTime(2024, 4, 4, 19, 43, 56, 256, DateTimeKind.Local).AddTicks(8920)
+                            UpdateDate = new DateTime(2024, 4, 4, 18, 11, 39, 742, DateTimeKind.Local).AddTicks(130)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 4, 4, 19, 43, 56, 256, DateTimeKind.Local).AddTicks(8920),
+                            CreatedDate = new DateTime(2024, 4, 4, 18, 11, 39, 742, DateTimeKind.Local).AddTicks(130),
                             Description = "Her yıl düzenli olarak ödenecek olan abonelik sistemidir.",
                             Duration = 1,
                             DurationUnit = "Yıl",
@@ -786,7 +812,7 @@ namespace SalesUp.Data.Migrations
                             Name = "Yıllık Abonelik",
                             Price = 5000m,
                             SubscriptionType = 2,
-                            UpdateDate = new DateTime(2024, 4, 4, 19, 43, 56, 256, DateTimeKind.Local).AddTicks(8930)
+                            UpdateDate = new DateTime(2024, 4, 4, 18, 11, 39, 742, DateTimeKind.Local).AddTicks(140)
                         });
                 });
 
@@ -909,11 +935,35 @@ namespace SalesUp.Data.Migrations
 
             modelBuilder.Entity("SalesUp.Entity.STask", b =>
                 {
+                    b.HasOne("SalesUp.Entity.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SalesUp.Entity.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SalesUp.Entity.Identity.Role", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("SalesUp.Entity.Identity.User", "User")
                         .WithMany("STaskList")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Role");
 
                     b.Navigation("User");
                 });

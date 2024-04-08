@@ -7,14 +7,8 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body row justify-content-between align-items-center">
-                        <div class="text-danger font-weight-bold display-4 mx-3 p-0">Görevlerim @(ViewBag.ShowIsCompleted ? "Tamamlananlar" : "Devam Edenler")</div>
+                        <div class="text-danger font-weight-bold display-4 mx-3 p-0">Görevlerim</div>
                         <div>
-                            <a 
-                                asp-area="Admin"
-                                asp-controller="STask"
-                                asp-action="Index"
-                                asp-route-isCompleted="@(!ViewBag.ShowIsCompleted)" class="btn btn-sm @(ViewBag.ShowIsCompleted ? "btn-info" : "btn-success")">@(ViewBag.ShowIsCompleted ? "Devam Eden Görevler" : "Tamamlananlar")
-                            </a>
                             <a
                                 asp-area="Admin"
                                 asp-controller="STask"
@@ -28,25 +22,14 @@
                                         <ul>
                                             @foreach (var task in Model)
                                             {
-                                              
                                                 <li>
-                                                    @if (!ViewBag.ShowIsCompleted)
-                                                    {
                                                         <label class="form-check-label"></label>
                                                         <input type="text" class="form-control" placeholder="@task.Title" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                                    }
-                                                    else
-                                                    {
-                                                        <label class="form-check-label"></label>
-                                                        <input type="text" class="form-control" placeholder="@task.Title" aria-label="Example text with button addon" aria-describedby="button-addon1" disabled>
-                                                    }
                                                     
                                                     <div class="custom-control custom-switch">
-                                                        <input onchange="changeIsCompleted(this,  '@task.Id');" type="checkbox" class="custom-control-input" id="isCompleted_@task.Id" asp-for="@task.IsCompleted"/>
+                                                        <input onchange="changeIsCompleted(this,'@task.Id');" type="checkbox" class="custom-control-input" id="isCompleted_@task.Id" asp-for="@task.IsCompleted"/>
                                                         <label class="custom-control-label" for="isCompleted_@task.Id"></label>
                                                     </div>
-                                                    @if (!ViewBag.ShowIsCompleted)
-                                                    {
                                                         <a
                                                             asp-area="Admin"
                                                             asp-controller="STask"
@@ -60,19 +43,7 @@
                                                             asp-route-id="@task.Id"
                                                             class="fa fa-edit text-warning" style="font-size: 25px"></a>
                                                     }
-                                                    else
-                                                    {
-                                                        <a
-                                                            asp-area="Admin"
-                                                            asp-controller="STask"
-                                                            asp-action="HardDelete"
-                                                            asp-route-id="@task.Id"
-                                                            class="fa fa-trash text-danger" style="font-size: 25px; margin-left: 20px"></a>
-                                                    }
-
                                                 </li> 
-                                                    
-                                             
                                             }
                                             
                                         </ul>
@@ -102,4 +73,5 @@
             });
         };
         </script>
+}
 

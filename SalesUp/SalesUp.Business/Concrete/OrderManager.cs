@@ -9,13 +9,13 @@ namespace SalesUp.Business.Concrete;
 
 public class OrderManager : IOrderService
 {
-    private readonly MapperlyConfig _mapperly;
+    private readonly IMapper _mapper;
     private readonly IOrderRepository _repository;
 
 
-    public OrderManager(MapperlyConfig mapperly, IOrderRepository repository)
+    public OrderManager(IMapper mapper, IOrderRepository repository)
     {
-        _mapperly = mapperly;
+        _mapper = mapper;
         _repository = repository;
     }
 
