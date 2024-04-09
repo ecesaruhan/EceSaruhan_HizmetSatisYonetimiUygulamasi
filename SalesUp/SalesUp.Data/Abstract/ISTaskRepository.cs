@@ -4,5 +4,5 @@ namespace SalesUp.Data.Abstract;
 
 public interface ISTaskRepository : IGenericRepository<STask>
 {
-    Task DeleteAllAsync(string userId);
+    Task DeleteAllAsync(int userId);
 }

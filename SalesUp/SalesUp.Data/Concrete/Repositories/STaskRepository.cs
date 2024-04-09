@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using SalesUp.Data.Abstract;
 using SalesUp.Data.Concrete.Contexts;
 using SalesUp.Entity;
+using SalesUp.Entity.Identity;
 
 namespace SalesUp.Data.Concrete.Repositories;
 
@@ -16,8 +17,8 @@ public class STaskRepository : GenericRepository<STask>, ISTaskRepository
         get{return _dbContext as SalesUpDbContext;}
     }
     
-
-    public async Task DeleteAllAsync(string userId)
+    
+    public async Task DeleteAllAsync(int userId)
     {
         var deletedTaskList = await SalesUpDbContext
             .Tasks

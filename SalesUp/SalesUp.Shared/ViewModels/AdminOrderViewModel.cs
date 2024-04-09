@@ -8,7 +8,6 @@ public class AdminOrderViewModel
         public DateTime OrderDate { get; set; }
         public string UserId { get; set; }
         public string UserName { get; set; }
-        public string OrderState { get; set; }
 
         public List<AdminOrderDetailViewModel> OrderDetails { get; set; }
 

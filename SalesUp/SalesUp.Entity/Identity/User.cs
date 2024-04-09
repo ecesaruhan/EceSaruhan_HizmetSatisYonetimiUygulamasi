@@ -13,6 +13,7 @@ public class User:IdentityUser
     
     public int SubscriptionId { get; set; }
     public Subscription Subscription { get; set; }
+    
     public List<STask> STaskList { get; set; }
 
 

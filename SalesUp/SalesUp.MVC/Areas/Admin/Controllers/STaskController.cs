@@ -30,7 +30,7 @@ public class STaskController : Controller
         _mapper = mapper;
     }
 
-    public async Task<IActionResult> Index(string userId)
+    public async Task<IActionResult> Index(int userId)
     {
         Response<List<STaskViewModel>> tasks = await _taskManager.GetTasksByUserIdAsync(userId);
         return View(tasks.Data);
@@ -103,7 +103,7 @@ public class STaskController : Controller
         _notyfService.Success("Görev başarıyla silinmiştir.");
     }
 
-    public async Task DeleteAllTasks(string userId)
+    public async Task DeleteAllTasks(int userId)
     {
         await _taskManager.DeleteAllAsync(userId);
         _notyfService.Success("Tüm görevler başarıyla silinmiştir.");

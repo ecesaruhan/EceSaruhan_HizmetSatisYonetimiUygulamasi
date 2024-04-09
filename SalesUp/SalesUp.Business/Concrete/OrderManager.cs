@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using SalesUp.Business.Abstract;
 using SalesUp.Business.Mappings;
 using SalesUp.Data.Abstract;
@@ -24,28 +25,41 @@ public class OrderManager : IOrderService
         await _repository.CreateAsync(order);
     }
 
-    public Task<List<AdminOrderViewModel>> GetOrdersAsync()
+    public async Task<List<AdminOrderViewModel>> GetOrdersAsync()
     {
-        throw new NotImplementedException();
+        var orders = await _repository.GetAllAsync(null,
+            source => source
+                .Include(x => x.OrderDetails)
+                .ThenInclude(y => y.Subscription)
+                .Include(x => x.User));
+        var result = _mapper.Map<List<AdminOrderViewModel>>(orders);
+        return result;
     }
 
-    public Task<List<AdminOrderViewModel>> GetOrdersAsync(string userId)
+    public async Task<List<AdminOrderViewModel>> GetOrdersAsync(string userId)
     {
-        throw new NotImplementedException();
+        var orders = await _repository.GetAllAsync(x => x.UserId == userId,
+            source => source
+                .Include(x => x.OrderDetails)
+                .ThenInclude(y => y.Subscription));
+            var result = _mapper.Map<List<AdminOrderViewModel>>(orders);
+            return result;
     }
 
-    public Task<List<AdminOrderViewModel>> GetOrdersAsync(int productId)
+    public async Task<List<AdminOrderViewModel>> GetOrdersAsync(int subscriptionId)
     {
-        throw new NotImplementedException();
+        var orders = await _repository.GetAllOrdersBySubscriptionIdAsync(subscriptionId);
+        var result = _mapper.Map<List<AdminOrderViewModel>>(orders);
+        return result;
     }
 
-    public Task<AdminOrderViewModel> GetOrderAsync(int orderId)
+    public async Task<AdminOrderViewModel> GetOrderAsync(int orderId)
     {
-        throw new NotImplementedException();
-    }
-
-    public Task CancelOrder(int orderId)
-    {
-        throw new NotImplementedException();
+        var order = await _repository.GetByIdAsync(x => x.Id == orderId,
+            source => source
+                .Include(x => x.OrderDetails)
+                .ThenInclude(y => y.Subscription));
+        var result = _mapper.Map<AdminOrderViewModel>(order);
+        return result;
     }
 }

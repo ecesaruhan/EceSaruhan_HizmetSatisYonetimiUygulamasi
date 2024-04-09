@@ -21,6 +21,7 @@ public class OrderController : Controller
 
     public async Task<IActionResult> Index()
     {
-        return View();
+        var orders = await _orderManager.GetOrdersAsync();
+        return View(orders);
     }
 }

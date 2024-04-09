@@ -12,18 +12,13 @@ namespace SalesUp.Business.Concrete;
 
 public class STaskManager : ISTaskService
 {
-    private readonly MapperlyConfig _mapperly;
+    private readonly IMapper _mapper;
     private readonly ISTaskRepository _repository;
-
-    public STaskManager(MapperlyConfig mapperly, ISTaskRepository repository)
-    {
-        _mapperly = mapperly;
-        _repository = repository;
-    }
+    
 
     public async Task<Response<STaskViewModel>> CreateAsync(AddSTaskViewModel addSTaskViewModel)
     {
-        var task = _mapperly.AddSTaskViewModelToSTask(addSTaskViewModel);
+        var task = _mapper.Map<STask>(addSTaskViewModel);
         task.CreatedDate = DateTime.Now;
         task.ModifiedDate = DateTime.Now;
         task.IsCompleted = false;
@@ -34,20 +29,20 @@ public class STaskManager : ISTaskService
         }
 
         await _repository.UpdateAsync(createdTask);
-        var taskViewModel = _mapperly.STaskToSTaskViewModel(createdTask);
+        var taskViewModel = _mapper.Map<STaskViewModel>(createdTask);
         return Response<STaskViewModel>.Success(taskViewModel);
     }
 
     public async Task<Response<STaskViewModel>> UpdateAsync(EditSTaskViewModel editSTaskViewModel)
     {
-        var editedTask = _mapperly.EditSTaskViewModelToSTask(editSTaskViewModel);
+        var editedTask = _mapper.Map<STask>(editSTaskViewModel);
         if (editedTask == null)
         {
             return Response<STaskViewModel>.Fail("İlgili görev bulunamadı");
         }
         editedTask.ModifiedDate = DateTime.Now;
         await _repository.UpdateAsync(editedTask);
-        var taskViewModel = _mapperly.STaskToSTaskViewModel(editedTask);
+        var taskViewModel = _mapper.Map<STaskViewModel>(editSTaskViewModel);
         return Response<STaskViewModel>.Success(taskViewModel);
 
     }
@@ -72,26 +67,25 @@ public class STaskManager : ISTaskService
             return Response<STaskViewModel>.Fail("İlgili görev bulunamadı.");
         }
 
-        var taskViewModel = _mapperly.STaskToSTaskViewModel(task);
+        var taskViewModel = _mapper.Map<STaskViewModel>(task);
         return Response<STaskViewModel>.Success(taskViewModel);
     }
 
-    public async Task<Response<List<STaskViewModel>>> GetTasksByUserIdAsync(string userId)
+    public async Task<Response<List<STaskViewModel>>> GetTasksByUserIdAsync(int userId)
     {
-        var taskList = await _repository.GetAllAsync(x=>x.UserId == userId,
+        var taskList = await _repository.GetAllAsync(x => x.UserId == userId,
             source => source
-                .Include(x=>x.User)
-            );
-        if (taskList == null)
+                .Include(x=>x.User));
+        if (taskList.Count == 0)
         {
             return Response<List<STaskViewModel>>.Fail("Bu kullanıcıya ait görev bulunamadı.");
         }
 
-        var taskListViewModel = _mapperly.STaskListToSTaskListViewModel(taskList);
+        var taskListViewModel = _mapper.Map<List<STaskViewModel>>(taskList);
         return Response<List<STaskViewModel>>.Success(taskListViewModel);
     }
 
-    public async Task<Response<NoContent>> DeleteAllAsync(string userId)
+    public async Task<Response<NoContent>> DeleteAllAsync(int userId)
     {
         await _repository.DeleteAllAsync(userId);
         return Response<NoContent>.Success();
@@ -110,16 +104,16 @@ public class STaskManager : ISTaskService
         return Response<NoContent>.Success();
     }
 
-    public async Task<Response<List<STaskViewModel>>> GetAllNonCompletedAsync(string userId,bool isCompleted = false)
+    public async Task<Response<List<STaskViewModel>>> GetAllNonCompletedAsync(int userId,bool isCompleted = false)
     {
         var taskList = await _repository.GetAllAsync(t => t.IsCompleted == isCompleted);
-        if (taskList == null)
+        if (taskList.Count == 0)
         {
             return Response<List<STaskViewModel>>.Fail("Hiç görev bulunamadı.");
             
         }
 
-        var taskListViewModel = _mapperly.STaskListToSTaskListViewModel(taskList);
+        var taskListViewModel = _mapper.Map<List<STaskViewModel>>(taskList);
         return Response<List<STaskViewModel>>.Success(taskListViewModel);
     }
 }
