@@ -48,7 +48,7 @@ public class STaskManager : ISTaskService
         }
         editedTask.ModifiedDate = DateTime.Now;
         await _repository.UpdateAsync(editedTask);
-        var taskViewModel = _mapper.Map<STaskViewModel>(editSTaskViewModel);
+        var taskViewModel = _mapper.Map<STaskViewModel>(editedTask);
         return Response<STaskViewModel>.Success(taskViewModel);
 
     }

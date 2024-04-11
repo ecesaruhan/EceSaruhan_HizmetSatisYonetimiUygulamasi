@@ -4,7 +4,7 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-header">
-            <h3>Yeni Görev Ekle</h3>
+            <h3>Görevi Düzenle</h3>
         </div>
         <div class="card-body card-block">
             <form
@@ -29,13 +29,19 @@
                     <div class="col col-md-2"><label asp-for="ProductName" class=" form-control-label"></label></div>
                     <div class="col-12 col-md-10"><input asp-for="ProductName" type="text" placeholder="Ürün Bilgisi Giriniz..." class="form-control"></div>
                 </div>
+                
+                <div class="row form-group d-none">
+                    <div class="col col-md-2"><label asp-for="UserId" class=" form-control-label"></label></div>
+                    <div class="col-12 col-md-10"><input asp-for="UserId" type="text" placeholder="Ürün Bilgisi Giriniz..." class="form-control"></div>
+                    </div>
+                
        
                 <div class="row form-group">
                     <div class="col col-md-2"><label asp-for="Note" class=" form-control-label"></label></div>
                     <div class="col-12 col-md-10"><textarea asp-for="Note" rows="9" placeholder="Görev Detayını Giriniz..." class="form-control"></textarea></div>
                 </div>
                 
-                <button class="btn btn-success" type="submit">Kaydet</button>
+                <button class="btn btn-success" type="submit">Değişiklikleri Kaydet</button>
             </form>
         </div>
     </div>

@@ -74,7 +74,7 @@ public class STaskController : Controller
     {
         var task = await _taskManager.GetByIdAsync(id);
         var userId = _userManager.GetUserId(User);
-        task.Data.UserId = userId;
+        // task.Data.UserId = userId;
         STaskViewModel taskViewModel = task.Data;
         EditSTaskViewModel model = new EditSTaskViewModel
         {
@@ -86,6 +86,7 @@ public class STaskController : Controller
             ProductName = taskViewModel.ProductName,
             CreatedDate = taskViewModel.CreatedDate,
             ModifiedDate = taskViewModel.ModifiedDate,
+            UserId = taskViewModel.UserId
         };
         return View(model);
     }
@@ -98,23 +99,25 @@ public class STaskController : Controller
             {
                 _notyfService.Success("Ürün başarıyla güncellenmiştir.");
                 return RedirectToAction("Index");
+            }else
+            {
+                _notyfService.Error(result.Error);
+                return View(editSTaskViewModel);
             }
-             
-            else _notyfService.Error(result.Error);
-        
-        return View(editSTaskViewModel);
     }
 
-    public async Task HardDelete(int id)
+    public async Task<IActionResult> HardDelete(int id)
     {
         await _taskManager.HardDeleteAsync(id);
         _notyfService.Success("Görev başarıyla silinmiştir.");
+        return RedirectToAction("Index");
     }
 
-    public async Task DeleteAllTasks()
+    public async Task<IActionResult> DeleteAllTasks()
     {
         var userId = _userManager.GetUserId(User);
         await _taskManager.DeleteAllAsync(userId);
         _notyfService.Success("Tüm görevler başarıyla silinmiştir.");
+        return RedirectToAction("Index");
     }
 }
