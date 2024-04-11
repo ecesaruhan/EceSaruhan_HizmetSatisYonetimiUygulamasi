@@ -15,4 +15,5 @@ public class STaskViewModel
     public string ProductName { get; set; }
     public bool IsCompleted { get; set; }
     public string Note { get; set; }
+    public string UserId { get; set; }
 }

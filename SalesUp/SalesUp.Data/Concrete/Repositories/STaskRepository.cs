@@ -8,17 +8,13 @@ namespace SalesUp.Data.Concrete.Repositories;
 
 public class STaskRepository : GenericRepository<STask>, ISTaskRepository
 {
-    public STaskRepository(SalesUpDbContext _context) : base(_context)
+    public STaskRepository(SalesUpDbContext context) : base(context)
     {
     }
 
-    private SalesUpDbContext SalesUpDbContext
-    {
-        get{return _dbContext as SalesUpDbContext;}
-    }
-    
-    
-    public async Task DeleteAllAsync(int userId)
+    private SalesUpDbContext? SalesUpDbContext => DbContext as SalesUpDbContext;
+
+    public async Task DeleteAllAsync(string userId)
     {
         var deletedTaskList = await SalesUpDbContext
             .Tasks
@@ -29,4 +25,6 @@ public class STaskRepository : GenericRepository<STask>, ISTaskRepository
         SalesUpDbContext.Tasks.RemoveRange(deletedTaskList);
         await SalesUpDbContext.SaveChangesAsync();
     }
+
+   
 }

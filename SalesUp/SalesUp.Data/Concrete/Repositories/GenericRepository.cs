@@ -7,16 +7,16 @@ namespace SalesUp.Data.Concrete.Repositories;
 
 public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
 {
-    protected readonly DbContext _dbContext;
+    protected readonly DbContext DbContext;
 
     public GenericRepository(DbContext dbContext)
     {
-        _dbContext = dbContext;
+        DbContext = dbContext;
     }
     
     public async Task<TEntity> GetByIdAsync(Expression<Func<TEntity, bool>> options = null, Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null)
     {
-        IQueryable<TEntity> query = _dbContext.Set<TEntity>();
+        IQueryable<TEntity> query = DbContext.Set<TEntity>();
         {
             if (include != null)
             {
@@ -32,7 +32,7 @@ public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEnt
 
     public async Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> options = null, Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null)
     {
-        IQueryable<TEntity> query = _dbContext.Set<TEntity>();
+        IQueryable<TEntity> query = DbContext.Set<TEntity>();
         {
             if (include != null)
             {
@@ -48,33 +48,33 @@ public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEnt
 
     public async Task<TEntity> CreateAsync(TEntity entity)
     {
-        await _dbContext
+        await DbContext
             .Set<TEntity>()
             .AddAsync(entity);
-        await _dbContext
+        await DbContext
             .SaveChangesAsync();
         return entity;
     }
 
     public async Task UpdateAsync(TEntity entity)
     {
-        _dbContext
+        DbContext
             .Set<TEntity>()
             .Update(entity);
-        await _dbContext.SaveChangesAsync();
+        await DbContext.SaveChangesAsync();
     }
 
     public async Task HardDeleteAsync(TEntity entity)
     {
-        _dbContext
+        DbContext
             .Set<TEntity>()
             .Remove(entity);
-        await _dbContext.SaveChangesAsync();
+        await DbContext.SaveChangesAsync();
     }
 
     public async Task<int> GetCount(Expression<Func<TEntity, bool>> options = null, Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null)
     {
-        IQueryable<TEntity> query = _dbContext.Set<TEntity>();
+        IQueryable<TEntity> query = DbContext.Set<TEntity>();
         if (include != null)
         {
             query = include(query);

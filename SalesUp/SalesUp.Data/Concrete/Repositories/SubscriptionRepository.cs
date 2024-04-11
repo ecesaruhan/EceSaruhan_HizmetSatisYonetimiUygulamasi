@@ -6,12 +6,12 @@ namespace SalesUp.Data.Concrete.Repositories;
 
 public class SubscriptionRepository : GenericRepository<Subscription>, ISubscriptionRepository
 {
-    public SubscriptionRepository(SalesUpDbContext _context) : base(_context)
+    public SubscriptionRepository(SalesUpDbContext context) : base(context)
     {
     }
 
     private SalesUpDbContext SalesUpDbContext
     {
-        get{return _dbContext as SalesUpDbContext;}
+        get{return DbContext as SalesUpDbContext;}
     }
 }

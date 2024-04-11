@@ -17,35 +17,40 @@
                         </div>
                         <div class="card-content col-md-12">
                             <div class="todo-list">
-                                <div class="tdl-holder">
-                                    <div class="tdl-content">
                                         <ul>
-                                            @foreach (var task in Model)
+                                            @if (Model == null)
                                             {
-                                                <li>
-                                                        <label class="form-check-label"></label>
-                                                        <input type="text" class="form-control" placeholder="@task.Title" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                                    
-                                                    <div class="custom-control custom-switch">
-                                                        <input onchange="changeIsCompleted(this,'@task.Id');" type="checkbox" class="custom-control-input" id="isCompleted_@task.Id" asp-for="@task.IsCompleted"/>
-                                                        <label class="custom-control-label" for="isCompleted_@task.Id"></label>
-                                                    </div>
-                                                        <a
+                                                <div class="alert alert-warning" role="alert">
+                                                    Henüz bir göreviniz bulunmamaktadır.
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                    @foreach (var task in Model)
+                                            {
+                                                <li class="d-flex align-items-center justify-content-between mt-3">
+                                                
+                                                    <input onchange="changeIsCompleted(this,'@task.Id');" type="checkbox" class="custom-control-input" id="isCompleted_@task.Id" asp-for="@task.IsCompleted"/>
+                                                    <label class="custom-control-label" for="isCompleted_@task.Id"></label>
+                                               
+                                                    <input type="text" class="form-control" placeholder="@task.Title" aria-label="Example text with button addon" aria-describedby="button-addon1" disabled>
+                                       
+                                                <a
                                                             asp-area="Admin"
                                                             asp-controller="STask"
                                                             asp-action="HardDelete"
                                                             asp-route-id="@task.Id"
                                                             class="fa fa-trash text-danger" style="font-size: 25px; margin-left: 20px"></a>
-                                                        <a
-                                                            asp-area="Admin"
-                                                            asp-controller="STask"
-                                                            asp-action="Edit"
-                                                            asp-route-id="@task.Id"
-                                                            class="fa fa-edit text-warning" style="font-size: 25px"></a>
-                                                    }
-                                                </li> 
-                                            }
+                                                    <a
+                                                        asp-area="Admin"
+                                                        asp-controller="STask"
+                                                        asp-action="Edit"
+                                                        asp-route-id="@task.Id"
+                                                        class="fa fa-edit text-warning" style="font-size: 25px; margin-left: 20px"></a>
                                             
+                                                </li>
+                                            }
+                                            }
                                         </ul>
                                     </div>
                                 </div>
@@ -54,8 +59,7 @@
                     </div> <!-- /.card-body -->
                 </div><!-- /.card -->
             </div>
-        </div>
-</div>  
+
 
 
 @section Scripts{

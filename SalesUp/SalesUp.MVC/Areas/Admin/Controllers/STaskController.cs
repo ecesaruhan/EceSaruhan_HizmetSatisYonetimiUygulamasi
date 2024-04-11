@@ -30,9 +30,10 @@ public class STaskController : Controller
         _mapper = mapper;
     }
 
-    public async Task<IActionResult> Index(int userId)
+    public async Task<IActionResult> Index()
     {
-        Response<List<STaskViewModel>> tasks = await _taskManager.GetTasksByUserIdAsync(userId);
+        var userId = _userManager.GetUserId(User);
+        var tasks = await _taskManager.GetTasksByUserIdAsync(userId);
         return View(tasks.Data);
     }
 
@@ -44,6 +45,7 @@ public class STaskController : Controller
     }
     public async Task<IActionResult> Create()
     {
+        
         return View();
     }
 
@@ -71,6 +73,8 @@ public class STaskController : Controller
     public async Task<IActionResult> Edit(int id)
     {
         var task = await _taskManager.GetByIdAsync(id);
+        var userId = _userManager.GetUserId(User);
+        task.Data.UserId = userId;
         STaskViewModel taskViewModel = task.Data;
         EditSTaskViewModel model = new EditSTaskViewModel
         {
@@ -78,8 +82,10 @@ public class STaskController : Controller
             Title = taskViewModel.Title,
             IsCompleted = taskViewModel.IsCompleted,
             Note = taskViewModel.Note,
+            CustomerName = taskViewModel.CustomerName,
+            ProductName = taskViewModel.ProductName,
             CreatedDate = taskViewModel.CreatedDate,
-            ModifiedDate = taskViewModel.ModifiedDate
+            ModifiedDate = taskViewModel.ModifiedDate,
         };
         return View(model);
     }
@@ -87,13 +93,15 @@ public class STaskController : Controller
     [HttpPost]
     public async Task<IActionResult> Edit(EditSTaskViewModel editSTaskViewModel)
     {
-        if (ModelState.IsValid)
-        {
             var result = await _taskManager.UpdateAsync(editSTaskViewModel);
-            if(result.IsSucceeded) _notyfService.Success("Ürün başarıyla güncellenmiştir.");
+            if (result.IsSucceeded)
+            {
+                _notyfService.Success("Ürün başarıyla güncellenmiştir.");
+                return RedirectToAction("Index");
+            }
+             
             else _notyfService.Error(result.Error);
-            return RedirectToAction("Index");
-        }
+        
         return View(editSTaskViewModel);
     }
 
@@ -103,8 +111,9 @@ public class STaskController : Controller
         _notyfService.Success("Görev başarıyla silinmiştir.");
     }
 
-    public async Task DeleteAllTasks(int userId)
+    public async Task DeleteAllTasks()
     {
+        var userId = _userManager.GetUserId(User);
         await _taskManager.DeleteAllAsync(userId);
         _notyfService.Success("Tüm görevler başarıyla silinmiştir.");
     }

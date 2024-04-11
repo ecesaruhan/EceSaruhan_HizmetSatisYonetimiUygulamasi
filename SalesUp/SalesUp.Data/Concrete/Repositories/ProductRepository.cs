@@ -7,13 +7,13 @@ namespace SalesUp.Data.Concrete.Repositories;
 
 public class ProductRepository : GenericRepository<Product>, IProductRepository
 {
-    public ProductRepository(SalesUpDbContext _context) : base(_context)
+    public ProductRepository(SalesUpDbContext context) : base(context)
     {
     }
 
     private SalesUpDbContext SalesUpDbContext
     {
-        get{return _dbContext as SalesUpDbContext;}
+        get{return DbContext as SalesUpDbContext;}
     }
 
     public async Task<List<Product>> GetProductsByUserIdAsync(string userId)

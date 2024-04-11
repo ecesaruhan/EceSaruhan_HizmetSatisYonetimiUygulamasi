@@ -7,13 +7,13 @@ namespace SalesUp.Data.Concrete.Repositories;
 
 public class CustomerRepository : GenericRepository<Customer>, ICustomerRepository
 {
-    public CustomerRepository(SalesUpDbContext _context) : base(_context)
+    public CustomerRepository(SalesUpDbContext context) : base(context)
     {
     }
 
     private SalesUpDbContext SalesUpDbContext
     {
-        get{return _dbContext as SalesUpDbContext;}
+        get{return DbContext as SalesUpDbContext;}
     }
     
 }

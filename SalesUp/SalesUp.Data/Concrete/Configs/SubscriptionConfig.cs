@@ -21,32 +21,32 @@ public class SubscriptionConfig : IEntityTypeConfiguration<Subscription>
             new Subscription
             {
                 Id = 1,
-                Name = "Haftalık Abonelik",
-                SubscriptionType = SubscriptionType.Weekly,
-                Price = 500,
-                Duration = 1,
-                DurationUnit = "Hafta",
-                Description = "Her hafta düzenli olarak ödenecek olan abonelik sistemidir.",
+                Name = "6 Aylık Abonelik",
+                SubscriptionType = SubscriptionType.Monthly,
+                Price = 1000,
+                Duration = 6,
+                DurationUnit = "Ay",
+                Description = "Her ay düzenli olarak ödenecek olan abonelik sistemidir.",
             },
             new Subscription
             {
                 Id = 2,
-                Name = "Aylık Abonelik",
-                SubscriptionType = SubscriptionType.Monthly,
-                Price = 1500,
-                Duration = 1,
+                Name = "12 Aylık Abonelik",
+                SubscriptionType = SubscriptionType.Year,
+                Price = 800,
+                Duration = 12,
                 DurationUnit = "Ay",
                 Description = "Her ay düzenli olarak ödenecek olan abonelik sistemidir."
             },
         new Subscription
             {
                 Id = 3,
-                Name = "Yıllık Abonelik",
-                SubscriptionType = SubscriptionType.Annual,
-                Price = 5000,
-                Duration = 1,
-                DurationUnit = "Yıl",
-                Description = "Her yıl düzenli olarak ödenecek olan abonelik sistemidir."
+                Name = "24 Aylık Abonelik",
+                SubscriptionType = SubscriptionType.TwoYears,
+                Price = 500,
+                Duration = 24,
+                DurationUnit = "Ay",
+                Description = "Her ay düzenli olarak ödenecek olan abonelik sistemidir."
             }
             
         );

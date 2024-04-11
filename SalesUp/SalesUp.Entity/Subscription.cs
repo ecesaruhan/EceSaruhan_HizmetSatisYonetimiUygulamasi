@@ -12,7 +12,6 @@ public class Subscription
     public int Duration { get; set; }
     public string DurationUnit { get; set; }
     public SubscriptionType SubscriptionType { get; set; } 
-    // Aylık, Yıllık ve Ömür boyu seçenekleri
     
     public List<User> Users { get; set; }
     public bool IsActive { get; set; } = true;

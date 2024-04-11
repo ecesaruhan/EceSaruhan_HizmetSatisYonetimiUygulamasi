@@ -4,12 +4,12 @@ namespace SalesUp.Shared.ComplexTypes;
 
 public enum SubscriptionType
 {
-    [Display(Name = "Haftalık")]
-    Weekly=0,
-    
-    [Display(Name = "Aylık")]
-    Monthly=1,
+    [Display(Name = "6 Aylık")]
+    Monthly=0,
     
     [Display(Name = "Yıllık")]
-    Annual=2
+    Year=1,
+    
+    [Display(Name = "2 Yıllık")]
+    TwoYears=2
 }

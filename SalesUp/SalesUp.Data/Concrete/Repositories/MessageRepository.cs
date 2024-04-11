@@ -7,12 +7,12 @@ namespace SalesUp.Data.Concrete.Repositories;
 
 public class MessageRepository : GenericRepository<Message>, IMessageRepository
 {
-    public MessageRepository(SalesUpDbContext _context) : base(_context)
+    public MessageRepository(SalesUpDbContext context) : base(context)
     {
     }
 
     SalesUpDbContext SalesUpDbContext
     {
-        get {return _dbContext as SalesUpDbContext;}
+        get {return DbContext as SalesUpDbContext;}
     }
 }

@@ -41,5 +41,9 @@ public class AddSTaskViewModel
     [JsonPropertyName("Note")]
     [DisplayName("Görev Notları")]
     public string Note { get; set; }
+    
+    [JsonPropertyName("UserId")]
+    [DisplayName("Kullanıcı Id")]
     public string UserId { get; set; }
+    
 }

@@ -319,6 +319,32 @@ namespace SalesUp.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Tasks",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Title = table.Column<string>(type: "TEXT", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    UserId = table.Column<string>(type: "TEXT", nullable: false),
+                    CustomerName = table.Column<string>(type: "TEXT", nullable: false),
+                    ProductName = table.Column<string>(type: "TEXT", nullable: false),
+                    IsCompleted = table.Column<bool>(type: "INTEGER", nullable: false),
+                    Note = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tasks", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Tasks_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "OrderDetails",
                 columns: table => new
                 {
@@ -374,63 +400,14 @@ namespace SalesUp.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Tasks",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Title = table.Column<string>(type: "TEXT", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    UserId = table.Column<string>(type: "TEXT", nullable: false),
-                    FirstName = table.Column<string>(type: "TEXT", nullable: false),
-                    LastName = table.Column<string>(type: "TEXT", nullable: false),
-                    Email = table.Column<string>(type: "TEXT", nullable: false),
-                    CustomerId = table.Column<int>(type: "INTEGER", nullable: false),
-                    ProductId = table.Column<int>(type: "INTEGER", nullable: false),
-                    IsCompleted = table.Column<bool>(type: "INTEGER", nullable: false),
-                    RoleId = table.Column<string>(type: "TEXT", nullable: false),
-                    Quantity = table.Column<int>(type: "INTEGER", nullable: false),
-                    Note = table.Column<string>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Tasks", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Tasks_AspNetRoles_RoleId",
-                        column: x => x.RoleId,
-                        principalTable: "AspNetRoles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Tasks_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Tasks_Customers_CustomerId",
-                        column: x => x.CustomerId,
-                        principalTable: "Customers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Tasks_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Description", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "18643164-0a28-425b-a8fb-f716f3bfe28f", null, "Müşteri haklarını taşıyan rol.", "Customer", "CUSTOMER" },
-                    { "69666bc1-4018-4ee5-89ec-07d5db137c6b", null, "Yönetici haklarını taşıyan rol.", "SuperAdmin", "SUPERADMIN" },
-                    { "fb6bca6d-2062-4d64-81b5-704c22bce215", null, "Satış Temsilcisi haklarını taşıyan rol.", "Admin", "ADMIN" }
+                    { "20f4929f-322a-48fe-8abe-d26276fcd911", null, "Müşteri haklarını taşıyan rol.", "Customer", "CUSTOMER" },
+                    { "5ef4dac7-d3c6-4a0e-850f-f526bd05977f", null, "Satış Temsilcisi haklarını taşıyan rol.", "Admin", "ADMIN" },
+                    { "895016d3-6150-4c1f-8307-a118a723d839", null, "Yönetici haklarını taşıyan rol.", "SuperAdmin", "SUPERADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -438,9 +415,9 @@ namespace SalesUp.Data.Migrations
                 columns: new[] { "Id", "CreatedDate", "Description", "Duration", "DurationUnit", "IsActive", "Name", "Price", "SubscriptionType", "UpdateDate" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 4, 4, 18, 11, 39, 742, DateTimeKind.Local).AddTicks(80), "Her hafta düzenli olarak ödenecek olan abonelik sistemidir.", 1, "Hafta", true, "Haftalık Abonelik", 500m, 0, new DateTime(2024, 4, 4, 18, 11, 39, 742, DateTimeKind.Local).AddTicks(120) },
-                    { 2, new DateTime(2024, 4, 4, 18, 11, 39, 742, DateTimeKind.Local).AddTicks(130), "Her ay düzenli olarak ödenecek olan abonelik sistemidir.", 1, "Ay", true, "Aylık Abonelik", 1500m, 1, new DateTime(2024, 4, 4, 18, 11, 39, 742, DateTimeKind.Local).AddTicks(130) },
-                    { 3, new DateTime(2024, 4, 4, 18, 11, 39, 742, DateTimeKind.Local).AddTicks(130), "Her yıl düzenli olarak ödenecek olan abonelik sistemidir.", 1, "Yıl", true, "Yıllık Abonelik", 5000m, 2, new DateTime(2024, 4, 4, 18, 11, 39, 742, DateTimeKind.Local).AddTicks(140) }
+                    { 1, new DateTime(2024, 4, 10, 16, 23, 16, 14, DateTimeKind.Local).AddTicks(7840), "Her ay düzenli olarak ödenecek olan abonelik sistemidir.", 6, "Ay", true, "6 Aylık Abonelik", 1000m, 0, new DateTime(2024, 4, 10, 16, 23, 16, 14, DateTimeKind.Local).AddTicks(7900) },
+                    { 2, new DateTime(2024, 4, 10, 16, 23, 16, 14, DateTimeKind.Local).AddTicks(7910), "Her ay düzenli olarak ödenecek olan abonelik sistemidir.", 12, "Ay", true, "12 Aylık Abonelik", 800m, 1, new DateTime(2024, 4, 10, 16, 23, 16, 14, DateTimeKind.Local).AddTicks(7910) },
+                    { 3, new DateTime(2024, 4, 10, 16, 23, 16, 14, DateTimeKind.Local).AddTicks(7920), "Her ay düzenli olarak ödenecek olan abonelik sistemidir.", 24, "Ay", true, "24 Aylık Abonelik", 500m, 2, new DateTime(2024, 4, 10, 16, 23, 16, 14, DateTimeKind.Local).AddTicks(7920) }
                 });
 
             migrationBuilder.InsertData(
@@ -448,11 +425,11 @@ namespace SalesUp.Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "Address", "City", "ConcurrencyStamp", "DateofBirth", "Email", "EmailConfirmed", "FirstName", "Gender", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "SubscriptionId", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "14de594c-8182-4ed3-8377-f9a9e462798e", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "86463942-5cea-455d-95e3-f2deeaa1a535", new DateTime(1983, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "ferdabayar@gmail.com", true, "Ferda", "Erkek", "Bayar", false, null, "FERDABAYAR@GMAIL.COM", "FERDABAYAR", "AQAAAAIAAYagAAAAEMo9X0jhzVdAyrBle1qHk6CpQQNJ/PcK0uK1AyhSVwSZJbtIfaoSf+u/e6gBJswl2Q==", "5053211815", false, "5d87695d-1dba-4070-9010-936cd8ab6e5a", 3, false, "ferdabayar" },
-                    { "6f2596c8-c0ea-4092-a8ee-cd416d94a452", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "4c73c412-0eaf-4611-8c6e-d65a1e70ba61", new DateTime(1989, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "canyener@gmail.com", true, "Can", "Erkek", "Yener", false, null, "CANYENER@GMAIL.COM", "CANYENER", "AQAAAAIAAYagAAAAEP4YcuE0wFMNNxs8oBD0uzA2KCOxY9i2lznwEEhbRSkUy15hsvfNQvdTsu5Bm8hBOg==", "5350931264", false, "eeaa4788-25b9-4739-b478-f1c8b48a65bb", 3, false, "canyener" },
-                    { "8bbbcd0a-9d46-4ca3-ab6d-19ffbd42cfe9", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "98a38b93-3db9-4a50-a9a1-f5422da1be6b", new DateTime(1992, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "deryademir@gmail.com", true, "Derya", "Kadın", "Demir", false, null, "DERYADEMIR@GMAIL.COM", "DERYADEMIR", "AQAAAAIAAYagAAAAEITzuZyy4HZU2Kx3NsevISp71SOapngokFXQ7w208o6wYbvgNVDfpInevkbc9Ga86A==", "5547659843", false, "63adaf42-fcbf-47c7-bf96-b4cb8d37172a", 2, false, "deryademir" },
-                    { "cd358d60-d1ac-49a7-a278-f9f3d78f217e", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "171e5f73-7b0f-4452-87c5-f65919b5d4a2", new DateTime(1990, 3, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), "kadirdevran@gmail.com", true, "Kadir", "Erkek", "Devran", false, null, "KADIRDEVRAN@GMAIL.COM", "KADIRDEVRAN", "AQAAAAIAAYagAAAAEOZad04POBgvGxqVxVhRowZsDSaaqN9zQg3j5x7QPBn2ODUtP9MAmfXex+MfU634GQ==", "5341459340", false, "d998c3b0-4686-4eae-bb52-bbb2823873b0", 2, false, "kadirdevran" },
-                    { "f217abbc-8f4f-4d71-af00-89cd891f6b36", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "d760e07c-bcc2-4910-b739-b3487215b21a", new DateTime(1970, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), "niluferozdemir@gmail.com", true, "Nilüfer", "Kadın", "Özdemir", false, null, "NILUFEROZDEMIR@GMAIL.COM", "NILUFEROZDEMIR", "AQAAAAIAAYagAAAAEEeYPOeaIsVgi1P+3KWaGcKc6Buhc2ZUbL8OSxohVgtMu2qaSbx6lRuN9+VI6H4g1g==", "5383458090", false, "5516fd64-4ca9-48e1-ac85-7b0b41b60be5", 2, false, "niluferozdemir" }
+                    { "1687bad9-7852-49b5-9598-2931eb04aa28", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "98d39221-23d3-46d1-bf49-49aacd2d6b17", new DateTime(1970, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), "niluferozdemir@gmail.com", true, "Nilüfer", "Kadın", "Özdemir", false, null, "NILUFEROZDEMIR@GMAIL.COM", "NILUFEROZDEMIR", "AQAAAAIAAYagAAAAEIQolj9n1q3Lc5rYasPUfUrKr7Isz5z1xgdR1MzIrZ16IzAsNu7XovWWo9w6oF/N0Q==", "5383458090", false, "599396ee-aeec-4808-9145-8d641ed8716f", 2, false, "niluferozdemir" },
+                    { "69d90984-b30e-4d7e-be07-ecdbe2f1fd93", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "babf5bae-427f-4a24-aac4-cd02381c2a80", new DateTime(1990, 3, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), "kadirdevran@gmail.com", true, "Kadir", "Erkek", "Devran", false, null, "KADIRDEVRAN@GMAIL.COM", "KADIRDEVRAN", "AQAAAAIAAYagAAAAEPeXYfmQ6EyC/2ZwUdb6+9T5gDMOIt+tvpHQbuk8xa1yvRzjb5yuYSIfp2oTVqB1vw==", "5341459340", false, "8826b670-2674-490a-a4c7-97c0ccd29a75", 2, false, "kadirdevran" },
+                    { "8774e355-4e17-4574-9724-99f5533b41cb", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "ea247ff9-2f8b-438e-a3e7-ab3e0b43adf6", new DateTime(1989, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "canyener@gmail.com", true, "Can", "Erkek", "Yener", false, null, "CANYENER@GMAIL.COM", "CANYENER", "AQAAAAIAAYagAAAAEJzwtczmXKgjN7hSQRRCCDvDFH043ayt6pFMyQT44lwe8c1OWzM2pI8c87Ht43CgDQ==", "5350931264", false, "5df3e590-f778-486d-8d12-4106fa6fa520", 3, false, "canyener" },
+                    { "8ae11b8a-9c9f-451d-bf13-2cc781c62d1d", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "6d6190a8-c3aa-413e-8ed8-05cb5dd432b3", new DateTime(1983, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "ferdabayar@gmail.com", true, "Ferda", "Erkek", "Bayar", false, null, "FERDABAYAR@GMAIL.COM", "FERDABAYAR", "AQAAAAIAAYagAAAAEMqFMDA+lNKGXVJvPcVgpHFSOS0qfUN07kjR4L+asKx501XId/7XT66O+jCOesAp7Q==", "5053211815", false, "95987827-7d03-4ddd-9fc9-4d97567516a8", 3, false, "ferdabayar" },
+                    { "f6ea74a5-57ef-4e5a-8a8d-9b9cfaaab46f", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "6408c941-7919-4f19-a914-b27b557626db", new DateTime(1992, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "deryademir@gmail.com", true, "Derya", "Kadın", "Demir", false, null, "DERYADEMIR@GMAIL.COM", "DERYADEMIR", "AQAAAAIAAYagAAAAEPCRqAbpPstQ1rchAkUqRDQeP37sgdoucn9KFTgTI8uSDIc43Pz+Wg1fz0p1lPgWSg==", "5547659843", false, "acd47552-5224-4aad-8731-7f0a6e59882e", 2, false, "deryademir" }
                 });
 
             migrationBuilder.InsertData(
@@ -460,11 +437,11 @@ namespace SalesUp.Data.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "69666bc1-4018-4ee5-89ec-07d5db137c6b", "14de594c-8182-4ed3-8377-f9a9e462798e" },
-                    { "fb6bca6d-2062-4d64-81b5-704c22bce215", "6f2596c8-c0ea-4092-a8ee-cd416d94a452" },
-                    { "18643164-0a28-425b-a8fb-f716f3bfe28f", "8bbbcd0a-9d46-4ca3-ab6d-19ffbd42cfe9" },
-                    { "fb6bca6d-2062-4d64-81b5-704c22bce215", "cd358d60-d1ac-49a7-a278-f9f3d78f217e" },
-                    { "fb6bca6d-2062-4d64-81b5-704c22bce215", "f217abbc-8f4f-4d71-af00-89cd891f6b36" }
+                    { "5ef4dac7-d3c6-4a0e-850f-f526bd05977f", "1687bad9-7852-49b5-9598-2931eb04aa28" },
+                    { "5ef4dac7-d3c6-4a0e-850f-f526bd05977f", "69d90984-b30e-4d7e-be07-ecdbe2f1fd93" },
+                    { "5ef4dac7-d3c6-4a0e-850f-f526bd05977f", "8774e355-4e17-4574-9724-99f5533b41cb" },
+                    { "895016d3-6150-4c1f-8307-a118a723d839", "8ae11b8a-9c9f-451d-bf13-2cc781c62d1d" },
+                    { "20f4929f-322a-48fe-8abe-d26276fcd911", "f6ea74a5-57ef-4e5a-8a8d-9b9cfaaab46f" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -555,21 +532,6 @@ namespace SalesUp.Data.Migrations
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tasks_CustomerId",
-                table: "Tasks",
-                column: "CustomerId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Tasks_ProductId",
-                table: "Tasks",
-                column: "ProductId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Tasks_RoleId",
-                table: "Tasks",
-                column: "RoleId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Tasks_UserId",
                 table: "Tasks",
                 column: "UserId");
@@ -609,19 +571,19 @@ namespace SalesUp.Data.Migrations
                 name: "Orders");
 
             migrationBuilder.DropTable(
-                name: "Sales");
+                name: "Products");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "Sales");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Customers");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Customers");
 
             migrationBuilder.DropTable(
                 name: "Subscriptions");

@@ -4,7 +4,6 @@ using SalesUp.Data.Concrete.Configs;
 using SalesUp.Data.Extensions;
 using SalesUp.Entity;
 using SalesUp.Entity.Identity;
-using Task = System.Threading.Tasks.Task;
 
 namespace SalesUp.Data.Concrete.Contexts;
 
