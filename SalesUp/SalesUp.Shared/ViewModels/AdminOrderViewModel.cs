@@ -1,4 +1,5 @@
 using SalesUp.Shared.ViewModels.Product;
+using SalesUp.Shared.ViewModels.Subscription;
 
 namespace SalesUp.Shared.ViewModels;
 

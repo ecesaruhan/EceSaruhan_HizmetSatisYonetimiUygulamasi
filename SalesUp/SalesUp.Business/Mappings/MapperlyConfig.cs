@@ -5,6 +5,7 @@ using SalesUp.Shared.ViewModels.Customer;
 using SalesUp.Shared.ViewModels.Product;
 using SalesUp.Shared.ViewModels.Sale;
 using SalesUp.Shared.ViewModels.STask;
+using SalesUp.Shared.ViewModels.Subscription;
 
 
 namespace SalesUp.Business.Mappings;

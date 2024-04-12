@@ -7,6 +7,7 @@ using SalesUp.Shared.ViewModels.IdentityModels;
 using SalesUp.Shared.ViewModels.Product;
 using SalesUp.Shared.ViewModels.Sale;
 using SalesUp.Shared.ViewModels.STask;
+using SalesUp.Shared.ViewModels.Subscription;
 
 namespace SalesUp.Business.Mappings;
 
@@ -41,6 +42,9 @@ public class GeneralMappingProfiles : Profile
         CreateMap<Message, MessageViewModel>().ReverseMap();
 
         CreateMap<Subscription, SubscriptionViewModel>().ReverseMap();
+        CreateMap<Subscription, AddSubscriptionViewModel>().ReverseMap();
+        CreateMap<Subscription, EditSubscriptionViewModel>().ReverseMap();
+        CreateMap<Subscription, DeleteSubscriptionViewModel>().ReverseMap();
 
         CreateMap<User, UserViewModel>().ReverseMap();
         CreateMap<User, UserProfileViewModel>().ReverseMap();
