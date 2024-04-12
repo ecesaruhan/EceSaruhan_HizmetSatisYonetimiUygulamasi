@@ -20,10 +20,6 @@ public class EditSubscriptionViewModel
     [DisplayName("Birim Fiyat")]
     public decimal Price { get; set; }
     
-    [JsonProperty("TotalPrice")]
-    [DisplayName("Toplam Fiyat")]
-    public decimal TotalPrice { get; set; }
-    
     [JsonProperty("Duration")]
     [DisplayName("Abonelik Süresi")]
     public int Duration { get; set; }

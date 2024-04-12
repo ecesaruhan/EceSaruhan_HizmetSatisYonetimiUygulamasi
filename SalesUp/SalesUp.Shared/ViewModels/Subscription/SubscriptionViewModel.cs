@@ -8,7 +8,11 @@ public class SubscriptionViewModel
     public string Name { get; set; }
     public string Description { get; set; }
     public decimal Price { get; set; }
-    public decimal TotalPrice { get; set; }
+
+    public decimal TotalPrice
+    {
+        get { return Price * Duration; }
+    }
     public int Duration { get; set; }
     public string DurationUnit { get; set; }
     public SubscriptionType SubscriptionType { get; set; }

@@ -12,7 +12,6 @@ public class Subscription
     public int Duration { get; set; }
     public string DurationUnit { get; set; }
     
-    public decimal TotalPrice { get; set; }
     public SubscriptionType SubscriptionType { get; set; } 
     
     public List<User> Users { get; set; }

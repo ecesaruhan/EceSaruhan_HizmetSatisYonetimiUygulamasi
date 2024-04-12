@@ -60,7 +60,6 @@ public class SubscriptionController : Controller
             Name = subscriptionViewModel.Name,
             Description = subscriptionViewModel.Description,
             Price = subscriptionViewModel.Price,
-            TotalPrice = subscriptionViewModel.TotalPrice,
             SubscriptionType = subscriptionViewModel.SubscriptionType,
             Duration = subscriptionViewModel.Duration,
             DurationUnit = subscriptionViewModel.DurationUnit

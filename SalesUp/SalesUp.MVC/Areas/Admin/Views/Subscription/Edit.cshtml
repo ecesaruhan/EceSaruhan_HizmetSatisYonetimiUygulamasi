@@ -13,8 +13,8 @@
                 asp-action="Edit"
                 method="post" class="form-horizontal">
                 <div class="row form-group">
-                    <div class="col col-md-2"><label asp-for="Name" class=" form-control-label">Başlık</label></div>
-                    <div class="col-12 col-md-6"><input asp-for="Name" type="text" placeholder="Görev Başlığı Giriniz.." class="form-control"></div>
+                    <div class="col col-md-2"><label asp-for="Name" class=" form-control-label"></label></div>
+                    <div class="col-12 col-md-6"><input asp-for="Name" type="text" placeholder="Abonelik Adını Giriniz..." class="form-control"></div>
                 </div>
                 <div class="row form-group">
                                                     <div class="col col-md-2"><label asp-for="SubscriptionType" class=" form-control-label"></label></div>
@@ -26,8 +26,8 @@
                 </div>
                 
                   <div class="row form-group">
-                                    <div class="col col-md-2"><label asp-for="Duration" class=" form-control-label"></label></div>
-                                    <div class="col-12 col-md-10"><input asp-for="Duration" type="text" placeholder="Müşteri Bilgisi Giriniz..." class="form-control"></div>
+                                    <div class="col col-md-2"><label asp-for="DurationUnit" class=" form-control-label"></label></div>
+                                    <div class="col-12 col-md-10"><input asp-for="DurationUnit" type="text" placeholder="Müşteri Bilgisi Giriniz..." class="form-control"></div>
                                 </div>
 
                 <div class="row form-group">
@@ -35,12 +35,6 @@
                     <div class="col-12 col-md-10"><input asp-for="Price" type="text" placeholder="Ürün Bilgisi Giriniz..." class="form-control"></div>
                 </div>
                 
-                <div class="row form-group">
-                    <div class="col col-md-2"><label asp-for="TotalPrice" class=" form-control-label"></label></div>
-                    <div class="col-12 col-md-10"><input asp-for="TotalPrice" type="text" placeholder="Ürün Bilgisi Giriniz..." class="form-control"></div>
-                </div>
-                
-
                 <div class="row form-group">
                     <div class="col col-md-2"><label asp-for="Description" class=" form-control-label"></label></div>
                     <div class="col-12 col-md-10"><textarea asp-for="Description" rows="9" placeholder="Görev Detayını Giriniz..." class="form-control"></textarea></div>
