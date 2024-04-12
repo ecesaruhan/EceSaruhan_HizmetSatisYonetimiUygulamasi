@@ -45,6 +45,7 @@
 
     <ItemGroup>
       <_ContentIncludedByDefault Remove="Areas\Admin\Views\Shared\Components\AdminFooter\Default.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Customer\Index.cshtml" />
     </ItemGroup>
 
 </Project>

@@ -24,13 +24,17 @@
                         > <i class="menu-icon fa fa-plus"></i>Yeni Görev</a>
                 </li>
 
-                <li class="my-1"><a href="widgets.html"> <i class="menu-icon ti-email"></i>Mesajlar</a></li>
+                <li class="my-1"><a 
+                                   asp-area="Admin"
+                                         asp-controller="Message"
+                                         asp-action="Index"
+                                     > <i class="menu-icon ti-email"></i>Mesajlar</a></li>
 
                 <li class="my-1">
                     <a
                         asp-area="Admin"
-                        asp-controller="Customer"
-                        asp-action="Index"> <i class="menu-icon fa fa-id-badge"></i>Müşteri Listesi</a>
+                        asp-controller="User"
+                        asp-action="Index"> <i class="menu-icon fa fa-id-badge"></i>Kullanıcı Listesi</a>
                 </li>
                 <li class="my-1">
                     <a

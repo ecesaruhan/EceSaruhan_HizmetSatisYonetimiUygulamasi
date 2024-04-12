@@ -51,4 +51,27 @@ public class UserController : Controller
         };
         return View(userRolesViewModel);
     }
+
+    [HttpPost]
+    public async Task<IActionResult> AssignRoles(UserRolesViewModel userRolesViewModel)
+    {
+        if (ModelState.IsValid)
+        {
+            var user = await _userManager.FindByIdAsync(userRolesViewModel.Id);
+            foreach (var role in userRolesViewModel.Roles)
+            {
+                if (role.IsAssigned)
+                {
+                    await _userManager.AddToRoleAsync(user, role.RoleName);
+                }
+                else
+                {
+                    await _userManager.RemoveFromRoleAsync(user, role.RoleName);
+                }
+            }
+            _notyfService.Success($"{user.FirstName} {user.LastName} ({user.UserName}) adlı kullanıcının rolleri başarıyla değiştirilmiştir.");
+            return RedirectToAction("Index");
+        }
+        return View(userRolesViewModel);
+    }
 }

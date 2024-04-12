@@ -1,0 +1,15 @@
+@model int
+
+    <a 
+        asp-area="Admin"
+        asp-controller="Message"
+        asp-action="Index"
+    class="fa fa-envelope text-danger me-5" style="font-size: 25px">
+        @{
+            bool isShowCount = Model == 0 ? false : true;
+        }
+        @if (isShowCount)
+        {
+            <div class="tip">@Model</div>
+        }
+    </a>

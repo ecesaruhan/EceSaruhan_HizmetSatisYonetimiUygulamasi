@@ -1,5 +1,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
 
 namespace SalesUp.Shared.ViewModels;
 
@@ -26,6 +28,6 @@ public class MessageViewModel
     public bool IsRead { get; set; }
     public int RelatedId { get; set; } = 0;
 
-    // public List<SelectListItem> UserList { get; set; }
-    // Buna videolardan bakılacak.
+    public List<SelectListItem> UserList { get; set; }
+ 
 }
