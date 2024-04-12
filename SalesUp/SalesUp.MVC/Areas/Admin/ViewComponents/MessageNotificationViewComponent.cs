@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SalesUp.Business.Abstract;
 using SalesUp.Entity.Identity;
 
-namespace MiniShop.UI.ViewComponents
+namespace SalesUp.MVC.Areas.Admin.ViewComponents
 {
     public class MessageNotificationViewComponent : ViewComponent
     {

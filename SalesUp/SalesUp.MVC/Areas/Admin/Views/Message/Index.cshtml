@@ -2,10 +2,10 @@
 
 <div class="w-75 float-right container pr-5">
     <div class="d-flex justify-content-between align-items-center">
-        <h1 class="display-4 text-primary">Gelen Kutusu</h1>
+        <h1 class="display-4 text-danger">Gelen Kutusu</h1>
         <div>
             <a asp-area="Admin" asp-controller="Message" asp-action="NewMessage"
-               class="btn btn-primary btn-sm text-white">Yeni Mesaj</a>
+               class="btn btn-warning text-white">Yeni Mesaj</a>
         </div>
     </div>
     
@@ -21,9 +21,9 @@
         <table class="table table-sm">
             <thead>
             <tr>
-                <th>Gönderen</th>
-                <th>Tarih/Saat</th>
-                <th>Mesaj</th>
+                <th class="text-primary">Gönderen</th>
+                <th class="text-primary">Tarih/Saat</th>
+                <th class="text-primary">Mesaj</th>
             </tr>
             </thead>
             <tbody>
@@ -39,7 +39,7 @@
                         <div>@m.Text.Substring(0, length)</div>
                         <div>
                             @{
-                                var style = m.IsRead ? "btn-danger" : "btn-info";
+                                var style = m.IsRead ? "btn-success" : "btn-danger";
                             }
                             <a
                                 asp-area="Admin"

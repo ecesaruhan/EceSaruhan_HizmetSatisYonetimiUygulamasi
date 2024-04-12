@@ -10,10 +10,7 @@ public class OrderRepository : GenericRepository<Order>, IOrderRepository
     public OrderRepository(SalesUpDbContext context) : base(context)
     {
     }
-    private SalesUpDbContext SalesUpDbContext
-    {
-        get{return DbContext as SalesUpDbContext;}
-    }
+    private SalesUpDbContext? SalesUpDbContext => DbContext as SalesUpDbContext;
 
     public async Task<List<Order>> GetAllOrdersBySubscriptionIdAsync(int subscriptionId)
     {

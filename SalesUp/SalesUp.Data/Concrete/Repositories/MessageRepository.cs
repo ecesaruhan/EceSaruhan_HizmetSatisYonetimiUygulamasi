@@ -11,8 +11,5 @@ public class MessageRepository : GenericRepository<Message>, IMessageRepository
     {
     }
 
-    SalesUpDbContext SalesUpDbContext
-    {
-        get {return DbContext as SalesUpDbContext;}
-    }
+    private SalesUpDbContext? SalesUpDbContext => DbContext as SalesUpDbContext;
 }

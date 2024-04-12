@@ -10,6 +10,8 @@ using SalesUp.Shared.ViewModels;
 
 namespace SalesUp.MVC.Areas.Admin.Controllers;
 
+[Authorize(Roles = "SuperAdmin, Admin")]
+[Area("Admin")]
 public class MessageController : Controller
 {
     private readonly IMessageService _messageManager;

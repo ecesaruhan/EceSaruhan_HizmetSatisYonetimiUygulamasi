@@ -1,7 +1,7 @@
 @model MessageViewModel
 
-<div class="container w-25 mt-5">
-    <h6 class="display-4">Mesaj Gönder</h6>
+<div class="float-right container pr-5 w-75">
+    <h3 class="text-primary">Mesaj Gönder</h3>
     <hr />
     <form asp-area="Admin"
           asp-controller="Message"
@@ -12,20 +12,20 @@
 
             <div class="col-md-12">
                 <div class="form-group mb-2">
-                    <label asp-for="ToName"></label>
+                    <label class="text-primary" asp-for="ToName"></label>
                     <select name="ToId" class="form-control" asp-items="@Model.UserList"></select>
                 </div>
             </div>
 
             <div class="col-md-12">
                 <div class="form-group mb-2">
-                    <label asp-for="Text"></label>
-                    <textarea class="form-control" asp-for="Text"></textarea>
+                    <label class="text-primary" asp-for="Text"></label>
+                    <textarea class="form-control" style="height: 200px" asp-for="Text"></textarea>
                 </div>
             </div>
 
             <div class="col-md-12 mt-4">
-                <button type="submit" class="btn btn-primary w-100">Gönder</button>
+                <button type="submit" class="btn btn-danger w-100">Gönder</button>
             </div>
         </div>
     </form>
