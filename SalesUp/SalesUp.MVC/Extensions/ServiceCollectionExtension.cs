@@ -81,6 +81,7 @@ public static class ServiceCollectionExtension
         services.AddScoped<ISaleRepository, SaleRepository>();
         services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
         services.AddScoped<IOrderRepository, OrderRepository>();
+        services.AddScoped<IContactUsRepository, ContactUsRepository>();
 
         services.AddScoped<IProductService, ProductManager>();
         services.AddScoped<ICustomerService, CustomerManager>();
@@ -89,6 +90,8 @@ public static class ServiceCollectionExtension
         services.AddScoped<ISaleService, SaleManager>();
         services.AddScoped<ISubscriptionService, SubscriptionManager>();
         services.AddScoped<IOrderService, OrderManager>();
+        services.AddScoped<IContactUsService, ContactUsManager>();
+
         return services;
     }
 

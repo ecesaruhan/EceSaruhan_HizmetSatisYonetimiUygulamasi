@@ -19,23 +19,12 @@
                         asp-action="Index"
                         class="nav-item nav-link active">Ana Sayfa</a>
                     <a href="about.html" class="nav-item nav-link">Hakkımızda</a>
-              
                     
-                    @*<!--Pages Start-->
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                            <a href="detail.html" class="dropdown-item">Blog Detail</a>
-                            <a href="feature.html" class="dropdown-item">Features</a>
-                            <a href="quote.html" class="dropdown-item">Quote Form</a>
-                            <a href="team.html" class="dropdown-item">The Team</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        </div>
-                    </div>*@
-                    <!--Pages End-->
-                    
-                    <a href="contact.html" class="nav-item nav-link">İletişim</a>
+                    <a
+                       asp-area=""
+                       asp-controller="ContactUs"
+                       asp-action="Index"
+                       class="nav-item nav-link">İletişim</a>
                     
                     @if (!User.Identity.IsAuthenticated)
                     {

@@ -48,5 +48,7 @@ public class GeneralMappingProfiles : Profile
 
         CreateMap<User, UserViewModel>().ReverseMap();
         CreateMap<User, UserProfileViewModel>().ReverseMap();
+
+        CreateMap<ContactUs, ContactUsViewModel>().ReverseMap();
     }
 }
