@@ -40,4 +40,12 @@ public class RegisterViewModel
     [DataType(DataType.Password)]
     [Compare("Password",ErrorMessage ="Parolalar eşleşmiyor, kontrol ediniz.")]
     public string RePassword { get; set; }
+
+    [DisplayName("Şehir")]
+    [Required(ErrorMessage = "Lütfen şehir alanını boş bırakmayınız.")]
+    public string City { get; set; }
+
+    [DisplayName("Doğum Tarihi")]
+    [Required(ErrorMessage = "Lütfen tarih alanını boş bırakmayınız.")]
+    public DateTime? DateofBirth { get; set; }
 }

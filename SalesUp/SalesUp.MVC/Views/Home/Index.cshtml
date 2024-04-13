@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<SubscriptionViewModel>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -164,6 +166,8 @@
             <div class="col-lg-6 py-6 px-5">
                 <h1 class="display-5 mb-4">Biz Sizi Arayalım. </h1>
                 <p class="mb-4">Kasd vero erat ea amet justo no stet, et elitr no dolore no elitr sea kasd et dolor diam tempor. Nonumy sed dolore no eirmod sit nonumy vero lorem amet stet diam at. Ea at lorem sed et, lorem et rebum ut eirmod gubergren, dolor ea duo diam justo dolor diam ipsum dolore stet stet elitr ut. Ipsum amet labore lorem lorem diam magna sea, eos sed dolore elitr.</p>
+
+
                 <form>
                     <div class="row gx-3">
                         <div class="col-6">
@@ -178,21 +182,14 @@
                                 <label for="form-floating-2">Email address</label>
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="form-floating">
-                                <select class="form-select" id="floatingSelect" aria-label="Financial Consultancy">
-                                    <option selected>Financial Consultancy</option>
-                                    <option value="1">Strategy Consultancy</option>
-                                    <option value="2">Tax Consultancy</option>
-                                </select>
-                                <label for="floatingSelect">Select A Service</label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <button class="btn btn-primary w-100 h-100" type="submit">Request A Quote</button>
+        
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100 h-100 mt-4" type="submit">Gönder</button>
                         </div>
                     </div>
                 </form>
+
+
             </div>
             <div class="col-lg-6" style="min-height: 400px;">
                 <div class="position-relative h-100">
@@ -264,73 +261,24 @@
     <!-- Blog Start -->
     <div class="container-fluid py-6 px-5">
         <div class="text-center mx-auto mb-5" style="max-width: 600px;">
-            <h1 class="display-5 mb-0">Latest Blog Post</h1>
+            <h1 class="display-5 mb-0 text-primary">Abonelik Seçenekleri</h1>
             <hr class="w-25 mx-auto bg-primary">
         </div>
-        <div class="row g-5">
-            <div class="col-lg-4">
-                <div class="blog-item">
-                    <div class="position-relative overflow-hidden">
-                        <img class="img-fluid" src="~/img/blog-1.jpg" alt="">
-                    </div>
-                    <div class="bg-secondary d-flex">
-                        <div class="flex-shrink-0 d-flex flex-column justify-content-center text-center bg-primary text-white px-4">
-                            <span>01</span>
-                            <h5 class="text-uppercase m-0">Jan</h5>
-                            <span>2045</span>
-                        </div>
-                        <div class="d-flex flex-column justify-content-center py-3 px-4">
-                            <div class="d-flex mb-2">
-                                <small class="text-uppercase me-3"><i class="bi bi-person me-2"></i>Admin</small>
-                                <small class="text-uppercase me-3"><i class="bi bi-bookmarks me-2"></i>Web Design</small>
-                            </div>
-                            <a class="h4" href="">Magna sea dolor ipsum amet lorem eos</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="blog-item">
-                    <div class="position-relative overflow-hidden">
-                        <img class="img-fluid" src="~/img/blog-2.jpg" alt="">
-                    </div>
-                    <div class="bg-secondary d-flex">
-                        <div class="flex-shrink-0 d-flex flex-column justify-content-center text-center bg-primary text-white px-4">
-                            <span>01</span>
-                            <h5 class="text-uppercase m-0">Jan</h5>
-                            <span>2045</span>
-                        </div>
-                        <div class="d-flex flex-column justify-content-center py-3 px-4">
-                            <div class="d-flex mb-2">
-                                <small class="text-uppercase me-3"><i class="bi bi-person me-2"></i>Admin</small>
-                                <small class="text-uppercase me-3"><i class="bi bi-bookmarks me-2"></i>Web Design</small>
-                            </div>
-                            <a class="h4" href="">Magna sea dolor ipsum amet lorem eos</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="blog-item">
-                    <div class="position-relative overflow-hidden">
-                        <img class="img-fluid" src="~/img/blog-3.jpg" alt="">
-                    </div>
-                    <div class="bg-secondary d-flex">
-                        <div class="flex-shrink-0 d-flex flex-column justify-content-center text-center bg-primary text-white px-4">
-                            <span>01</span>
-                            <h5 class="text-uppercase m-0">Jan</h5>
-                            <span>2045</span>
-                        </div>
-                        <div class="d-flex flex-column justify-content-center py-3 px-4">
-                            <div class="d-flex mb-2">
-                                <small class="text-uppercase me-3"><i class="bi bi-person me-2"></i>Admin</small>
-                                <small class="text-uppercase me-3"><i class="bi bi-bookmarks me-2"></i>Web Design</small>
-                            </div>
-                            <a class="h4" href="">Magna sea dolor ipsum amet lorem eos</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="row justify-content-between">
+            @foreach(var s in Model)
+{
+<div class="card col-md-4 py-4">
+    <div class="card-body">
+        <h1 class="card-title mb-4">@s.Name</h1>
+        <h3 class="card-subtitle mb-4 text-body-secondary text-primary">@($"{s.Price}/{s.DurationUnit}")</h3>
+        <h3 class="card-subtitle mb-4 text-body-secondary">@($"{s.TotalPrice:C0}")</h3>
+        <h5 class="card-text mb-4">@s.Description</h5>
+        <a href="#" class="card-link btn btn-primary mt-2">Abonelik Satın Al</a>
+    </div>
+</div>
+}
+
+            
         </div>
     </div>
     <!-- Blog End -->

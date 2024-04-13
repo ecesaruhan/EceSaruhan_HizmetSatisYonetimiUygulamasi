@@ -20,7 +20,6 @@ public class AccountController : Controller
 
     private readonly INotyfService _notyfService;
 
-    private readonly ISTaskService _staskManager;
     
     // GET
     public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IOrderService orderManager, IEmailSender emailSender, INotyfService notyfService, ISTaskService staskManager)
@@ -30,7 +29,7 @@ public class AccountController : Controller
         _orderManager = orderManager;
         _emailSender = emailSender;
         _notyfService = notyfService;
-        _staskManager = staskManager;
+  
     }
 
     public IActionResult Register()
@@ -51,25 +50,14 @@ public class AccountController : Controller
                 LastName = registerViewModel.LastName,
                 Address = registerViewModel.Address,
                 Gender = registerViewModel.Gender,
-                EmailConfirmed = true
+                City = registerViewModel.City,
+                DateofBirth = registerViewModel.DateofBirth
             };
             var result = await _userManager.CreateAsync(user, registerViewModel.Password);
             if (result.Succeeded)
             {
-                /*var tokenCode = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                var backUrl = Url.Action("ConfirmEmail", "Account", new
-                {
-                    userId = user.Id,
-                    token = tokenCode
-                });
-
-                await _emailSender.SendEmailAsync(
-                    user.Email,
-                    "SalesUp Üyelik Onayı",
-                    $"<p>SalesUpApp uygulamasına üyeliğinizi onaylamak için aşağıdaki linke tıklayınız.</p><a href='https://localhost:5032{backUrl}'>ONAY LİNKİ</a>"
-                );*/
-
-                _notyfService.Success("Üyeliğiniz başarıyla oluşturulmuştur. Mailinizi kontrol ederek üyeliğinizi onaylayabilirsiniz.", 10);
+          
+                _notyfService.Success("Üyeliğiniz başarıyla oluşturulmuştur.", 10);
                 return Redirect("~/");
             }
         }
@@ -174,7 +162,7 @@ public class AccountController : Controller
         var userId = _userManager.GetUserId(User);
         if (userId != null)
         {
-            var orders = await _orderManager.GetOrdersAsync(userId);
+           
             var user = await _userManager.FindByIdAsync(userId);
                 
             UserProfileViewModel userProfileViewModel = new UserProfileViewModel
@@ -192,7 +180,7 @@ public class AccountController : Controller
                     Gender = user.Gender,
                     DateOfBirth = user.DateofBirth
                 },
-                Orders = orders
+             
             };
             return View(userProfileViewModel);
         }
@@ -233,7 +221,6 @@ public class AccountController : Controller
                     ModelState.AddModelError("", error.Description);
                 }
             }
-            userProfileViewModel.Orders = await _orderManager.GetOrdersAsync(userId);
             return View(userProfileViewModel);
         }
 
