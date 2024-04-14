@@ -8,10 +8,10 @@ using SalesUp.Business.Abstract;
 using SalesUp.Entity.Identity;
 using SalesUp.Shared.ViewModels;
 
-namespace SalesUp.MVC.Areas.Admin.Controllers;
+namespace SalesUp.MVC.Areas.Customer.Controllers;
 
-[Authorize(Roles = "SuperAdmin, Admin")]
-[Area("Admin")]
+[Authorize(Roles = "Customer")]
+[Area("Customer")]
 public class MessageController : Controller
 {
     private readonly IMessageService _messageManager;
@@ -25,7 +25,6 @@ public class MessageController : Controller
         _messageManager = messageManager;
     }
 
- 
     public async Task<IActionResult> Index()
     {
         var userId = _userManager.GetUserId(User);
