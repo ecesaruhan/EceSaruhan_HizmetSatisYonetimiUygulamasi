@@ -6,10 +6,10 @@
         
               @await Component.InvokeAsync("CustomerMessageNotification")
 
-                    <div class="ms-1">
+                    <div class="me-5 ms-3">
                         <a asp-area="Customer"
                            asp-controller="Account"
-                           asp-action="Profile" class="btn btn-primary text-white nav-item nav-link">@User.Identity.Name</a>                                  
+                           asp-action="Profile" class="btn btn-primary fa fa-user text-white nav-item nav-link" style="font-size: 30px;"></a>                                  
                     </div>
                 </div>
 

@@ -1,15 +1,28 @@
 @model int
 
-    <a 
-        asp-area="Customer"
-        asp-controller="Message"
-        asp-action="Index"
-    class="fa fa-envelope text-primary me-4" style="font-size: 25px">
-        @{
-            bool isShowCount = Model == 0 ? false : true;
-        }
-        @if (isShowCount)
-        {
-            <div class="tip">@Model</div>
-        }
-    </a>
+    @{
+        bool isShowCount = Model == 0 ? false : true;
+    }
+    @if (isShowCount)
+    {
+        <a
+           asp-area="Customer"
+               asp-controller="Message"
+               asp-action="Index"
+           class="btn btn-primary position-relative fa fa-envelope-open" style="font-size: 30px;">
+        
+            <span class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger" style="font-size: 15px;">
+                @Model
+                <span class="visually-hidden">unread messages</span>
+            </span>
+        </a>
+    }
+    else
+    {
+        <a asp-area="Customer"
+           asp-controller="Message"
+           asp-action="Index"
+           class="fa fa-envelope text-primary position-relative" style="font-size: 40px">
+        </a>
+    }
+
