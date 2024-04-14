@@ -81,5 +81,12 @@ public class MessageController : Controller
         await _messageManager.MakeRead(id);
         return View(message);
     }
-    
+
+    public async Task<IActionResult> HardDelete(int id)
+    {
+        await _messageManager.HardDeleteAsync(id);
+        _notyfManager.Success("Mesaj başarıyla silinmiştir.");
+        return RedirectToAction("Index");
+    }
+
 }

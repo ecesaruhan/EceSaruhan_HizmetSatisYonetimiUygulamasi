@@ -33,13 +33,14 @@
       <Folder Include="Views\About\" />
       <Folder Include="Areas\Customer\Views\Message\" />
       <Folder Include="Areas\Customer\Views\Shared\Components\CustomerMessageNotification\" />
+      <Folder Include="Areas\Customer\Views\Account\" />
+      <Folder Include="Areas\Admin\Views\Account\" />
     </ItemGroup>
 
     <ItemGroup>
       <AdditionalFiles Include="Areas\Customer\Views\Customer\Index.cshtml" />
       <AdditionalFiles Include="Areas\Customer\Views\Home\Index.cshtml" />
       <AdditionalFiles Include="Areas\Customer\Views\Product\Index.cshtml" />
-      <AdditionalFiles Include="Areas\Customer\Views\Shared\Components\CustomerFooter\Default.cshtml" />
       <AdditionalFiles Include="Areas\Customer\Views\Shared\Components\CustomerHeader\Default.cshtml" />
       <AdditionalFiles Include="Areas\Customer\Views\Shared\Components\CustomerSideBar\Default.cshtml" />
       <AdditionalFiles Include="Areas\Customer\Views\Shared\_Layout.cshtml" />
@@ -61,5 +62,7 @@
       <None Remove="Views\About\" />
       <None Remove="Areas\Customer\Views\Message\" />
       <None Remove="Areas\Customer\Views\Shared\Components\CustomerMessageNotification\" />
+      <None Remove="Areas\Customer\Views\Account\" />
+      <None Remove="Areas\Admin\Views\Account\" />
     </ItemGroup>
 </Project>

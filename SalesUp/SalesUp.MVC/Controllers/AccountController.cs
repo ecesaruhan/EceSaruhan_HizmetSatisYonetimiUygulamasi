@@ -195,8 +195,7 @@ public class AccountController : Controller
         if (userId != null)
         {
             var user = await _userManager.FindByIdAsync(userId);
-            if (ModelState.IsValid)
-            {
+          
                 user.FirstName = userProfileViewModel.User.FirstName;
                 user.LastName= userProfileViewModel.User.LastName;
                 user.Email=userProfileViewModel.User.Email;
@@ -220,7 +219,7 @@ public class AccountController : Controller
                 {
                     ModelState.AddModelError("", error.Description);
                 }
-            }
+            
             return View(userProfileViewModel);
         }
 

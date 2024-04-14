@@ -22,14 +22,16 @@
         <div class="col-md-12">
             
             <form asp-area="Admin" asp-controller="Message" asp-action="NewMessage" method="post">
-                <input type="hidden" value="@Model.FromId" name="ToId"/>
-                <input type="hidden" value="@Model.Id" name="RelatedId"/>
+                <input type="hidden" value="@Model.FromId" name="ToId" />
+                <input type="hidden" value="@Model.Id" name="RelatedId" />
                 <div class="form-group mb-2">
                     <label class="text-primary" asp-for="ReplyText"></label>
                     <textarea class="form-control" rows="4" asp-for="ReplyText"></textarea>
                 </div>
-                 <a asp-area="Admin" asp-controller="Message" asp-action="Index" class="btn btn-danger btn-sm">Geri Dön</a>
-                <button type="submit" class="btn btn-success btn-sm">Yanıtla</button>
+                <a asp-area="Admin" asp-controller="Message" asp-action="Index" class="btn btn-warning btn-sm">Geri Dön</a>
+                <a asp-area="Admin" asp-controller="Message" asp-action="HardDelete" asp-route-id="@Model.Id" class="btn btn-danger btn-sm">Mesajı Sil</a>
+
+                <button type="submit" class="btn btn-success btn-sm float-right">Yanıtla</button>
             </form>
             
         </div>

@@ -1,18 +1,16 @@
-   <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
-       <a href="#" class="sidebar-toggler flex-shrink-0">
-           <i class="fa fa-bars"></i>
-       </a>
+<nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+     
                <a class="navbar-brand ms-4" href="./"><img style="width: 120px; height: 70px" src="~/CustomerArea/img/customersalesuplogo.png" alt="Logo"></a>
         
        <div class="navbar-nav align-items-center ms-auto">
         
               @await Component.InvokeAsync("CustomerMessageNotification")
 
-               <a href="#">
-                   <img class="rounded-circle me-lg-2" src="~/CustomerArea/img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                   <span class="d-none d-lg-inline-flex">John Doe</span>
-               </a>
-             
+                    <div class="ms-1">
+                        <a asp-area="Customer"
+                           asp-controller="Account"
+                           asp-action="Profile" class="btn btn-primary text-white nav-item nav-link">@User.Identity.Name</a>                                  
+                    </div>
+                </div>
 
-       </div>
    </nav>

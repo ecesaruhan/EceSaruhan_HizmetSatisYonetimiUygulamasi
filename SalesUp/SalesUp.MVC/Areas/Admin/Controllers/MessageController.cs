@@ -1,10 +1,12 @@
 using AspNetCoreHero.ToastNotification.Abstractions;
+using AspNetCoreHero.ToastNotification.Notyf;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SalesUp.Business.Abstract;
+using SalesUp.Business.Concrete;
 using SalesUp.Entity.Identity;
 using SalesUp.Shared.ViewModels;
 
@@ -82,5 +84,12 @@ public class MessageController : Controller
         await _messageManager.MakeRead(id);
         return View(message);
     }
-    
+
+    public async Task<IActionResult> HardDelete(int id)
+    {
+        await _messageManager.HardDeleteAsync(id);
+        _notyfManager.Success("Mesaj başarıyla silinmiştir.");
+        return RedirectToAction("Index");
+    }
+
 }

@@ -1,20 +1,20 @@
 <!-- AdminCustomerHeader-->
 <header id="header" class="header d-flex justify-content-between align-items-center">
-    <div class="d-flex justify-content-between align-items-center m-3">
+    <div class="d-flex justify-content-between align-items-center ml-5 my-4">
         <a class="navbar-brand" href="./"><img style="width: 120px; height: 70px" src="~/AdminArea/images/salesuplogo.png" alt="Logo"></a>
     </div>
     <div class="top-right m-3">
-    <div class="header-menu  d-flex align-items-center">
-        <div class="header-left">
-            @await Component.InvokeAsync("MessageNotification")
+        <div class="header-menu  d-flex align-items-center">
+            <div class="header-left">
+                @await Component.InvokeAsync("MessageNotification")
+            </div>
+            <div class="ml-3">
+                <a asp-area="Admin"
+                   asp-controller="Account"
+                   asp-action="Profile"
+                   class="btn btn-success rounded-circle mt-2" alt="" style="width: 40px; height: 40px;"><i class="fa fa-user"></i></a>
+            </div>
         </div>
-
-        <div class="user-area dropdown float-right">
-            <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img class="user-avatar rounded-circle" src="~/AdminArea/images/admin.jpg" alt="Customer Avatar">
-            </a>
-        </div>
-    </div>
     </div>
 </header>
         <!-- /#header -->
