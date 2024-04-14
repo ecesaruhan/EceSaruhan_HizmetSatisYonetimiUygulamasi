@@ -7,16 +7,15 @@
             <h3>Görevi Düzenle</h3>
         </div>
         <div class="card-body card-block">
-            <form
-                asp-area="Admin"
-                asp-controller="STask"
-                asp-action="Edit"
-                method="post" class="form-horizontal">
+            <form asp-area="Admin"
+                  asp-controller="STask"
+                  asp-action="Edit"
+                  method="post" class="form-horizontal">
                 <div class="row form-group">
                     <div class="col col-md-2"><label asp-for="Title" class=" form-control-label">Başlık</label></div>
                     <div class="col-12 col-md-6"><input asp-for="Title" type="text" placeholder="Görev Başlığı Giriniz.." class="form-control"></div>
                     <div class="col-md-3 icheck-primary ml-3">
-                        <input asp-for="IsCompleted" type="checkbox"/>
+                        <input asp-for="IsCompleted" type="checkbox" />
                         <label asp-for="IsCompleted" for="IsCompleted"></label>
                     </div>
                 </div>
@@ -41,7 +40,11 @@
                     <div class="col-12 col-md-10"><textarea asp-for="Note" rows="9" placeholder="Görev Detayını Giriniz..." class="form-control"></textarea></div>
                 </div>
 
-                <button class="btn btn-success" type="submit">Değişiklikleri Kaydet</button>
+                <a asp-area="Admin"
+                   asp-controller="STask"
+                   asp-action="Index"
+                   class="btn btn-warning text-white">Geri Dön</a>
+                <button class="btn btn-success float-right" type="submit">Değişiklikleri Kaydet</button>
             </form>
         </div>
     </div>

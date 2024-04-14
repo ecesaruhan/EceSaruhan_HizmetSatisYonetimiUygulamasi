@@ -17,22 +17,19 @@ public class GeneralMappingProfiles : Profile
     {
         CreateMap<Customer, AddCustomerViewModel>().ReverseMap();
         CreateMap<Customer, CustomerViewModel>().ReverseMap();
-        CreateMap<Customer, DeleteCustomerViewModel>().ReverseMap();
         CreateMap<Customer, EditCustomerViewModel>().ReverseMap();
 
         CreateMap<Product, ProductViewModel>().ReverseMap();
         CreateMap<Product, AddProductViewModel>().ReverseMap();
         CreateMap<Product, EditProductViewModel>().ReverseMap();
-        CreateMap<Product, DeleteProductViewModel>().ReverseMap();
+
 
         CreateMap<Sale, SaleViewModel>().ReverseMap();
         CreateMap<Sale, AddSaleViewModel>().ReverseMap();
-        CreateMap<Sale, DeleteSaleViewModel>().ReverseMap();
         CreateMap<Sale, EditSaleViewModel>().ReverseMap();
-        CreateMap<SaleDetail, SaleDetailViewModel>().ReverseMap();
+
 
         CreateMap<STask, STaskViewModel>().ReverseMap();
-        CreateMap<STask, DeleteSTaskViewModel>().ReverseMap();
         CreateMap<STask, AddSTaskViewModel>().ReverseMap();
         CreateMap<STask, EditSTaskViewModel>().ReverseMap();
 
@@ -44,7 +41,6 @@ public class GeneralMappingProfiles : Profile
         CreateMap<Subscription, SubscriptionViewModel>().ReverseMap();
         CreateMap<Subscription, AddSubscriptionViewModel>().ReverseMap();
         CreateMap<Subscription, EditSubscriptionViewModel>().ReverseMap();
-        CreateMap<Subscription, DeleteSubscriptionViewModel>().ReverseMap();
 
         CreateMap<User, UserViewModel>().ReverseMap();
         CreateMap<User, UserProfileViewModel>().ReverseMap();

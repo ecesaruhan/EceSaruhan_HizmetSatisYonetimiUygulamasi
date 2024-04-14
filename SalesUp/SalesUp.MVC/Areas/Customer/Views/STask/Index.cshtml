@@ -1,6 +1,7 @@
 @model List<STaskViewModel>
 
 <div class="w-75 float-right container float-end pe-5 me-5 my-5">
+  
     <div class="h-100 bg-light rounded p-4">
         <div class="d-flex align-items-center justify-content-between mb-4">
             <h1 class="mb-0 ms-4 text-primary">Görevlerim</h1>
@@ -15,9 +16,9 @@
                    asp-action="Create"
                    class="fa fa-plus-square text-success mx-4" style="font-size: 30px"></a>
             </div>
-       
+
         </div>
-    
+
 
         @if (Model == null)
         {

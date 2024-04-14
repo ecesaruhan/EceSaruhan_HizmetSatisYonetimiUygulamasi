@@ -40,6 +40,10 @@
                         <div class="col-12 col-md-10"><textarea asp-for="Note" rows="9" placeholder="Görev Detayını Giriniz..." class="form-control"></textarea></div>
                     </div>
 
+                    <a asp-area="Customer"
+                       asp-controller="STask"
+                       asp-action="Index"
+                       class="btn btn-warning text-white">Geri Dön</a>
                     <button class="btn btn-warning text-white float-end" type="submit">Değişiklikleri Kaydet</button>
                 </form>
             </div>

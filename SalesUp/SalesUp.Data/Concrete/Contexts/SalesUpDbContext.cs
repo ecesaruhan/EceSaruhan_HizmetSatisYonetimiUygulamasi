@@ -20,7 +20,6 @@ public class SalesUpDbContext:IdentityDbContext<User, Role, string>
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderDetail> OrderDetails { get; set; }
     public DbSet<Sale> Sales { get; set; }
-    public DbSet<SaleDetail> SaleDetails { get; set; }
     public DbSet<Subscription> Subscriptions { get; set; }
     public DbSet<ContactUs> Contacts { get; set; }
 

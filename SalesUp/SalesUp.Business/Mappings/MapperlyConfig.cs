@@ -49,8 +49,7 @@ public partial class MapperlyConfig
     public partial Sale AddSaleViewModelToSale(AddSaleViewModel addSaleViewModel);
     public partial Sale EditSaleViewModelToSale(EditSaleViewModel editSaleViewModel);
     public partial Sale DeleteSaleViewModelToSale(DeleteSaleViewModel deleteSaleViewModel);
-    public partial SaleDetailViewModel SaleDetailToSaleDetailViewModel(SaleDetail saleDetail);
-    public partial SaleDetail SaleDetailViewModelToSaleDetail(SaleDetailViewModel saleDetailViewModel);
+
 
     #endregion
 

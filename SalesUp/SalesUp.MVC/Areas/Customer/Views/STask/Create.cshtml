@@ -14,7 +14,7 @@
 
                     <div class="row form-group mb-3 mt-2">
                         <div class="col col-md-2 text-success"><label asp-for="Title" class=" form-control-label">Başlık</label></div>
-                        <div class="col-12 col-md-10"><input asp-for="Title" type="text" placeholder="Görev Başlığı Giriniz.." class="form-control"></div>                   
+                        <div class="col-12 col-md-10"><input asp-for="Title" type="text" placeholder="Görev Başlığı Giriniz.." class="form-control"></div>
                     </div>
 
                     <div class="row form-group mb-3">
@@ -28,10 +28,14 @@
                     </div>
 
                     <div class="row form-group mb-3">
-                        <div class="col col-md-2 text-success" ><label asp-for="Note" class=" form-control-label"></label></div>
+                        <div class="col col-md-2 text-success"><label asp-for="Note" class=" form-control-label"></label></div>
                         <div class="col-12 col-md-10"><textarea asp-for="Note" rows="9" placeholder="Görev Detayını Giriniz..." class="form-control"></textarea></div>
                     </div>
 
+                    <a asp-area="Customer"
+                       asp-controller="STask"
+                       asp-action="Index"
+                       class="btn btn-warning text-white">Geri Dön</a>
                     <button class="btn btn-success float-end" type="submit">Görevlere Ekle</button>
                 </form>
             </div>

@@ -22,7 +22,5 @@ public class Order
     public PaymentType PaymentType { get; set; }
     public string PaymentId { get; set; }
     public string ConversationId { get; set; }
-    public string CustomerId { get; set; }
-    public Customer Customer { get; set; }
     public List<OrderDetail> OrderDetails { get; set; }
 }

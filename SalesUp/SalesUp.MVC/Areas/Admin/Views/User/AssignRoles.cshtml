@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="d-flex justify-content-between mb-2">
                 <div>
-                    <h1>Kullanıcı/Rol Atama</h1>
+                    <h1 class="text-primary ml-5">Kullanıcı/Rol Atama</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -18,10 +18,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h1 class="display-6">@Model.Name</h1>
-                            <label>Kullanıcı Adı: </label>
-                            <span>@Model.UserName</span>
-                            <h4>Roller</h4>
+                            <h1 class="display-6 text-danger mb-4">@Model.Name</h1>
+                            <label class="mb-4 text-primary">Kullanıcı Adı: </label>
+                            <span class="text-danger">@Model.UserName</span>
+                            <h4 class="text-primary">Roller</h4>
                             <form asp-area="Admin"
                                   asp-controller="User"
                                   asp-action="AssignRoles"
@@ -37,7 +37,12 @@
                                         <input type="hidden" asp-for="@Model.Roles[i].RoleName" />
                                     </div>
                                 }
-                                <button type="submit" class="btn btn-primary">Kullanıcı/Rol Değişikliklerini Kaydet</button>
+
+                                <a asp-area="Admin"
+                                   asp-controller="User"
+                                   asp-action="Index"
+                                   class="btn btn-warning text-white mt-4">Geri Dön</a>
+                                <button type="submit" class="btn btn-primary float-right mt-4">Kullanıcı/Rol Değişikliklerini Kaydet</button>
                             </form>
                         </div>
                     </div>

@@ -28,7 +28,7 @@
                     <label class="text-primary" asp-for="ReplyText"></label>
                     <textarea class="form-control" rows="4" asp-for="ReplyText"></textarea>
                 </div>
-                <a asp-area="Customer" asp-controller="Message" asp-action="Index" class="btn btn-warning btn-sm">Geri Dön</a>
+                <a asp-area="Customer" asp-controller="Message" asp-action="Index" class="btn btn-warning btn-sm text-white">Geri Dön</a>
                 <a asp-area="Customer" asp-controller="Message" asp-action="HardDelete" asp-route-id="@Model.Id" class="btn btn-danger btn-sm">Mesajı Sil</a>
                 <button type="submit" class="btn btn-success btn-sm float-end">Yanıtla</button>
             </form>
