@@ -1,6 +1,6 @@
   <div class="sidebar pe-4 pe-5 pt-5 mt-5">
             <nav class="navbar bg-light navbar-light">
-                <div class="d-flex align-items-center ms-4 mb-4">
+                <div class="d-flex align-items-center ms-4 mb-3">
                     <div class="position-relative">
                         <a
                            asp-area="Customer"
@@ -28,6 +28,11 @@
                        asp-controller="Product"
                        asp-action="Index"
                        class="nav-item nav-link mt-3"><i class="fa fa-table me-2"></i>Ürünler</a>
+
+                    <a asp-area="Customer"
+                       asp-controller="Customer"
+                       asp-action="Index"
+                       class="nav-item nav-link mt-3"><i class="fa fa-user me-2"></i>Müşteriler</a>
 
                     <a asp-area="Customer"
                        asp-controller="Sale"

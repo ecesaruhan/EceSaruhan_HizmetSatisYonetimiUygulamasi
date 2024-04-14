@@ -18,11 +18,9 @@ public partial class MapperlyConfig
     public partial CustomerViewModel CustomerToCustomerViewModel(Customer customer);
     public partial AddCustomerViewModel CustomerToAddCustomerViewModel(Customer customer);
     public partial EditCustomerViewModel CustomerToEditCustomerViewModel(Customer customer);
-    public partial DeleteCustomerViewModel CustomerToDeleteCustomerViewModel(Customer customer);
     public partial Customer CustomerViewModelToCustomer(CustomerViewModel customerViewModel);
     public partial Customer AddCustomerViewModelToCustomer(AddCustomerViewModel addCustomerViewModel);
     public partial Customer EditCustomerViewModelToCustomer(EditCustomerViewModel editCustomerViewModel);
-    public partial Customer DeleteCustomerViewModelToCustomer(DeleteCustomerViewModel deleteCustomerViewModel);
 
     #endregion
 
@@ -31,11 +29,10 @@ public partial class MapperlyConfig
     public partial ProductViewModel ProductToProductViewModel(Product product);
     public partial AddProductViewModel ProductToAddProductViewModel(Product product);
     public partial EditProductViewModel ProductToEditProductViewModel(Product product);
-    public partial DeleteProductViewModel ProductToDeleteProductViewModel(Product product);
     public partial Product ProductViewModelToProduct(ProductViewModel productViewModel);
     public partial Product AddProductViewModelToProduct(AddProductViewModel addProductViewModel);
     public partial Product EditProductViewModelToProduct(EditProductViewModel editProductViewModel);
-    public partial Product DeleteProductViewModelToProduct(DeleteProductViewModel deleteProductViewModel);
+
 
     #endregion
 
@@ -44,11 +41,9 @@ public partial class MapperlyConfig
     public partial SaleViewModel SaleToSaleViewModel(Sale sale);
     public partial AddSaleViewModel SaleToAddSaleViewModel(Sale sale);
     public partial EditSaleViewModel SaleToEditSaleViewModel(Sale sale);
-    public partial DeleteSaleViewModel SaleToDeleteSaleViewModel(Sale sale);
     public partial Sale SaleViewModelToSale(SaleViewModel saleViewModel);
     public partial Sale AddSaleViewModelToSale(AddSaleViewModel addSaleViewModel);
     public partial Sale EditSaleViewModelToSale(EditSaleViewModel editSaleViewModel);
-    public partial Sale DeleteSaleViewModelToSale(DeleteSaleViewModel deleteSaleViewModel);
 
 
     #endregion
@@ -58,11 +53,9 @@ public partial class MapperlyConfig
     public partial STaskViewModel STaskToSTaskViewModel(STask sTask);
     public partial AddSTaskViewModel STaskToAddSTaskViewModel(STask sTask);
     public partial EditSTaskViewModel STaskToEditSTaskViewModel(STask sTask);
-    public partial DeleteSTaskViewModel STaskToDeleteSTaskViewModel(STask sTask);
     public partial STask STaskViewModelToSTask(STaskViewModel sTaskViewModel);
     public partial STask AddSTaskViewModelToSTask(AddSTaskViewModel addSTaskViewModel);
     public partial STask EditSTaskViewModelToSTask(EditSTaskViewModel editSTaskViewModel);
-    public partial STask DeleteSTaskViewModelToSTask(DeleteSTaskViewModel deleteSTaskViewModel);
     public partial List<STask> STaskListViewModelToSTaskList(List<STaskViewModel> sTaskListViewModel);
     public partial List<STaskViewModel> STaskListToSTaskListViewModel(List<STask> sTaskList);
     

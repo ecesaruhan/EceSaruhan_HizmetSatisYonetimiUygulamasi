@@ -13,4 +13,9 @@ public class ProductViewModel
     public string Unit { get; set; }
     public string UserId { get; set; }
 
+    public decimal TotalPrice
+    {
+        get { return UnitPrice * Quantity; }
+    }
+
 }
