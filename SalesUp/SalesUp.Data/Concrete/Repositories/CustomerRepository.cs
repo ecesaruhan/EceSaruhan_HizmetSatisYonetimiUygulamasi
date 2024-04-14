@@ -15,5 +15,6 @@ public class CustomerRepository : GenericRepository<Customer>, ICustomerReposito
     {
         get{return DbContext as SalesUpDbContext;}
     }
-    
+
+
 }
