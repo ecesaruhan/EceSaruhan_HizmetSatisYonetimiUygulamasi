@@ -30,6 +30,7 @@ public class UserController : Controller
         return View(await _userManager.Users.ToListAsync());
     }
 
+    [Authorize(Roles = "SuperAdmin")]
     [HttpGet]
     public async Task<IActionResult> AssignRoles(string id)
     {

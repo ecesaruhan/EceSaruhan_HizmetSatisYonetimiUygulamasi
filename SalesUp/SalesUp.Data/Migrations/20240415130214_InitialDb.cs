@@ -410,9 +410,9 @@ namespace SalesUp.Data.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Description", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "6cc97533-ca6a-45fc-937a-35f3eb98b8d5", null, "Yönetici haklarını taşıyan rol.", "SuperAdmin", "SUPERADMIN" },
-                    { "d1c17a16-5301-4efc-a677-1eb7f9855d45", null, "Müşteri haklarını taşıyan rol.", "Customer", "CUSTOMER" },
-                    { "d58a1eb6-50b7-405a-8727-91c6d46e6e76", null, "Satış Temsilcisi haklarını taşıyan rol.", "Admin", "ADMIN" }
+                    { "09dd927a-7351-4009-8be3-d4d1bdb2383a", null, "Satış Temsilcisi haklarını taşıyan rol.", "Admin", "ADMIN" },
+                    { "5304bb0f-4958-48db-b936-74cbe19e5c77", null, "Yönetici haklarını taşıyan rol.", "SuperAdmin", "SUPERADMIN" },
+                    { "cb83dde5-8e10-44f5-be52-bcfafb314bbc", null, "Müşteri haklarını taşıyan rol.", "Customer", "CUSTOMER" }
                 });
 
             migrationBuilder.InsertData(
@@ -420,9 +420,9 @@ namespace SalesUp.Data.Migrations
                 columns: new[] { "Id", "CreatedDate", "Description", "Duration", "DurationUnit", "IsActive", "Name", "Price", "SubscriptionType", "UpdateDate" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 4, 14, 23, 46, 18, 51, DateTimeKind.Local).AddTicks(9210), "Her ay düzenli olarak ödenecek olan abonelik sistemidir.", 6, "Ay", true, "6 Aylık Abonelik", 1000m, 0, new DateTime(2024, 4, 14, 23, 46, 18, 51, DateTimeKind.Local).AddTicks(9240) },
-                    { 2, new DateTime(2024, 4, 14, 23, 46, 18, 51, DateTimeKind.Local).AddTicks(9250), "Her ay düzenli olarak ödenecek olan abonelik sistemidir.", 12, "Ay", true, "12 Aylık Abonelik", 800m, 1, new DateTime(2024, 4, 14, 23, 46, 18, 51, DateTimeKind.Local).AddTicks(9250) },
-                    { 3, new DateTime(2024, 4, 14, 23, 46, 18, 51, DateTimeKind.Local).AddTicks(9260), "Her ay düzenli olarak ödenecek olan abonelik sistemidir.", 24, "Ay", true, "24 Aylık Abonelik", 500m, 2, new DateTime(2024, 4, 14, 23, 46, 18, 51, DateTimeKind.Local).AddTicks(9260) }
+                    { 1, new DateTime(2024, 4, 15, 16, 2, 14, 669, DateTimeKind.Local).AddTicks(970), "Her ay düzenli olarak ödenecek olan abonelik sistemidir.", 6, "Ay", true, "6 Aylık Abonelik", 1000m, 0, new DateTime(2024, 4, 15, 16, 2, 14, 669, DateTimeKind.Local).AddTicks(1030) },
+                    { 2, new DateTime(2024, 4, 15, 16, 2, 14, 669, DateTimeKind.Local).AddTicks(1040), "Her ay düzenli olarak ödenecek olan abonelik sistemidir.", 12, "Ay", true, "12 Aylık Abonelik", 800m, 1, new DateTime(2024, 4, 15, 16, 2, 14, 669, DateTimeKind.Local).AddTicks(1040) },
+                    { 3, new DateTime(2024, 4, 15, 16, 2, 14, 669, DateTimeKind.Local).AddTicks(1050), "Her ay düzenli olarak ödenecek olan abonelik sistemidir.", 24, "Ay", true, "24 Aylık Abonelik", 500m, 2, new DateTime(2024, 4, 15, 16, 2, 14, 669, DateTimeKind.Local).AddTicks(1060) }
                 });
 
             migrationBuilder.InsertData(
@@ -430,11 +430,13 @@ namespace SalesUp.Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "Address", "City", "ConcurrencyStamp", "DateofBirth", "Email", "EmailConfirmed", "FirstName", "Gender", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "SubscriptionId", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "2d3b4966-d479-4270-9988-5cdef053e4ab", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "850343db-eef9-424d-9cc9-1d99ce5460e2", new DateTime(1989, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "canyener@gmail.com", true, "Can", "Erkek", "Yener", false, null, "CANYENER@GMAIL.COM", "CANYENER", "AQAAAAIAAYagAAAAEP9oqy1gOVahWu+bBqWSO5OU/T6RQ8WLGb2A1hqeU64vvaruqsjvyr5ubwz8AGwmnQ==", "5350931264", false, "6b3b1421-9df3-4e1d-858b-5b6647459793", 3, false, "canyener" },
-                    { "30df1a94-6ee4-4038-8c61-bb8ee856e5f5", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "0738320a-3d60-47fb-b915-00a55203d230", new DateTime(1970, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), "niluferozdemir@gmail.com", true, "Nilüfer", "Kadın", "Özdemir", false, null, "NILUFEROZDEMIR@GMAIL.COM", "NILUFEROZDEMIR", "AQAAAAIAAYagAAAAEGGPvs7BfXY5RffjqJi26h5TNRre1xH/4gx31nONcpcnO05C39I1cyxvbhkclVmJ6w==", "5383458090", false, "9c7d764c-6d6f-48a8-a92a-96b62d779450", 2, false, "niluferozdemir" },
-                    { "42905edd-2509-4033-b37d-1b9db687ab6e", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "e84853bb-9510-43f1-bda4-e281b9f04d6b", new DateTime(1983, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "ferdabayar@gmail.com", true, "Ferda", "Erkek", "Bayar", false, null, "FERDABAYAR@GMAIL.COM", "FERDABAYAR", "AQAAAAIAAYagAAAAEDsQ2b3JX1G/9Nc53XcWyQvavXIKPerYzn+vOjIAPmdWc486gFMjSMQgbCFCigViCw==", "5053211815", false, "65f984cd-fba0-49b1-89df-55164087c84e", 3, false, "ferdabayar" },
-                    { "5911c0b3-c774-42b7-92fb-f8ea3ab9802d", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "cb9c9834-6857-480f-9bf5-eefee0468e38", new DateTime(1992, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "deryademir@gmail.com", true, "Derya", "Kadın", "Demir", false, null, "DERYADEMIR@GMAIL.COM", "DERYADEMIR", "AQAAAAIAAYagAAAAEFhGpX+zVHsyjL43hw7VAzDvIxJjvo9YEUWh0Lh4vaeB0uPXeitV3lejGS6ZzMf6Dg==", "5547659843", false, "2dcfdc02-f4f7-478a-960e-7707827ab83f", 2, false, "deryademir" },
-                    { "c75f69a6-caa8-4152-b012-8e6fc0ac496c", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "140e7d3c-3217-4de3-a654-6e828c03a433", new DateTime(1990, 3, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), "kadirdevran@gmail.com", true, "Kadir", "Erkek", "Devran", false, null, "KADIRDEVRAN@GMAIL.COM", "KADIRDEVRAN", "AQAAAAIAAYagAAAAEEOf16W7VKuzBBUjmufvkABj8Jco9VFkzgw6GG02C0yNHGHjvdkSnWThro8RxRmXqQ==", "5341459340", false, "95c05c05-eac3-42bb-9cf6-f0083b3a5c17", 2, false, "kadirdevran" }
+                    { "23aca440-47a8-47cc-9f9b-ae16b7a2be98", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "419b5125-051a-431f-bae8-0012351cb905", new DateTime(1980, 2, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), "denizalkan@gmail.com", true, "Deniz", "Kadın", "Alkan", false, null, "DENIZALKAN@GMAIL.COM", "DENIZALKAN", "AQAAAAIAAYagAAAAENW6XnElS/89L5BjuPfhBXYwuYPvxZapikjKEiotkW2g0SJC/xc01/u331dLElQ6vw==", "535090405", false, "05f7f68f-1c18-49da-9d66-cee268bd716e", 1, false, "denizalkan" },
+                    { "2672cc61-71ed-4625-a0ef-4630ca43c60d", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "7680aebc-877f-4768-8722-66e2e2320b86", new DateTime(1970, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), "niluferozdemir@gmail.com", true, "Nilüfer", "Kadın", "Özdemir", false, null, "NILUFEROZDEMIR@GMAIL.COM", "NILUFEROZDEMIR", "AQAAAAIAAYagAAAAEOtivzYqsV4eMm3r5yLvignJ4JqFw7k0of7ywLGXYqfEECvefPPBkFnC8f3JnMpBTg==", "5383458090", false, "5574ac89-c560-4924-951d-2ef0efb025b1", 2, false, "niluferozdemir" },
+                    { "2d9a4d8f-2ad4-48a1-a9e2-114decba6551", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "060b82d1-b9ac-4e94-9656-46612f576c44", new DateTime(1989, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "canyener@gmail.com", true, "Can", "Erkek", "Yener", false, null, "CANYENER@GMAIL.COM", "CANYENER", "AQAAAAIAAYagAAAAEA01uAq2QWC06ZNxnRiEAf3gggWgq4K4kclmP+zPmdSuTZLiCAYj2iIlkmQJSXiMIw==", "5350931264", false, "e572bbc0-f15f-498f-abf8-3262d99f62a9", 3, false, "canyener" },
+                    { "3c8850f4-f23a-498b-828e-37e891a62378", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "a0407e04-0f27-41cf-8e67-6d3aa5752e6b", new DateTime(1993, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "ecesaruhan@gmail.com", true, "Ece", "Kadın", "Saruhan", false, null, "ECESARUHANGMAIL.COM", "ECESARUHAN", "AQAAAAIAAYagAAAAEAxVEr0pQCwHhai3fSlRpv61QvlemqhmPZBrWNP+89teq3RzQjfZPO1cmtueRMNf/Q==", "5336713434", false, "10d3fcb9-57fc-43f3-bd95-2bf1cdebb891", 2, false, "ecesaruhan" },
+                    { "961ed230-e890-457c-9cf7-f6f7578b24a2", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "d354e8d6-5585-4f87-9f18-1eeae876fda1", new DateTime(1983, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "ferdabayar@gmail.com", true, "Ferda", "Erkek", "Bayar", false, null, "FERDABAYAR@GMAIL.COM", "FERDABAYAR", "AQAAAAIAAYagAAAAEHUZzobUjw2y4vO1c8rJCB9ttoLXR0ihMw2cNB1xGJuY1VFcTW7s13It7QITkXk+5g==", "5053211815", false, "79c819a7-563e-4b65-abec-b9f65c3e58e6", 3, false, "ferdabayar" },
+                    { "cc8a525f-712b-4b88-9360-de670682bad9", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "b39652d1-6182-4321-adc3-07981170e670", new DateTime(1992, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "deryademir@gmail.com", true, "Derya", "Kadın", "Demir", false, null, "DERYADEMIR@GMAIL.COM", "DERYADEMIR", "AQAAAAIAAYagAAAAEEc5dHXfUQvh8jrtHkD2p1WUMR55P/ucpQaRkQtU0OtT+/xR6DqrZRqK6y8MrZoQnw==", "5547659843", false, "2f734353-6130-40d9-bcd9-9e2a9a58f296", 2, false, "deryademir" },
+                    { "dc97c9eb-b284-449e-98f9-0f73d633564a", 0, "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy", "İstanbul", "707c7d13-f5cf-47a6-89d4-a57ef8523afe", new DateTime(1990, 3, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), "kadirdevran@gmail.com", true, "Kadir", "Erkek", "Devran", false, null, "KADIRDEVRAN@GMAIL.COM", "KADIRDEVRAN", "AQAAAAIAAYagAAAAEFx06aZsk9VzgQs2+JqRk3iKwkHXKr0eIjuPhd84/mSVzfe5yckX0Npm9G4zbJnf6w==", "5341459340", false, "11e0b2e8-1eb7-4617-9e4d-9ff55f7bc634", 2, false, "kadirdevran" }
                 });
 
             migrationBuilder.InsertData(
@@ -442,11 +444,13 @@ namespace SalesUp.Data.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "d58a1eb6-50b7-405a-8727-91c6d46e6e76", "2d3b4966-d479-4270-9988-5cdef053e4ab" },
-                    { "d58a1eb6-50b7-405a-8727-91c6d46e6e76", "30df1a94-6ee4-4038-8c61-bb8ee856e5f5" },
-                    { "6cc97533-ca6a-45fc-937a-35f3eb98b8d5", "42905edd-2509-4033-b37d-1b9db687ab6e" },
-                    { "d1c17a16-5301-4efc-a677-1eb7f9855d45", "5911c0b3-c774-42b7-92fb-f8ea3ab9802d" },
-                    { "d58a1eb6-50b7-405a-8727-91c6d46e6e76", "c75f69a6-caa8-4152-b012-8e6fc0ac496c" }
+                    { "5304bb0f-4958-48db-b936-74cbe19e5c77", "23aca440-47a8-47cc-9f9b-ae16b7a2be98" },
+                    { "09dd927a-7351-4009-8be3-d4d1bdb2383a", "2672cc61-71ed-4625-a0ef-4630ca43c60d" },
+                    { "09dd927a-7351-4009-8be3-d4d1bdb2383a", "2d9a4d8f-2ad4-48a1-a9e2-114decba6551" },
+                    { "cb83dde5-8e10-44f5-be52-bcfafb314bbc", "3c8850f4-f23a-498b-828e-37e891a62378" },
+                    { "5304bb0f-4958-48db-b936-74cbe19e5c77", "961ed230-e890-457c-9cf7-f6f7578b24a2" },
+                    { "cb83dde5-8e10-44f5-be52-bcfafb314bbc", "cc8a525f-712b-4b88-9360-de670682bad9" },
+                    { "09dd927a-7351-4009-8be3-d4d1bdb2383a", "dc97c9eb-b284-449e-98f9-0f73d633564a" }
                 });
 
             migrationBuilder.CreateIndex(

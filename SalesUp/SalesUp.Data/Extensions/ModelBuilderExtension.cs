@@ -121,6 +121,40 @@ public static class ModelBuilderExtension
                 PhoneNumber = "5350931264",
                 EmailConfirmed = true,
                 SubscriptionId = 3
+            },
+
+               new User
+            {
+                FirstName = "Ece",
+                LastName = "Saruhan",
+                UserName = "ecesaruhan",
+                NormalizedUserName = "ECESARUHAN",
+                Email = "ecesaruhan@gmail.com",
+                NormalizedEmail = "ECESARUHANGMAIL.COM",
+                Gender = "Kadın",
+                DateofBirth = new DateTime(1993, 4, 15),
+                Address = "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy",
+                City = "İstanbul",
+                PhoneNumber = "5336713434",
+                EmailConfirmed = true,
+                SubscriptionId = 2
+            },
+
+                  new User
+            {
+                FirstName = "Deniz",
+                LastName = "Alkan",
+                UserName = "denizalkan",
+                NormalizedUserName = "DENIZALKAN",
+                Email = "denizalkan@gmail.com",
+                NormalizedEmail = "DENIZALKAN@GMAIL.COM",
+                Gender = "Kadın",
+                DateofBirth = new DateTime(1980, 2, 23),
+                Address = "TaşMektep Caddesi Ömerpaşa Sokak No:3 D:12 Kadıköy",
+                City = "İstanbul",
+                PhoneNumber = "535090405",
+                EmailConfirmed = true,
+                SubscriptionId = 1
             }
         };
         modelBuilder.Entity<User>().HasData(users);
@@ -135,6 +169,9 @@ public static class ModelBuilderExtension
         users[2].PasswordHash = passwordHasher.HashPassword(users[2], "Evet123.");
         users[3].PasswordHash = passwordHasher.HashPassword(users[3], "Evet123.");
         users[4].PasswordHash = passwordHasher.HashPassword(users[4], "Evet123.");
+        users[5].PasswordHash = passwordHasher.HashPassword(users[5], "Evet123.");
+        users[6].PasswordHash = passwordHasher.HashPassword(users[6], "Evet123.");
+
         #endregion
 
         #region Rol Atama İşlemleri
@@ -166,6 +203,16 @@ public static class ModelBuilderExtension
                 UserId = users[4].Id,
                 RoleId = roles[1].Id
             },
+              new IdentityUserRole<string>
+            {
+                UserId = users[5].Id,
+                RoleId = roles[2].Id
+            },
+                new IdentityUserRole<string>
+            {
+                UserId = users[6].Id,
+                RoleId = roles[0].Id
+            }
         };
         modelBuilder.Entity<IdentityUserRole<string>>().HasData(userRoles);
 
